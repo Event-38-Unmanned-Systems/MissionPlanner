@@ -1223,6 +1223,9 @@ namespace MissionPlanner
         public float press_abs2 { get; set; }
         public int press_temp2 { get; set; }
 
+        //humidity
+        public float raw_humidity { get; set; }
+
         // sensor offsets
         public int mag_ofs_x { get; set; }
         public int mag_ofs_y { get; set; }
@@ -1803,7 +1806,7 @@ namespace MissionPlanner
                         wpno = highlatency.wp_num;
                         wp_dist = highlatency.wp_distance;
                     }
-
+                   
                     mavLinkMessage = MAV.getPacket((uint)MAVLink.MAVLINK_MSG_ID.HIL_CONTROLS);
 
                     if (mavLinkMessage != null) // hil mavlink 0.9 and 1.0
@@ -2249,7 +2252,13 @@ namespace MissionPlanner
                         press_abs2 = pres.press_abs;
                         press_temp2 = pres.temperature;
                     }
+                    mavLinkMessage = MAV.getPacket((uint)MAVLink.MAVLINK_MSG_ID.RAW_HUMIDITY);
+                    if (mavLinkMessage != null)
+                    {
+                        var hum = mavLinkMessage.ToStructure<MAVLink.mavlink_raw_humidity_t>();
+                        raw_humidity = hum.raw_humidity;
 
+                    }
                     mavLinkMessage = MAV.getPacket((uint) MAVLink.MAVLINK_MSG_ID.TERRAIN_REPORT);
                     if (mavLinkMessage != null)
                     {
@@ -2282,7 +2291,6 @@ namespace MissionPlanner
                         accel_cal_y = sensofs.accel_cal_y;
                         accel_cal_z = sensofs.accel_cal_z;
                     }
-
                     mavLinkMessage = MAV.getPacket((uint) MAVLink.MAVLINK_MSG_ID.ATTITUDE);
 
                     if (mavLinkMessage != null)
