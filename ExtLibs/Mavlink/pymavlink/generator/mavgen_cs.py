@@ -165,7 +165,7 @@ ${message_infos_array}
 
 
 def generate_message_enum_types(xml):
-    print "generate_message_enum_types: " + xml.filename
+    print ("generate_message_enum_types: " + xml.filename)
     for m in xml.message:
         for fld in m.fields:
             if fld.array_length == 0:
@@ -193,10 +193,10 @@ def generate_message_enum_types(xml):
                     fld.type = "float"; 
             if fld.enum != "":
                 enumtypes[fld.enum] = fld.type
-                print fld.enum + " is type " + fld.type
+                print (fld.enum + " is type " + fld.type)
 
 def generate_message_enums(f, xml): 
-    print "generate_message_enums: " + xml.filename
+    print ("generate_message_enums: " + xml.filename)
     # add some extra field attributes for convenience with arrays
     for m in xml.enum:
         m.description = m.description.replace("\n","    \n///")
