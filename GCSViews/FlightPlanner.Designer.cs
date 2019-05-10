@@ -54,14 +54,13 @@ namespace MissionPlanner.GCSViews
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightPlanner));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Commands = new MissionPlanner.Controls.MyDataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CHK_verifyheight = new System.Windows.Forms.CheckBox();
             this.TXT_WPRad = new System.Windows.Forms.TextBox();
             this.TXT_DefaultAlt = new System.Windows.Forms.TextBox();
@@ -69,10 +68,7 @@ namespace MissionPlanner.GCSViews
             this.LBL_defalutalt = new System.Windows.Forms.Label();
             this.TXT_loiterrad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.but_writewpfast = new MissionPlanner.Controls.MyButton();
-            this.BUT_write = new MissionPlanner.Controls.MyButton();
-            this.BUT_read = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -88,29 +84,79 @@ namespace MissionPlanner.GCSViews
             this.lbl_status = new System.Windows.Forms.Label();
             this.panelWaypoints = new BSE.Windows.Forms.Panel();
             this.splitter1 = new BSE.Windows.Forms.Splitter();
+            this.Commands = new MissionPlanner.Controls.MyDataGridView();
+            this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Param2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Param3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Param4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coordZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coordEasting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coordNorthing = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MGRS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Up = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Down = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Angle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dist = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TagData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMB_altmode = new System.Windows.Forms.ComboBox();
             this.CHK_splinedefault = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TXT_altwarn = new System.Windows.Forms.TextBox();
             this.BUT_Add = new MissionPlanner.Controls.MyButton();
-            this.panelAction = new BSE.Windows.Forms.Panel();
+            this.wpPlanning = new BSE.Windows.Forms.Panel();
             this.splitter2 = new BSE.Windows.Forms.Splitter();
+            this.panel2 = new BSE.Windows.Forms.Panel();
+            this.fencePlanning = new BSE.Windows.Forms.Panel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.setReturn = new MissionPlanner.Controls.MyButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.loadFence = new MissionPlanner.Controls.MyButton();
+            this.saveFence = new MissionPlanner.Controls.MyButton();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.writeFence = new MissionPlanner.Controls.MyButton();
+            this.readFence = new MissionPlanner.Controls.MyButton();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.savePoints = new MissionPlanner.Controls.MyButton();
+            this.loadPoints = new MissionPlanner.Controls.MyButton();
+            this.clearRally = new MissionPlanner.Controls.MyButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.readRally = new MissionPlanner.Controls.MyButton();
+            this.writeRally = new MissionPlanner.Controls.MyButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.elevationGraph = new MissionPlanner.Controls.MyButton();
+            this.landingSetup = new MissionPlanner.Controls.MyButton();
+            this.SurveyGrid = new MissionPlanner.Controls.MyButton();
+            this.importShp = new MissionPlanner.Controls.MyButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BUT_saveWPFile = new MissionPlanner.Controls.MyButton();
+            this.BUT_loadwpfile = new MissionPlanner.Controls.MyButton();
+            this.ClearWPs = new MissionPlanner.Controls.MyButton();
+            this.myButton1 = new MissionPlanner.Controls.MyButton();
+            this.wpOperations = new System.Windows.Forms.GroupBox();
+            this.BUT_read = new MissionPlanner.Controls.MyButton();
+            this.BUT_write = new MissionPlanner.Controls.MyButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbl_distance = new System.Windows.Forms.Label();
+            this.lbl_homedist = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.chk_grid = new System.Windows.Forms.CheckBox();
             this.comboBoxMapType = new System.Windows.Forms.ComboBox();
             this.lnk_kml = new System.Windows.Forms.LinkLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_wpfile = new System.Windows.Forms.Label();
-            this.BUT_loadwpfile = new MissionPlanner.Controls.MyButton();
-            this.BUT_saveWPFile = new MissionPlanner.Controls.MyButton();
             this.panelMap = new System.Windows.Forms.Panel();
-            this.lbl_homedist = new System.Windows.Forms.Label();
-            this.lbl_prevdist = new System.Windows.Forms.Label();
+            this.panel6 = new BSE.Windows.Forms.Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.trackBar1 = new MissionPlanner.Controls.MyTrackBar();
             this.label11 = new System.Windows.Forms.Label();
-            this.lbl_distance = new System.Windows.Forms.Label();
             this.MainMap = new MissionPlanner.Controls.myGMAP();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteWPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -187,95 +233,33 @@ namespace MissionPlanner.GCSViews
             this.panelBASE = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Param2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Param3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Param4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coordZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coordEasting = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coordNorthing = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MGRS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Up = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Down = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Angle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dist = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TagData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
-            this.panel5.SuspendLayout();
+            this.clearFence = new MissionPlanner.Controls.MyButton();
             this.panel1.SuspendLayout();
             this.panelWaypoints.SuspendLayout();
-            this.panelAction.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
+            this.wpPlanning.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.fencePlanning.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.wpOperations.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panelMap.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panelBASE.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Commands
-            // 
-            this.Commands.AllowUserToAddRows = false;
-            resources.ApplyResources(this.Commands, "Commands");
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Commands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.Commands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Command,
-            this.Param1,
-            this.Param2,
-            this.Param3,
-            this.Param4,
-            this.Lat,
-            this.Lon,
-            this.Alt,
-            this.coordZone,
-            this.coordEasting,
-            this.coordNorthing,
-            this.MGRS,
-            this.Delete,
-            this.Up,
-            this.Down,
-            this.Grad,
-            this.Angle,
-            this.Dist,
-            this.AZ,
-            this.TagData});
-            this.Commands.Name = "Commands";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = "0";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Commands.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.Commands.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.Commands.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellContentClick);
-            this.Commands.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellEndEdit);
-            this.Commands.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Commands_DataError);
-            this.Commands.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.Commands_DefaultValuesNeeded);
-            this.Commands.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Commands_EditingControlShowing);
-            this.Commands.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_RowEnter);
-            this.Commands.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Commands_RowsAdded);
-            this.Commands.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.Commands_RowsRemoved);
-            this.Commands.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.Commands_RowValidating);
             // 
             // CHK_verifyheight
             // 
@@ -319,34 +303,14 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.but_writewpfast);
-            this.panel5.Controls.Add(this.BUT_write);
-            this.panel5.Controls.Add(this.BUT_read);
-            resources.ApplyResources(this.panel5, "panel5");
-            this.panel5.Name = "panel5";
-            // 
             // but_writewpfast
             // 
+            this.but_writewpfast.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.but_writewpfast, "but_writewpfast");
             this.but_writewpfast.Name = "but_writewpfast";
             this.but_writewpfast.UseVisualStyleBackColor = true;
+            this.but_writewpfast.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.but_writewpfast_PaintSurface);
             this.but_writewpfast.Click += new System.EventHandler(this.but_writewpfast_Click);
-            // 
-            // BUT_write
-            // 
-            resources.ApplyResources(this.BUT_write, "BUT_write");
-            this.BUT_write.Name = "BUT_write";
-            this.BUT_write.UseVisualStyleBackColor = true;
-            this.BUT_write.Click += new System.EventHandler(this.BUT_write_Click);
-            // 
-            // BUT_read
-            // 
-            resources.ApplyResources(this.BUT_read, "BUT_read");
-            this.BUT_read.Name = "BUT_read";
-            this.BUT_read.UseVisualStyleBackColor = true;
-            this.BUT_read.Click += new System.EventHandler(this.BUT_read_Click);
             // 
             // panel1
             // 
@@ -403,8 +367,8 @@ namespace MissionPlanner.GCSViews
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -412,8 +376,8 @@ namespace MissionPlanner.GCSViews
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
             this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -448,6 +412,7 @@ namespace MissionPlanner.GCSViews
             this.panelWaypoints.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
             this.panelWaypoints.CaptionHeight = 21;
             this.panelWaypoints.ColorScheme = BSE.Windows.Forms.ColorScheme.Custom;
+            this.panelWaypoints.Controls.Add(this.Commands);
             this.panelWaypoints.Controls.Add(this.CMB_altmode);
             this.panelWaypoints.Controls.Add(this.CHK_splinedefault);
             this.panelWaypoints.Controls.Add(this.label17);
@@ -456,7 +421,6 @@ namespace MissionPlanner.GCSViews
             this.panelWaypoints.Controls.Add(this.label5);
             this.panelWaypoints.Controls.Add(this.TXT_loiterrad);
             this.panelWaypoints.Controls.Add(this.LBL_defalutalt);
-            this.panelWaypoints.Controls.Add(this.Commands);
             this.panelWaypoints.Controls.Add(this.TXT_DefaultAlt);
             this.panelWaypoints.Controls.Add(this.CHK_verifyheight);
             this.panelWaypoints.Controls.Add(this.TXT_WPRad);
@@ -491,6 +455,188 @@ namespace MissionPlanner.GCSViews
             this.splitter1.Name = "splitter1";
             this.splitter1.TabStop = false;
             // 
+            // Commands
+            // 
+            this.Commands.AllowUserToAddRows = false;
+            resources.ApplyResources(this.Commands, "Commands");
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Commands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.Commands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Command,
+            this.Param1,
+            this.Param2,
+            this.Param3,
+            this.Param4,
+            this.Lat,
+            this.Lon,
+            this.Alt,
+            this.coordZone,
+            this.coordEasting,
+            this.coordNorthing,
+            this.MGRS,
+            this.Delete,
+            this.Up,
+            this.Down,
+            this.Grad,
+            this.Angle,
+            this.Dist,
+            this.AZ,
+            this.TagData});
+            this.Commands.Name = "Commands";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = "0";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.Commands.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.Commands.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.Commands.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellContentClick);
+            this.Commands.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellEndEdit);
+            this.Commands.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Commands_DataError);
+            this.Commands.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.Commands_DefaultValuesNeeded);
+            this.Commands.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Commands_EditingControlShowing);
+            this.Commands.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_RowEnter);
+            this.Commands.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Commands_RowsAdded);
+            this.Commands.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.Commands_RowsRemoved);
+            this.Commands.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.Commands_RowValidating);
+            // 
+            // Command
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(68)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            this.Command.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Command.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            resources.ApplyResources(this.Command, "Command");
+            this.Command.Name = "Command";
+            // 
+            // Param1
+            // 
+            resources.ApplyResources(this.Param1, "Param1");
+            this.Param1.Name = "Param1";
+            this.Param1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Param2
+            // 
+            resources.ApplyResources(this.Param2, "Param2");
+            this.Param2.Name = "Param2";
+            this.Param2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Param3
+            // 
+            resources.ApplyResources(this.Param3, "Param3");
+            this.Param3.Name = "Param3";
+            this.Param3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Param4
+            // 
+            resources.ApplyResources(this.Param4, "Param4");
+            this.Param4.Name = "Param4";
+            this.Param4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Lat
+            // 
+            resources.ApplyResources(this.Lat, "Lat");
+            this.Lat.Name = "Lat";
+            this.Lat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Lon
+            // 
+            resources.ApplyResources(this.Lon, "Lon");
+            this.Lon.Name = "Lon";
+            this.Lon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Alt
+            // 
+            resources.ApplyResources(this.Alt, "Alt");
+            this.Alt.Name = "Alt";
+            this.Alt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // coordZone
+            // 
+            resources.ApplyResources(this.coordZone, "coordZone");
+            this.coordZone.Name = "coordZone";
+            // 
+            // coordEasting
+            // 
+            resources.ApplyResources(this.coordEasting, "coordEasting");
+            this.coordEasting.Name = "coordEasting";
+            // 
+            // coordNorthing
+            // 
+            resources.ApplyResources(this.coordNorthing, "coordNorthing");
+            this.coordNorthing.Name = "coordNorthing";
+            // 
+            // MGRS
+            // 
+            resources.ApplyResources(this.MGRS, "MGRS");
+            this.MGRS.Name = "MGRS";
+            // 
+            // Delete
+            // 
+            resources.ApplyResources(this.Delete, "Delete");
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "X";
+            // 
+            // Up
+            // 
+            this.Up.DefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.Up, "Up");
+            this.Up.Image = ((System.Drawing.Image)(resources.GetObject("Up.Image")));
+            this.Up.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Up.Name = "Up";
+            // 
+            // Down
+            // 
+            this.Down.DefaultCellStyle = dataGridViewCellStyle6;
+            resources.ApplyResources(this.Down, "Down");
+            this.Down.Image = ((System.Drawing.Image)(resources.GetObject("Down.Image")));
+            this.Down.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Down.Name = "Down";
+            // 
+            // Grad
+            // 
+            resources.ApplyResources(this.Grad, "Grad");
+            this.Grad.Name = "Grad";
+            this.Grad.ReadOnly = true;
+            this.Grad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Angle
+            // 
+            resources.ApplyResources(this.Angle, "Angle");
+            this.Angle.Name = "Angle";
+            this.Angle.ReadOnly = true;
+            this.Angle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Dist
+            // 
+            resources.ApplyResources(this.Dist, "Dist");
+            this.Dist.Name = "Dist";
+            this.Dist.ReadOnly = true;
+            this.Dist.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // AZ
+            // 
+            resources.ApplyResources(this.AZ, "AZ");
+            this.AZ.Name = "AZ";
+            this.AZ.ReadOnly = true;
+            this.AZ.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TagData
+            // 
+            resources.ApplyResources(this.TagData, "TagData");
+            this.TagData.Name = "TagData";
+            this.TagData.ReadOnly = true;
+            // 
             // CMB_altmode
             // 
             this.CMB_altmode.FormattingEnabled = true;
@@ -517,41 +663,45 @@ namespace MissionPlanner.GCSViews
             // 
             // BUT_Add
             // 
+            this.BUT_Add.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_Add, "BUT_Add");
             this.BUT_Add.Name = "BUT_Add";
             this.toolTip1.SetToolTip(this.BUT_Add, resources.GetString("BUT_Add.ToolTip"));
             this.BUT_Add.UseVisualStyleBackColor = true;
             this.BUT_Add.Click += new System.EventHandler(this.BUT_Add_Click);
             // 
-            // panelAction
+            // wpPlanning
             // 
-            this.panelAction.AssociatedSplitter = this.splitter2;
-            this.panelAction.BackColor = System.Drawing.Color.Transparent;
-            this.panelAction.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
-            this.panelAction.CaptionHeight = 21;
-            this.panelAction.ColorScheme = BSE.Windows.Forms.ColorScheme.Custom;
-            this.panelAction.Controls.Add(this.flowLayoutPanel1);
-            this.panelAction.CustomColors.BorderColor = System.Drawing.Color.Black;
-            this.panelAction.CustomColors.CaptionCloseIcon = System.Drawing.Color.White;
-            this.panelAction.CustomColors.CaptionExpandIcon = System.Drawing.Color.White;
-            this.panelAction.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.panelAction.CustomColors.CaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(226)))), ((int)(((byte)(150)))));
-            this.panelAction.CustomColors.CaptionGradientMiddle = System.Drawing.Color.Transparent;
-            this.panelAction.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.Transparent;
-            this.panelAction.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.Transparent;
-            this.panelAction.CustomColors.CaptionText = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.panelAction.CustomColors.CollapsedCaptionText = System.Drawing.Color.White;
-            this.panelAction.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
-            this.panelAction.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.panelAction.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
-            resources.ApplyResources(this.panelAction, "panelAction");
-            this.panelAction.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelAction.Image = null;
-            this.panelAction.Name = "panelAction";
-            this.panelAction.ShowExpandIcon = true;
-            this.panelAction.ToolTipTextCloseIcon = null;
-            this.panelAction.ToolTipTextExpandIconPanelCollapsed = null;
-            this.panelAction.ToolTipTextExpandIconPanelExpanded = null;
+            this.wpPlanning.AssociatedSplitter = this.splitter2;
+            this.wpPlanning.BackColor = System.Drawing.Color.Transparent;
+            this.wpPlanning.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
+            this.wpPlanning.CaptionHeight = 21;
+            this.wpPlanning.ColorScheme = BSE.Windows.Forms.ColorScheme.Custom;
+            this.wpPlanning.Controls.Add(this.panel2);
+            this.wpPlanning.Controls.Add(this.flowLayoutPanel1);
+            this.wpPlanning.CustomColors.BorderColor = System.Drawing.Color.Black;
+            this.wpPlanning.CustomColors.CaptionCloseIcon = System.Drawing.Color.White;
+            this.wpPlanning.CustomColors.CaptionExpandIcon = System.Drawing.Color.White;
+            this.wpPlanning.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.wpPlanning.CustomColors.CaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(226)))), ((int)(((byte)(150)))));
+            this.wpPlanning.CustomColors.CaptionGradientMiddle = System.Drawing.Color.Transparent;
+            this.wpPlanning.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.Transparent;
+            this.wpPlanning.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.Transparent;
+            this.wpPlanning.CustomColors.CaptionText = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.wpPlanning.CustomColors.CollapsedCaptionText = System.Drawing.Color.White;
+            this.wpPlanning.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
+            this.wpPlanning.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.wpPlanning.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.wpPlanning, "wpPlanning");
+            this.wpPlanning.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.wpPlanning.Image = null;
+            this.wpPlanning.Name = "wpPlanning";
+            this.wpPlanning.ShowExpandIcon = true;
+            this.wpPlanning.ToolTipTextCloseIcon = null;
+            this.wpPlanning.ToolTipTextExpandIconPanelCollapsed = null;
+            this.wpPlanning.ToolTipTextExpandIconPanelExpanded = null;
+            this.wpPlanning.PanelExpanding += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.wpPlanning_PanelExpanding);
+            this.wpPlanning.PanelCollapsing += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.wpPlanning_PanelCollapsing);
             // 
             // splitter2
             // 
@@ -560,21 +710,350 @@ namespace MissionPlanner.GCSViews
             this.splitter2.Name = "splitter2";
             this.splitter2.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.AssociatedSplitter = this.splitter2;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
+            this.panel2.CaptionHeight = 21;
+            this.panel2.ColorScheme = BSE.Windows.Forms.ColorScheme.Custom;
+            this.panel2.Controls.Add(this.fencePlanning);
+            this.panel2.Controls.Add(this.flowLayoutPanel3);
+            this.panel2.CustomColors.BorderColor = System.Drawing.Color.Black;
+            this.panel2.CustomColors.CaptionCloseIcon = System.Drawing.Color.White;
+            this.panel2.CustomColors.CaptionExpandIcon = System.Drawing.Color.White;
+            this.panel2.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.panel2.CustomColors.CaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(226)))), ((int)(((byte)(150)))));
+            this.panel2.CustomColors.CaptionGradientMiddle = System.Drawing.Color.Transparent;
+            this.panel2.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.Transparent;
+            this.panel2.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.Transparent;
+            this.panel2.CustomColors.CaptionText = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.panel2.CustomColors.CollapsedCaptionText = System.Drawing.Color.White;
+            this.panel2.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
+            this.panel2.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.panel2.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel2.Image = null;
+            this.panel2.Name = "panel2";
+            this.panel2.ShowExpandIcon = true;
+            this.panel2.ToolTipTextCloseIcon = null;
+            this.panel2.ToolTipTextExpandIconPanelCollapsed = null;
+            this.panel2.ToolTipTextExpandIconPanelExpanded = null;
+            this.panel2.PanelExpanding += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.panel2_ExpandClick);
+            this.panel2.PanelCollapsing += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.panel2_PanelCollapsing);
+            // 
+            // fencePlanning
+            // 
+            this.fencePlanning.AssociatedSplitter = this.splitter2;
+            this.fencePlanning.BackColor = System.Drawing.Color.Transparent;
+            this.fencePlanning.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
+            this.fencePlanning.CaptionHeight = 21;
+            this.fencePlanning.ColorScheme = BSE.Windows.Forms.ColorScheme.Custom;
+            this.fencePlanning.Controls.Add(this.flowLayoutPanel4);
+            this.fencePlanning.CustomColors.BorderColor = System.Drawing.Color.Black;
+            this.fencePlanning.CustomColors.CaptionCloseIcon = System.Drawing.Color.White;
+            this.fencePlanning.CustomColors.CaptionExpandIcon = System.Drawing.Color.White;
+            this.fencePlanning.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.fencePlanning.CustomColors.CaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(226)))), ((int)(((byte)(150)))));
+            this.fencePlanning.CustomColors.CaptionGradientMiddle = System.Drawing.Color.Transparent;
+            this.fencePlanning.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.Transparent;
+            this.fencePlanning.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.Transparent;
+            this.fencePlanning.CustomColors.CaptionText = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.fencePlanning.CustomColors.CollapsedCaptionText = System.Drawing.Color.White;
+            this.fencePlanning.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
+            this.fencePlanning.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.fencePlanning.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.fencePlanning, "fencePlanning");
+            this.fencePlanning.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.fencePlanning.Image = null;
+            this.fencePlanning.Name = "fencePlanning";
+            this.fencePlanning.ShowExpandIcon = true;
+            this.fencePlanning.ToolTipTextCloseIcon = null;
+            this.fencePlanning.ToolTipTextExpandIconPanelCollapsed = null;
+            this.fencePlanning.ToolTipTextExpandIconPanelExpanded = null;
+            this.fencePlanning.PanelExpanding += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.fencePlanning_PanelExpanding);
+            this.fencePlanning.PanelCollapsing += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.fencePlanning_PanelCollapsing);
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.groupBox7);
+            this.flowLayoutPanel4.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel4.Controls.Add(this.groupBox8);
+            resources.ApplyResources(this.flowLayoutPanel4, "flowLayoutPanel4");
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.setReturn);
+            resources.ApplyResources(this.groupBox7, "groupBox7");
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.TabStop = false;
+            // 
+            // setReturn
+            // 
+            this.setReturn.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.setReturn, "setReturn");
+            this.setReturn.Name = "setReturn";
+            this.setReturn.UseVisualStyleBackColor = true;
+            this.setReturn.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.setReturn_PaintSurface);
+            this.setReturn.Click += new System.EventHandler(this.setReturn_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.clearFence);
+            this.groupBox1.Controls.Add(this.loadFence);
+            this.groupBox1.Controls.Add(this.saveFence);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // loadFence
+            // 
+            this.loadFence.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.loadFence, "loadFence");
+            this.loadFence.Name = "loadFence";
+            this.loadFence.UseVisualStyleBackColor = true;
+            this.loadFence.Click += new System.EventHandler(this.loadFence_Click);
+            this.loadFence.MouseClick += new System.Windows.Forms.MouseEventHandler(this.loadFence_MouseClick);
+            // 
+            // saveFence
+            // 
+            this.saveFence.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.saveFence, "saveFence");
+            this.saveFence.Name = "saveFence";
+            this.saveFence.UseVisualStyleBackColor = true;
+            this.saveFence.Click += new System.EventHandler(this.saveFence_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.writeFence);
+            this.groupBox8.Controls.Add(this.readFence);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.TabStop = false;
+            // 
+            // writeFence
+            // 
+            this.writeFence.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.writeFence, "writeFence");
+            this.writeFence.Name = "writeFence";
+            this.writeFence.UseVisualStyleBackColor = true;
+            this.writeFence.Click += new System.EventHandler(this.writeFence_Click);
+            // 
+            // readFence
+            // 
+            this.readFence.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.readFence, "readFence");
+            this.readFence.Name = "readFence";
+            this.readFence.UseVisualStyleBackColor = true;
+            this.readFence.Click += new System.EventHandler(this.readFence_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.groupBox6);
+            this.flowLayoutPanel3.Controls.Add(this.groupBox5);
+            resources.ApplyResources(this.flowLayoutPanel3, "flowLayoutPanel3");
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.savePoints);
+            this.groupBox6.Controls.Add(this.loadPoints);
+            this.groupBox6.Controls.Add(this.clearRally);
+            resources.ApplyResources(this.groupBox6, "groupBox6");
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.TabStop = false;
+            // 
+            // savePoints
+            // 
+            this.savePoints.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.savePoints, "savePoints");
+            this.savePoints.Name = "savePoints";
+            this.savePoints.UseVisualStyleBackColor = true;
+            this.savePoints.Click += new System.EventHandler(this.savePoints_Click);
+            // 
+            // loadPoints
+            // 
+            this.loadPoints.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.loadPoints, "loadPoints");
+            this.loadPoints.Name = "loadPoints";
+            this.loadPoints.UseVisualStyleBackColor = true;
+            this.loadPoints.Click += new System.EventHandler(this.loadPoints_Click);
+            // 
+            // clearRally
+            // 
+            this.clearRally.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.clearRally, "clearRally");
+            this.clearRally.Name = "clearRally";
+            this.clearRally.UseVisualStyleBackColor = true;
+            this.clearRally.Click += new System.EventHandler(this.clearRally_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.readRally);
+            this.groupBox5.Controls.Add(this.writeRally);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.TabStop = false;
+            // 
+            // readRally
+            // 
+            this.readRally.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.readRally, "readRally");
+            this.readRally.Name = "readRally";
+            this.readRally.UseVisualStyleBackColor = true;
+            this.readRally.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.myButton2_PaintSurface);
+            this.readRally.Click += new System.EventHandler(this.readRally_Click);
+            // 
+            // writeRally
+            // 
+            this.writeRally.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.writeRally, "writeRally");
+            this.writeRally.Name = "writeRally";
+            this.writeRally.UseVisualStyleBackColor = true;
+            this.writeRally.Click += new System.EventHandler(this.writeRally_Click);
+            // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Controls.Add(this.panel3);
-            this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Controls.Add(this.panel5);
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox4);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox2);
+            this.flowLayoutPanel1.Controls.Add(this.wpOperations);
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
-            // panel4
+            // groupBox4
             // 
-            this.panel4.Controls.Add(this.coords1);
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.Name = "panel4";
+            this.groupBox4.Controls.Add(this.elevationGraph);
+            this.groupBox4.Controls.Add(this.landingSetup);
+            this.groupBox4.Controls.Add(this.SurveyGrid);
+            this.groupBox4.Controls.Add(this.importShp);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.TabStop = false;
+            // 
+            // elevationGraph
+            // 
+            this.elevationGraph.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.elevationGraph.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(this.elevationGraph, "elevationGraph");
+            this.elevationGraph.Name = "elevationGraph";
+            this.elevationGraph.UseVisualStyleBackColor = true;
+            this.elevationGraph.Click += new System.EventHandler(this.elevationGraph_Click);
+            // 
+            // landingSetup
+            // 
+            this.landingSetup.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.landingSetup.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(this.landingSetup, "landingSetup");
+            this.landingSetup.Name = "landingSetup";
+            this.landingSetup.UseVisualStyleBackColor = true;
+            // 
+            // SurveyGrid
+            // 
+            this.SurveyGrid.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.SurveyGrid, "SurveyGrid");
+            this.SurveyGrid.Name = "SurveyGrid";
+            this.SurveyGrid.UseVisualStyleBackColor = true;
+            this.SurveyGrid.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.SurveyGrid_PaintSurface);
+            this.SurveyGrid.Click += new System.EventHandler(this.SurveyGrid_Click);
+            // 
+            // importShp
+            // 
+            this.importShp.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.importShp.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(this.importShp, "importShp");
+            this.importShp.Name = "importShp";
+            this.importShp.UseVisualStyleBackColor = true;
+            this.importShp.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.importShp_PaintSurface);
+            this.importShp.Click += new System.EventHandler(this.importShp_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.BUT_saveWPFile);
+            this.groupBox2.Controls.Add(this.BUT_loadwpfile);
+            this.groupBox2.Controls.Add(this.ClearWPs);
+            this.groupBox2.Controls.Add(this.myButton1);
+            this.groupBox2.Controls.Add(this.but_writewpfast);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // BUT_saveWPFile
+            // 
+            this.BUT_saveWPFile.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.BUT_saveWPFile, "BUT_saveWPFile");
+            this.BUT_saveWPFile.Name = "BUT_saveWPFile";
+            this.BUT_saveWPFile.UseVisualStyleBackColor = true;
+            this.BUT_saveWPFile.Click += new System.EventHandler(this.BUT_saveWPFile_Click);
+            // 
+            // BUT_loadwpfile
+            // 
+            this.BUT_loadwpfile.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.BUT_loadwpfile, "BUT_loadwpfile");
+            this.BUT_loadwpfile.Name = "BUT_loadwpfile";
+            this.BUT_loadwpfile.UseVisualStyleBackColor = true;
+            this.BUT_loadwpfile.Click += new System.EventHandler(this.BUT_loadwpfile_Click);
+            // 
+            // ClearWPs
+            // 
+            this.ClearWPs.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.ClearWPs, "ClearWPs");
+            this.ClearWPs.Name = "ClearWPs";
+            this.ClearWPs.UseVisualStyleBackColor = true;
+            this.ClearWPs.Click += new System.EventHandler(this.ClearWPs_Click);
+            // 
+            // myButton1
+            // 
+            this.myButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.myButton1, "myButton1");
+            this.myButton1.Name = "myButton1";
+            this.myButton1.UseVisualStyleBackColor = true;
+            this.myButton1.Click += new System.EventHandler(this.myButton1_Click);
+            // 
+            // wpOperations
+            // 
+            this.wpOperations.Controls.Add(this.BUT_read);
+            this.wpOperations.Controls.Add(this.BUT_write);
+            resources.ApplyResources(this.wpOperations, "wpOperations");
+            this.wpOperations.Name = "wpOperations";
+            this.wpOperations.TabStop = false;
+            // 
+            // BUT_read
+            // 
+            this.BUT_read.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.BUT_read, "BUT_read");
+            this.BUT_read.Name = "BUT_read";
+            this.BUT_read.UseVisualStyleBackColor = true;
+            this.BUT_read.Click += new System.EventHandler(this.BUT_read_Click);
+            // 
+            // BUT_write
+            // 
+            this.BUT_write.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.BUT_write, "BUT_write");
+            this.BUT_write.Name = "BUT_write";
+            this.BUT_write.UseVisualStyleBackColor = true;
+            this.BUT_write.Click += new System.EventHandler(this.BUT_write_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lbl_distance);
+            this.groupBox3.Controls.Add(this.lbl_homedist);
+            this.groupBox3.Controls.Add(this.coords1);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // lbl_distance
+            // 
+            resources.ApplyResources(this.lbl_distance, "lbl_distance");
+            this.lbl_distance.Name = "lbl_distance";
+            this.lbl_distance.Click += new System.EventHandler(this.lbl_distance_Click);
+            // 
+            // lbl_homedist
+            // 
+            resources.ApplyResources(this.lbl_homedist, "lbl_homedist");
+            this.lbl_homedist.Name = "lbl_homedist";
             // 
             // panel3
             // 
@@ -607,55 +1086,54 @@ namespace MissionPlanner.GCSViews
             this.lnk_kml.TabStop = true;
             this.lnk_kml.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_kml_LinkClicked);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lbl_wpfile);
-            this.panel2.Controls.Add(this.BUT_loadwpfile);
-            this.panel2.Controls.Add(this.BUT_saveWPFile);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            // 
-            // lbl_wpfile
-            // 
-            resources.ApplyResources(this.lbl_wpfile, "lbl_wpfile");
-            this.lbl_wpfile.Name = "lbl_wpfile";
-            // 
-            // BUT_loadwpfile
-            // 
-            resources.ApplyResources(this.BUT_loadwpfile, "BUT_loadwpfile");
-            this.BUT_loadwpfile.Name = "BUT_loadwpfile";
-            this.BUT_loadwpfile.UseVisualStyleBackColor = true;
-            this.BUT_loadwpfile.Click += new System.EventHandler(this.BUT_loadwpfile_Click);
-            // 
-            // BUT_saveWPFile
-            // 
-            resources.ApplyResources(this.BUT_saveWPFile, "BUT_saveWPFile");
-            this.BUT_saveWPFile.Name = "BUT_saveWPFile";
-            this.BUT_saveWPFile.UseVisualStyleBackColor = true;
-            this.BUT_saveWPFile.Click += new System.EventHandler(this.BUT_saveWPFile_Click);
-            // 
             // panelMap
             // 
-            this.panelMap.Controls.Add(this.lbl_homedist);
-            this.panelMap.Controls.Add(this.lbl_prevdist);
+            this.panelMap.Controls.Add(this.panel6);
             this.panelMap.Controls.Add(this.trackBar1);
             this.panelMap.Controls.Add(this.label11);
-            this.panelMap.Controls.Add(this.lbl_distance);
             this.panelMap.Controls.Add(this.MainMap);
             resources.ApplyResources(this.panelMap, "panelMap");
             this.panelMap.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelMap.Name = "panelMap";
             this.panelMap.Resize += new System.EventHandler(this.panelMap_Resize);
             // 
-            // lbl_homedist
+            // panel6
             // 
-            resources.ApplyResources(this.lbl_homedist, "lbl_homedist");
-            this.lbl_homedist.Name = "lbl_homedist";
+            this.panel6.AssociatedSplitter = this.splitter2;
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
+            this.panel6.CaptionHeight = 21;
+            this.panel6.ColorScheme = BSE.Windows.Forms.ColorScheme.Custom;
+            this.panel6.Controls.Add(this.flowLayoutPanel2);
+            this.panel6.CustomColors.BorderColor = System.Drawing.Color.Black;
+            this.panel6.CustomColors.CaptionCloseIcon = System.Drawing.Color.White;
+            this.panel6.CustomColors.CaptionExpandIcon = System.Drawing.Color.White;
+            this.panel6.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.panel6.CustomColors.CaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(226)))), ((int)(((byte)(150)))));
+            this.panel6.CustomColors.CaptionGradientMiddle = System.Drawing.Color.Transparent;
+            this.panel6.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.Transparent;
+            this.panel6.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.Transparent;
+            this.panel6.CustomColors.CaptionText = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.panel6.CustomColors.CollapsedCaptionText = System.Drawing.Color.White;
+            this.panel6.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
+            this.panel6.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.panel6.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.panel6, "panel6");
+            this.panel6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel6.Image = null;
+            this.panel6.Name = "panel6";
+            this.panel6.ShowExpandIcon = true;
+            this.panel6.ToolTipTextCloseIcon = null;
+            this.panel6.ToolTipTextExpandIconPanelCollapsed = null;
+            this.panel6.ToolTipTextExpandIconPanelExpanded = null;
             // 
-            // lbl_prevdist
+            // flowLayoutPanel2
             // 
-            resources.ApplyResources(this.lbl_prevdist, "lbl_prevdist");
-            this.lbl_prevdist.Name = "lbl_prevdist";
+            this.flowLayoutPanel2.Controls.Add(this.panel3);
+            this.flowLayoutPanel2.Controls.Add(this.panel1);
+            this.flowLayoutPanel2.Controls.Add(this.groupBox3);
+            resources.ApplyResources(this.flowLayoutPanel2, "flowLayoutPanel2");
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             // 
             // trackBar1
             // 
@@ -675,14 +1153,8 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
             // 
-            // lbl_distance
-            // 
-            resources.ApplyResources(this.lbl_distance, "lbl_distance");
-            this.lbl_distance.Name = "lbl_distance";
-            // 
             // MainMap
             // 
-            resources.ApplyResources(this.MainMap, "MainMap");
             this.MainMap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.MainMap.Bearing = 0F;
             this.MainMap.CanDragMap = true;
@@ -693,6 +1165,7 @@ namespace MissionPlanner.GCSViews
             this.MainMap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.MainMap.HoldInvalidation = false;
             this.MainMap.LevelsKeepInMemmory = 5;
+            resources.ApplyResources(this.MainMap, "MainMap");
             this.MainMap.MarkersEnabled = true;
             this.MainMap.MaxZoom = 19;
             this.MainMap.MinZoom = 0;
@@ -706,6 +1179,7 @@ namespace MissionPlanner.GCSViews
             this.MainMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.MainMap.ShowTileGridLines = false;
             this.MainMap.Zoom = 0D;
+            this.MainMap.Load += new System.EventHandler(this.MainMap_Load);
             this.MainMap.Paint += new System.Windows.Forms.PaintEventHandler(this.MainMap_Paint);
             // 
             // contextMenuStrip1
@@ -1217,7 +1691,7 @@ namespace MissionPlanner.GCSViews
             this.panelBASE.Controls.Add(this.splitter1);
             this.panelBASE.Controls.Add(this.panelMap);
             this.panelBASE.Controls.Add(this.panelWaypoints);
-            this.panelBASE.Controls.Add(this.panelAction);
+            this.panelBASE.Controls.Add(this.wpPlanning);
             this.panelBASE.Controls.Add(this.label6);
             resources.ApplyResources(this.panelBASE, "panelBASE");
             this.panelBASE.Name = "panelBASE";
@@ -1227,132 +1701,13 @@ namespace MissionPlanner.GCSViews
             this.timer1.Interval = 1200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Command
+            // clearFence
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(68)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            this.Command.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Command.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            resources.ApplyResources(this.Command, "Command");
-            this.Command.Name = "Command";
-            // 
-            // Param1
-            // 
-            resources.ApplyResources(this.Param1, "Param1");
-            this.Param1.Name = "Param1";
-            this.Param1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Param2
-            // 
-            resources.ApplyResources(this.Param2, "Param2");
-            this.Param2.Name = "Param2";
-            this.Param2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Param3
-            // 
-            resources.ApplyResources(this.Param3, "Param3");
-            this.Param3.Name = "Param3";
-            this.Param3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Param4
-            // 
-            resources.ApplyResources(this.Param4, "Param4");
-            this.Param4.Name = "Param4";
-            this.Param4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Lat
-            // 
-            resources.ApplyResources(this.Lat, "Lat");
-            this.Lat.Name = "Lat";
-            this.Lat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Lon
-            // 
-            resources.ApplyResources(this.Lon, "Lon");
-            this.Lon.Name = "Lon";
-            this.Lon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Alt
-            // 
-            resources.ApplyResources(this.Alt, "Alt");
-            this.Alt.Name = "Alt";
-            this.Alt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // coordZone
-            // 
-            resources.ApplyResources(this.coordZone, "coordZone");
-            this.coordZone.Name = "coordZone";
-            // 
-            // coordEasting
-            // 
-            resources.ApplyResources(this.coordEasting, "coordEasting");
-            this.coordEasting.Name = "coordEasting";
-            // 
-            // coordNorthing
-            // 
-            resources.ApplyResources(this.coordNorthing, "coordNorthing");
-            this.coordNorthing.Name = "coordNorthing";
-            // 
-            // MGRS
-            // 
-            resources.ApplyResources(this.MGRS, "MGRS");
-            this.MGRS.Name = "MGRS";
-            // 
-            // Delete
-            // 
-            resources.ApplyResources(this.Delete, "Delete");
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "X";
-            // 
-            // Up
-            // 
-            this.Up.DefaultCellStyle = dataGridViewCellStyle3;
-            resources.ApplyResources(this.Up, "Up");
-            this.Up.Image = ((System.Drawing.Image)(resources.GetObject("Up.Image")));
-            this.Up.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Up.Name = "Up";
-            // 
-            // Down
-            // 
-            this.Down.DefaultCellStyle = dataGridViewCellStyle4;
-            resources.ApplyResources(this.Down, "Down");
-            this.Down.Image = ((System.Drawing.Image)(resources.GetObject("Down.Image")));
-            this.Down.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Down.Name = "Down";
-            // 
-            // Grad
-            // 
-            resources.ApplyResources(this.Grad, "Grad");
-            this.Grad.Name = "Grad";
-            this.Grad.ReadOnly = true;
-            this.Grad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Angle
-            // 
-            resources.ApplyResources(this.Angle, "Angle");
-            this.Angle.Name = "Angle";
-            this.Angle.ReadOnly = true;
-            this.Angle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Dist
-            // 
-            resources.ApplyResources(this.Dist, "Dist");
-            this.Dist.Name = "Dist";
-            this.Dist.ReadOnly = true;
-            this.Dist.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // AZ
-            // 
-            resources.ApplyResources(this.AZ, "AZ");
-            this.AZ.Name = "AZ";
-            this.AZ.ReadOnly = true;
-            this.AZ.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TagData
-            // 
-            resources.ApplyResources(this.TagData, "TagData");
-            this.TagData.Name = "TagData";
-            this.TagData.ReadOnly = true;
+            this.clearFence.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.clearFence, "clearFence");
+            this.clearFence.Name = "clearFence";
+            this.clearFence.UseVisualStyleBackColor = true;
+            this.clearFence.Click += new System.EventHandler(this.clearFence_Click);
             // 
             // FlightPlanner
             // 
@@ -1363,21 +1718,33 @@ namespace MissionPlanner.GCSViews
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FlightPlanner_FormClosing);
             this.Load += new System.EventHandler(this.FlightPlanner_Load);
             this.Resize += new System.EventHandler(this.Planner_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.Commands)).EndInit();
-            this.panel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelWaypoints.ResumeLayout(false);
             this.panelWaypoints.PerformLayout();
-            this.panelAction.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Commands)).EndInit();
+            this.wpPlanning.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.fencePlanning.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.wpOperations.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panelBASE.ResumeLayout(false);
@@ -1387,10 +1754,6 @@ namespace MissionPlanner.GCSViews
 
 
         #endregion
-
-        private Controls.MyButton BUT_read;
-        private Controls.MyButton BUT_write;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel label4;
         private System.Windows.Forms.Label label3;
@@ -1409,13 +1772,12 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.Label LBL_defalutalt;
         private System.Windows.Forms.Label label5;
         public BSE.Windows.Forms.Panel panelWaypoints;
-        public BSE.Windows.Forms.Panel panelAction;
+        public BSE.Windows.Forms.Panel wpPlanning;
         private System.Windows.Forms.Panel panelMap;
         public Controls.myGMAP MainMap;
         private Controls.MyTrackBar trackBar1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lbl_distance;
-        private System.Windows.Forms.Label lbl_prevdist;
         private BSE.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panelBASE;
         private System.Windows.Forms.Label lbl_homedist;
@@ -1489,8 +1851,6 @@ namespace MissionPlanner.GCSViews
         private Controls.Coords coords1;
         private Controls.MyButton BUT_loadwpfile;
         private Controls.MyButton BUT_saveWPFile;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem switchDockingToolStripMenuItem;
@@ -1498,7 +1858,6 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.ToolStripMenuItem insertSplineWPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createSplineCircleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fromSHPToolStripMenuItem;
-        private System.Windows.Forms.Label lbl_wpfile;
         private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
         public System.Windows.Forms.CheckBox CHK_verifyheight;
         public System.Windows.Forms.TextBox TXT_WPRad;
@@ -1534,5 +1893,39 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.DataGridViewTextBoxColumn Dist;
         private System.Windows.Forms.DataGridViewTextBoxColumn AZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn TagData;
+        public BSE.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private MyButton SurveyGrid;
+        private MyButton importShp;
+        private MyButton myButton1;
+        private MyButton ClearWPs;
+        private MyButton landingSetup;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private MyButton readRally;
+        private MyButton writeRally;
+        private MyButton elevationGraph;
+        private System.Windows.Forms.GroupBox wpOperations;
+        private MyButton BUT_read;
+        private MyButton BUT_write;
+        public BSE.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        public BSE.Windows.Forms.Panel fencePlanning;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MyButton loadFence;
+        private MyButton saveFence;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private MyButton clearRally;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private MyButton setReturn;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private MyButton writeFence;
+        private MyButton readFence;
+        private MyButton savePoints;
+        private MyButton loadPoints;
+        private MyButton clearFence;
     }
 }

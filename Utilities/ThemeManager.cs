@@ -743,7 +743,7 @@ mc:Ignorable=""d""
 
             if (MainV2.instance != null && MainV2.instance.FlightPlanner != null)
             {
-                BSE.Windows.Forms.Panel actionPanel = MainV2.instance.FlightPlanner.panelAction;
+                BSE.Windows.Forms.Panel actionPanel = MainV2.instance.FlightPlanner.wpPlanning;
                 BSE.Windows.Forms.Panel waypointsPanel = MainV2.instance.FlightPlanner.panelWaypoints;
 
                 actionPanel.CustomColors.BorderColor = Color.Black;       //these statements control the colours of the actions panel in the flight planner window
@@ -797,7 +797,7 @@ mc:Ignorable=""d""
 
             if (MainV2.instance != null && MainV2.instance.FlightPlanner != null)
             {
-                BSE.Windows.Forms.Panel actionPanel = MainV2.instance.FlightPlanner.panelAction;
+                BSE.Windows.Forms.Panel actionPanel = MainV2.instance.FlightPlanner.wpPlanning;
                 BSE.Windows.Forms.Panel waypointsPanel = MainV2.instance.FlightPlanner.panelWaypoints;
 
                 actionPanel.CustomColors.BorderColor = Color.Black;       //these statements control the colours of the actions panel in the flight planner window

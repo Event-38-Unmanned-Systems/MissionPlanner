@@ -41,7 +41,6 @@
             this.quickView2 = new MissionPlanner.Controls.QuickView();
             this.quickView1 = new MissionPlanner.Controls.QuickView();
             this.tabActions = new System.Windows.Forms.TabPage();
-            this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
             this.BUT_abortland = new MissionPlanner.Controls.MyButton();
             this.BUT_resumemis = new MissionPlanner.Controls.MyButton();
             this.CMB_mountmode = new System.Windows.Forms.ComboBox();
@@ -61,14 +60,11 @@
             this.BUT_RAWSensor = new MissionPlanner.Controls.MyButton();
             this.BUTrestartmission = new MissionPlanner.Controls.MyButton();
             this.BUTactiondo = new MissionPlanner.Controls.MyButton();
-            this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
-            this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.tabActionsSimple = new System.Windows.Forms.TabPage();
             this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.myButton2 = new MissionPlanner.Controls.MyButton();
             this.myButton3 = new MissionPlanner.Controls.MyButton();
             this.tabPagePreFlight = new System.Windows.Forms.TabPage();
-            this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
             this.tabGauges = new System.Windows.Forms.TabPage();
             this.Gvspeed = new AGaugeApp.AGauge();
             this.bindingSourceGaugesTab = new System.Windows.Forms.BindingSource(this.components);
@@ -78,16 +74,6 @@
             this.tabStatus = new System.Windows.Forms.TabPage();
             this.tabServo = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelServos = new System.Windows.Forms.FlowLayoutPanel();
-            this.servoOptions1 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions2 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions3 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions4 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions5 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions6 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions7 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions8 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions9 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions10 = new MissionPlanner.Controls.ServoOptions();
             this.tabTLogs = new System.Windows.Forms.TabPage();
             this.tableLayoutPaneltlogs = new System.Windows.Forms.TableLayoutPanel();
             this.BUT_loadtelem = new MissionPlanner.Controls.MyButton();
@@ -157,7 +143,6 @@
             this.onOffCameraOverlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altitudeAngelSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.but_disablejoystick = new MissionPlanner.Controls.MyButton();
-            this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             this.windDir1 = new MissionPlanner.Controls.WindDir();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
@@ -182,6 +167,21 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
+            this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
+            this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
+            this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
+            this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
+            this.servoOptions1 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions2 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions3 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions4 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions5 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions6 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions7 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions8 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions9 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions10 = new MissionPlanner.Controls.ServoOptions();
+            this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -629,33 +629,12 @@
             this.tabActions.Name = "tabActions";
             this.tabActions.UseVisualStyleBackColor = true;
             // 
-            // modifyandSetLoiterRad
-            // 
-            this.modifyandSetLoiterRad.ButtonText = "Set Loiter Rad";
-            resources.ApplyResources(this.modifyandSetLoiterRad, "modifyandSetLoiterRad");
-            this.modifyandSetLoiterRad.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.modifyandSetLoiterRad.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.modifyandSetLoiterRad.Name = "modifyandSetLoiterRad";
-            this.modifyandSetLoiterRad.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.modifyandSetLoiterRad.Click += new System.EventHandler(this.modifyandSetLoiterRad_Click);
-            // 
             // BUT_abortland
             // 
             this.BUT_abortland.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_abortland.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_abortland.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_abortland.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_abortland, "BUT_abortland");
             this.BUT_abortland.Name = "BUT_abortland";
             this.toolTip1.SetToolTip(this.BUT_abortland, resources.GetString("BUT_abortland.ToolTip"));
@@ -667,6 +646,7 @@
             this.BUT_resumemis.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_resumemis.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_resumemis.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_resumemis.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_resumemis, "BUT_resumemis");
             this.BUT_resumemis.Name = "BUT_resumemis";
             this.BUT_resumemis.UseVisualStyleBackColor = true;
@@ -684,6 +664,7 @@
             this.BUT_mountmode.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_mountmode.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_mountmode.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_mountmode.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_mountmode, "BUT_mountmode");
             this.BUT_mountmode.Name = "BUT_mountmode";
             this.toolTip1.SetToolTip(this.BUT_mountmode, resources.GetString("BUT_mountmode.ToolTip"));
@@ -695,6 +676,7 @@
             this.BUT_ARM.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_ARM.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_ARM.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_ARM.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_ARM, "BUT_ARM");
             this.BUT_ARM.Name = "BUT_ARM";
             this.toolTip1.SetToolTip(this.BUT_ARM, resources.GetString("BUT_ARM.ToolTip"));
@@ -706,6 +688,7 @@
             this.BUT_joystick.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_joystick.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_joystick.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_joystick.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_joystick, "BUT_joystick");
             this.BUT_joystick.Name = "BUT_joystick";
             this.toolTip1.SetToolTip(this.BUT_joystick, resources.GetString("BUT_joystick.ToolTip"));
@@ -717,6 +700,7 @@
             this.BUT_quickmanual.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_quickmanual.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_quickmanual.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_quickmanual.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_quickmanual, "BUT_quickmanual");
             this.BUT_quickmanual.Name = "BUT_quickmanual";
             this.toolTip1.SetToolTip(this.BUT_quickmanual, resources.GetString("BUT_quickmanual.ToolTip"));
@@ -728,6 +712,7 @@
             this.BUT_quickrtl.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_quickrtl.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_quickrtl.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_quickrtl.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_quickrtl, "BUT_quickrtl");
             this.BUT_quickrtl.Name = "BUT_quickrtl";
             this.toolTip1.SetToolTip(this.BUT_quickrtl, resources.GetString("BUT_quickrtl.ToolTip"));
@@ -739,6 +724,7 @@
             this.BUT_quickauto.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_quickauto.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_quickauto.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_quickauto.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_quickauto, "BUT_quickauto");
             this.BUT_quickauto.Name = "BUT_quickauto";
             this.toolTip1.SetToolTip(this.BUT_quickauto, resources.GetString("BUT_quickauto.ToolTip"));
@@ -760,6 +746,7 @@
             this.BUT_setwp.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_setwp.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_setwp.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_setwp.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_setwp, "BUT_setwp");
             this.BUT_setwp.Name = "BUT_setwp";
             this.toolTip1.SetToolTip(this.BUT_setwp, resources.GetString("BUT_setwp.ToolTip"));
@@ -779,6 +766,7 @@
             this.BUT_setmode.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_setmode.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_setmode.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_setmode.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_setmode, "BUT_setmode");
             this.BUT_setmode.Name = "BUT_setmode";
             this.toolTip1.SetToolTip(this.BUT_setmode, resources.GetString("BUT_setmode.ToolTip"));
@@ -790,6 +778,7 @@
             this.BUT_clear_track.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_clear_track.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_clear_track.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_clear_track.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_clear_track, "BUT_clear_track");
             this.BUT_clear_track.Name = "BUT_clear_track";
             this.toolTip1.SetToolTip(this.BUT_clear_track, resources.GetString("BUT_clear_track.ToolTip"));
@@ -809,6 +798,7 @@
             this.BUT_Homealt.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_Homealt.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_Homealt.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_Homealt.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_Homealt, "BUT_Homealt");
             this.BUT_Homealt.Name = "BUT_Homealt";
             this.toolTip1.SetToolTip(this.BUT_Homealt, resources.GetString("BUT_Homealt.ToolTip"));
@@ -820,6 +810,7 @@
             this.BUT_RAWSensor.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_RAWSensor.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_RAWSensor.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_RAWSensor.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_RAWSensor, "BUT_RAWSensor");
             this.BUT_RAWSensor.Name = "BUT_RAWSensor";
             this.toolTip1.SetToolTip(this.BUT_RAWSensor, resources.GetString("BUT_RAWSensor.ToolTip"));
@@ -831,6 +822,7 @@
             this.BUTrestartmission.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUTrestartmission.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUTrestartmission.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUTrestartmission.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUTrestartmission, "BUTrestartmission");
             this.BUTrestartmission.Name = "BUTrestartmission";
             this.toolTip1.SetToolTip(this.BUTrestartmission, resources.GetString("BUTrestartmission.ToolTip"));
@@ -842,56 +834,12 @@
             this.BUTactiondo.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUTactiondo.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUTactiondo.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUTactiondo.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUTactiondo, "BUTactiondo");
             this.BUTactiondo.Name = "BUTactiondo";
             this.toolTip1.SetToolTip(this.BUTactiondo, resources.GetString("BUTactiondo.ToolTip"));
             this.BUTactiondo.UseVisualStyleBackColor = true;
             this.BUTactiondo.Click += new System.EventHandler(this.BUTactiondo_Click);
-            // 
-            // modifyandSetSpeed
-            // 
-            this.modifyandSetSpeed.ButtonText = "Change Speed";
-            resources.ApplyResources(this.modifyandSetSpeed, "modifyandSetSpeed");
-            this.modifyandSetSpeed.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.modifyandSetSpeed.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.modifyandSetSpeed.Name = "modifyandSetSpeed";
-            this.modifyandSetSpeed.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.modifyandSetSpeed.Click += new System.EventHandler(this.modifyandSetSpeed_Click);
-            this.modifyandSetSpeed.ParentChanged += new System.EventHandler(this.modifyandSetSpeed_ParentChanged);
-            // 
-            // modifyandSetAlt
-            // 
-            this.modifyandSetAlt.ButtonText = "Change Alt";
-            resources.ApplyResources(this.modifyandSetAlt, "modifyandSetAlt");
-            this.modifyandSetAlt.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.modifyandSetAlt.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.modifyandSetAlt.Name = "modifyandSetAlt";
-            this.modifyandSetAlt.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.modifyandSetAlt.Click += new System.EventHandler(this.modifyandSetAlt_Click);
             // 
             // tabActionsSimple
             // 
@@ -907,6 +855,7 @@
             this.myButton1.ColorMouseDown = System.Drawing.Color.Empty;
             this.myButton1.ColorMouseOver = System.Drawing.Color.Empty;
             this.myButton1.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.myButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.myButton1, "myButton1");
             this.myButton1.Name = "myButton1";
             this.toolTip1.SetToolTip(this.myButton1, resources.GetString("myButton1.ToolTip"));
@@ -918,6 +867,7 @@
             this.myButton2.ColorMouseDown = System.Drawing.Color.Empty;
             this.myButton2.ColorMouseOver = System.Drawing.Color.Empty;
             this.myButton2.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.myButton2.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.myButton2, "myButton2");
             this.myButton2.Name = "myButton2";
             this.toolTip1.SetToolTip(this.myButton2, resources.GetString("myButton2.ToolTip"));
@@ -929,6 +879,7 @@
             this.myButton3.ColorMouseDown = System.Drawing.Color.Empty;
             this.myButton3.ColorMouseOver = System.Drawing.Color.Empty;
             this.myButton3.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.myButton3.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.myButton3, "myButton3");
             this.myButton3.Name = "myButton3";
             this.toolTip1.SetToolTip(this.myButton3, resources.GetString("myButton3.ToolTip"));
@@ -941,11 +892,6 @@
             resources.ApplyResources(this.tabPagePreFlight, "tabPagePreFlight");
             this.tabPagePreFlight.Name = "tabPagePreFlight";
             this.tabPagePreFlight.UseVisualStyleBackColor = true;
-            // 
-            // checkListControl1
-            // 
-            resources.ApplyResources(this.checkListControl1, "checkListControl1");
-            this.checkListControl1.Name = "checkListControl1";
             // 
             // tabGauges
             // 
@@ -1434,66 +1380,6 @@
             this.flowLayoutPanelServos.Controls.Add(this.servoOptions10);
             this.flowLayoutPanelServos.Name = "flowLayoutPanelServos";
             // 
-            // servoOptions1
-            // 
-            resources.ApplyResources(this.servoOptions1, "servoOptions1");
-            this.servoOptions1.Name = "servoOptions1";
-            this.servoOptions1.thisservo = 5;
-            // 
-            // servoOptions2
-            // 
-            resources.ApplyResources(this.servoOptions2, "servoOptions2");
-            this.servoOptions2.Name = "servoOptions2";
-            this.servoOptions2.thisservo = 6;
-            // 
-            // servoOptions3
-            // 
-            resources.ApplyResources(this.servoOptions3, "servoOptions3");
-            this.servoOptions3.Name = "servoOptions3";
-            this.servoOptions3.thisservo = 7;
-            // 
-            // servoOptions4
-            // 
-            resources.ApplyResources(this.servoOptions4, "servoOptions4");
-            this.servoOptions4.Name = "servoOptions4";
-            this.servoOptions4.thisservo = 8;
-            // 
-            // servoOptions5
-            // 
-            resources.ApplyResources(this.servoOptions5, "servoOptions5");
-            this.servoOptions5.Name = "servoOptions5";
-            this.servoOptions5.thisservo = 9;
-            // 
-            // servoOptions6
-            // 
-            resources.ApplyResources(this.servoOptions6, "servoOptions6");
-            this.servoOptions6.Name = "servoOptions6";
-            this.servoOptions6.thisservo = 10;
-            // 
-            // servoOptions7
-            // 
-            resources.ApplyResources(this.servoOptions7, "servoOptions7");
-            this.servoOptions7.Name = "servoOptions7";
-            this.servoOptions7.thisservo = 11;
-            // 
-            // servoOptions8
-            // 
-            resources.ApplyResources(this.servoOptions8, "servoOptions8");
-            this.servoOptions8.Name = "servoOptions8";
-            this.servoOptions8.thisservo = 12;
-            // 
-            // servoOptions9
-            // 
-            resources.ApplyResources(this.servoOptions9, "servoOptions9");
-            this.servoOptions9.Name = "servoOptions9";
-            this.servoOptions9.thisservo = 13;
-            // 
-            // servoOptions10
-            // 
-            resources.ApplyResources(this.servoOptions10, "servoOptions10");
-            this.servoOptions10.Name = "servoOptions10";
-            this.servoOptions10.thisservo = 14;
-            // 
             // tabTLogs
             // 
             this.tabTLogs.Controls.Add(this.tableLayoutPaneltlogs);
@@ -1519,6 +1405,7 @@
             this.BUT_loadtelem.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_loadtelem.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_loadtelem.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_loadtelem.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_loadtelem, "BUT_loadtelem");
             this.BUT_loadtelem.Name = "BUT_loadtelem";
             this.BUT_loadtelem.UseVisualStyleBackColor = true;
@@ -1556,6 +1443,7 @@
             this.BUT_log2kml.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_log2kml.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_log2kml.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_log2kml.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_log2kml, "BUT_log2kml");
             this.BUT_log2kml.Name = "BUT_log2kml";
             this.BUT_log2kml.UseVisualStyleBackColor = true;
@@ -1566,6 +1454,7 @@
             this.BUT_playlog.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_playlog.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_playlog.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_playlog.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_playlog, "BUT_playlog");
             this.BUT_playlog.Name = "BUT_playlog";
             this.BUT_playlog.UseVisualStyleBackColor = true;
@@ -1594,6 +1483,7 @@
             this.BUT_speed10.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_speed10.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_speed10.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_speed10.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_speed10, "BUT_speed10");
             this.BUT_speed10.Name = "BUT_speed10";
             this.BUT_speed10.Tag = "10";
@@ -1605,6 +1495,7 @@
             this.BUT_speed5.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_speed5.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_speed5.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_speed5.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_speed5, "BUT_speed5");
             this.BUT_speed5.Name = "BUT_speed5";
             this.BUT_speed5.Tag = "5";
@@ -1616,6 +1507,7 @@
             this.BUT_speed2.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_speed2.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_speed2.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_speed2.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_speed2, "BUT_speed2");
             this.BUT_speed2.Name = "BUT_speed2";
             this.BUT_speed2.Tag = "2";
@@ -1627,6 +1519,7 @@
             this.BUT_speed1.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_speed1.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_speed1.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_speed1.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_speed1, "BUT_speed1");
             this.BUT_speed1.Name = "BUT_speed1";
             this.BUT_speed1.Tag = "1";
@@ -1638,6 +1531,7 @@
             this.BUT_speed1_2.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_speed1_2.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_speed1_2.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_speed1_2.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_speed1_2, "BUT_speed1_2");
             this.BUT_speed1_2.Name = "BUT_speed1_2";
             this.BUT_speed1_2.Tag = "0.5";
@@ -1649,6 +1543,7 @@
             this.BUT_speed1_4.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_speed1_4.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_speed1_4.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_speed1_4.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_speed1_4, "BUT_speed1_4");
             this.BUT_speed1_4.Name = "BUT_speed1_4";
             this.BUT_speed1_4.Tag = "0.25";
@@ -1660,6 +1555,7 @@
             this.BUT_speed1_10.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_speed1_10.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_speed1_10.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_speed1_10.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_speed1_10, "BUT_speed1_10");
             this.BUT_speed1_10.Name = "BUT_speed1_10";
             this.BUT_speed1_10.Tag = "0.1";
@@ -1683,6 +1579,7 @@
             this.BUT_loganalysis.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_loganalysis.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_loganalysis.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_loganalysis.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_loganalysis, "BUT_loganalysis");
             this.BUT_loganalysis.Name = "BUT_loganalysis";
             this.BUT_loganalysis.UseVisualStyleBackColor = true;
@@ -1693,6 +1590,7 @@
             this.BUT_DFMavlink.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_DFMavlink.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_DFMavlink.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_DFMavlink.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_DFMavlink, "BUT_DFMavlink");
             this.BUT_DFMavlink.Name = "BUT_DFMavlink";
             this.BUT_DFMavlink.UseVisualStyleBackColor = true;
@@ -1703,6 +1601,7 @@
             this.but_dflogtokml.ColorMouseDown = System.Drawing.Color.Empty;
             this.but_dflogtokml.ColorMouseOver = System.Drawing.Color.Empty;
             this.but_dflogtokml.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.but_dflogtokml.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.but_dflogtokml, "but_dflogtokml");
             this.but_dflogtokml.Name = "but_dflogtokml";
             this.but_dflogtokml.UseVisualStyleBackColor = true;
@@ -1713,6 +1612,7 @@
             this.but_bintolog.ColorMouseDown = System.Drawing.Color.Empty;
             this.but_bintolog.ColorMouseOver = System.Drawing.Color.Empty;
             this.but_bintolog.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.but_bintolog.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.but_bintolog, "but_bintolog");
             this.but_bintolog.Name = "but_bintolog";
             this.but_bintolog.UseVisualStyleBackColor = true;
@@ -1723,6 +1623,7 @@
             this.BUT_matlab.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_matlab.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_matlab.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_matlab.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_matlab, "BUT_matlab");
             this.BUT_matlab.Name = "BUT_matlab";
             this.BUT_matlab.UseVisualStyleBackColor = true;
@@ -1733,6 +1634,7 @@
             this.BUT_logbrowse.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_logbrowse.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_logbrowse.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_logbrowse.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_logbrowse, "BUT_logbrowse");
             this.BUT_logbrowse.Name = "BUT_logbrowse";
             this.BUT_logbrowse.UseVisualStyleBackColor = true;
@@ -1764,6 +1666,7 @@
             this.BUT_edit_selected.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_edit_selected.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_edit_selected.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_edit_selected.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_edit_selected, "BUT_edit_selected");
             this.BUT_edit_selected.Name = "BUT_edit_selected";
             this.BUT_edit_selected.UseVisualStyleBackColor = true;
@@ -1779,6 +1682,7 @@
             this.BUT_run_script.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_run_script.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_run_script.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_run_script.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_run_script, "BUT_run_script");
             this.BUT_run_script.Name = "BUT_run_script";
             this.BUT_run_script.UseVisualStyleBackColor = true;
@@ -1789,6 +1693,7 @@
             this.BUT_abort_script.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_abort_script.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_abort_script.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_abort_script.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_abort_script, "BUT_abort_script");
             this.BUT_abort_script.Name = "BUT_abort_script";
             this.BUT_abort_script.UseVisualStyleBackColor = true;
@@ -1804,6 +1709,7 @@
             this.BUT_select_script.ColorMouseDown = System.Drawing.Color.Empty;
             this.BUT_select_script.ColorMouseOver = System.Drawing.Color.Empty;
             this.BUT_select_script.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_select_script.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_select_script, "BUT_select_script");
             this.BUT_select_script.Name = "BUT_select_script";
             this.BUT_select_script.UseVisualStyleBackColor = true;
@@ -1834,6 +1740,7 @@
             // 
             // BUT_PayloadFolder
             // 
+            this.BUT_PayloadFolder.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_PayloadFolder, "BUT_PayloadFolder");
             this.BUT_PayloadFolder.Name = "BUT_PayloadFolder";
             this.BUT_PayloadFolder.UseVisualStyleBackColor = true;
@@ -1892,6 +1799,7 @@
             // 
             // BUT_resetGimbalPos
             // 
+            this.BUT_resetGimbalPos.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_resetGimbalPos, "BUT_resetGimbalPos");
             this.BUT_resetGimbalPos.Name = "BUT_resetGimbalPos";
             this.BUT_resetGimbalPos.UseVisualStyleBackColor = true;
@@ -2093,18 +2001,11 @@
             this.but_disablejoystick.ColorMouseDown = System.Drawing.Color.Empty;
             this.but_disablejoystick.ColorMouseOver = System.Drawing.Color.Empty;
             this.but_disablejoystick.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.but_disablejoystick.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.but_disablejoystick, "but_disablejoystick");
             this.but_disablejoystick.Name = "but_disablejoystick";
             this.but_disablejoystick.UseVisualStyleBackColor = true;
             this.but_disablejoystick.Click += new System.EventHandler(this.but_disablejoystick_Click);
-            // 
-            // distanceBar1
-            // 
-            resources.ApplyResources(this.distanceBar1, "distanceBar1");
-            this.distanceBar1.BackColor = System.Drawing.Color.Transparent;
-            this.distanceBar1.Name = "distanceBar1";
-            this.distanceBar1.totaldist = 100F;
-            this.distanceBar1.traveleddist = 0F;
             // 
             // windDir1
             // 
@@ -2328,6 +2229,146 @@
             // bindingSourceStatusTab
             // 
             this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
+            // modifyandSetLoiterRad
+            // 
+            this.modifyandSetLoiterRad.ButtonText = "Set Loiter Rad";
+            resources.ApplyResources(this.modifyandSetLoiterRad, "modifyandSetLoiterRad");
+            this.modifyandSetLoiterRad.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.modifyandSetLoiterRad.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.modifyandSetLoiterRad.Name = "modifyandSetLoiterRad";
+            this.modifyandSetLoiterRad.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.modifyandSetLoiterRad.Click += new System.EventHandler(this.modifyandSetLoiterRad_Click);
+            // 
+            // modifyandSetSpeed
+            // 
+            this.modifyandSetSpeed.ButtonText = "Change Speed";
+            resources.ApplyResources(this.modifyandSetSpeed, "modifyandSetSpeed");
+            this.modifyandSetSpeed.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.modifyandSetSpeed.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.modifyandSetSpeed.Name = "modifyandSetSpeed";
+            this.modifyandSetSpeed.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.modifyandSetSpeed.Click += new System.EventHandler(this.modifyandSetSpeed_Click);
+            this.modifyandSetSpeed.ParentChanged += new System.EventHandler(this.modifyandSetSpeed_ParentChanged);
+            // 
+            // modifyandSetAlt
+            // 
+            this.modifyandSetAlt.ButtonText = "Change Alt";
+            resources.ApplyResources(this.modifyandSetAlt, "modifyandSetAlt");
+            this.modifyandSetAlt.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.modifyandSetAlt.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.modifyandSetAlt.Name = "modifyandSetAlt";
+            this.modifyandSetAlt.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.modifyandSetAlt.Click += new System.EventHandler(this.modifyandSetAlt_Click);
+            // 
+            // checkListControl1
+            // 
+            resources.ApplyResources(this.checkListControl1, "checkListControl1");
+            this.checkListControl1.Name = "checkListControl1";
+            // 
+            // servoOptions1
+            // 
+            resources.ApplyResources(this.servoOptions1, "servoOptions1");
+            this.servoOptions1.Name = "servoOptions1";
+            this.servoOptions1.thisservo = 5;
+            // 
+            // servoOptions2
+            // 
+            resources.ApplyResources(this.servoOptions2, "servoOptions2");
+            this.servoOptions2.Name = "servoOptions2";
+            this.servoOptions2.thisservo = 6;
+            // 
+            // servoOptions3
+            // 
+            resources.ApplyResources(this.servoOptions3, "servoOptions3");
+            this.servoOptions3.Name = "servoOptions3";
+            this.servoOptions3.thisservo = 7;
+            // 
+            // servoOptions4
+            // 
+            resources.ApplyResources(this.servoOptions4, "servoOptions4");
+            this.servoOptions4.Name = "servoOptions4";
+            this.servoOptions4.thisservo = 8;
+            // 
+            // servoOptions5
+            // 
+            resources.ApplyResources(this.servoOptions5, "servoOptions5");
+            this.servoOptions5.Name = "servoOptions5";
+            this.servoOptions5.thisservo = 9;
+            // 
+            // servoOptions6
+            // 
+            resources.ApplyResources(this.servoOptions6, "servoOptions6");
+            this.servoOptions6.Name = "servoOptions6";
+            this.servoOptions6.thisservo = 10;
+            // 
+            // servoOptions7
+            // 
+            resources.ApplyResources(this.servoOptions7, "servoOptions7");
+            this.servoOptions7.Name = "servoOptions7";
+            this.servoOptions7.thisservo = 11;
+            // 
+            // servoOptions8
+            // 
+            resources.ApplyResources(this.servoOptions8, "servoOptions8");
+            this.servoOptions8.Name = "servoOptions8";
+            this.servoOptions8.thisservo = 12;
+            // 
+            // servoOptions9
+            // 
+            resources.ApplyResources(this.servoOptions9, "servoOptions9");
+            this.servoOptions9.Name = "servoOptions9";
+            this.servoOptions9.thisservo = 13;
+            // 
+            // servoOptions10
+            // 
+            resources.ApplyResources(this.servoOptions10, "servoOptions10");
+            this.servoOptions10.Name = "servoOptions10";
+            this.servoOptions10.thisservo = 14;
+            // 
+            // distanceBar1
+            // 
+            resources.ApplyResources(this.distanceBar1, "distanceBar1");
+            this.distanceBar1.BackColor = System.Drawing.Color.Transparent;
+            this.distanceBar1.Name = "distanceBar1";
+            this.distanceBar1.totaldist = 100F;
+            this.distanceBar1.traveleddist = 0F;
             // 
             // FlightData
             // 

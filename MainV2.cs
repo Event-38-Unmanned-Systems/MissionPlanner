@@ -427,9 +427,8 @@ namespace MissionPlanner
         public void updateLayout(object sender, EventArgs e)
         {
             MenuSimulation.Visible = DisplayConfiguration.displaySimulation;
-            MenuTerminal.Visible = DisplayConfiguration.displayTerminal;
-            MenuHelp.Visible = DisplayConfiguration.displayHelp;
-            MenuDonate.Visible = DisplayConfiguration.displayDonate;
+           // MenuTerminal.Visible = DisplayConfiguration.displayTerminal;
+           // MenuHelp.Visible = DisplayConfiguration.displayHelp;
             MissionPlanner.Controls.BackstageView.BackstageView.Advanced = DisplayConfiguration.isAdvancedMode;
 
             if (Settings.Instance.GetBoolean("menu_autohide") != DisplayConfiguration.autoHideMenuForce)
@@ -979,16 +978,10 @@ namespace MissionPlanner
                 this.Icon = Icon.FromHandle(((Bitmap)Program.IconFile).GetHicon());
             }
 
-            if (Program.Logo2 != null)
-                MenuArduPilot.Image = Program.Logo2;
 
             if (Program.Logo != null && Program.name == "VVVVZ")
             {
-                MenuDonate.Click -= this.toolStripMenuItem1_Click;
-                MenuDonate.Text = "";
-                MenuDonate.Image = Program.Logo;
 
-                MenuDonate.Click += MenuCustom_Click;
 
                 MenuFlightData.Visible = false;
                 MenuFlightPlanner.Visible = true;
@@ -1000,9 +993,7 @@ namespace MissionPlanner
             }
             else if (Program.Logo != null && Program.names.Contains(Program.name))
             {
-                MenuDonate.Click -= this.toolStripMenuItem1_Click;
-                MenuDonate.Text = "";
-                MenuDonate.Image = Program.Logo;
+
             }
 
 
@@ -1117,7 +1108,6 @@ namespace MissionPlanner
             MenuTerminal.Image = displayicons.terminal;
             MenuConnect.Image = displayicons.connect;
             MenuHelp.Image = displayicons.help;
-            MenuDonate.Image = displayicons.donate;
 
 
             MenuFlightData.ForeColor = ThemeManager.TextColor;
@@ -1128,7 +1118,6 @@ namespace MissionPlanner
             MenuTerminal.ForeColor = ThemeManager.TextColor;
             MenuConnect.ForeColor = ThemeManager.TextColor;
             MenuHelp.ForeColor = ThemeManager.TextColor;
-            MenuDonate.ForeColor = ThemeManager.TextColor;
         }
 
         void MenuCustom_Click(object sender, EventArgs e)

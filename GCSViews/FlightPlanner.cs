@@ -52,12 +52,15 @@ namespace MissionPlanner.GCSViews
         int selectedrow;
         public bool quickadd;
         bool sethome;
-        bool polygongridmode;
+        bool polygongridmode = true;
+        bool rallyMode = false;
+        bool fenceMode = false;
         bool splinemode;
+        bool init = true;
+        MissionPlanner.Controls.Icon.Polygon polyicon = new MissionPlanner.Controls.Icon.Polygon();
         altmode currentaltmode = altmode.Relative;
 
         bool grid;
-
         public static FlightPlanner instance;
 
         public List<PointLatLngAlt> pointlist { get; set; } = new List<PointLatLngAlt>();
@@ -441,8 +444,8 @@ namespace MissionPlanner.GCSViews
                     lastbearing = MainMap.MapProvider.Projection.GetBearing(last, currentMarker.Position);
                 }
 
-                lbl_prevdist.Text = rm.GetString("lbl_prevdist.Text") + ": " + FormatDistance(lastdist, true) + " AZ: " +
-                                    lastbearing.ToString("0");
+                //lbl_prevdist.Text = rm.GetString("lbl_prevdist.Text") + ": " + FormatDistance(lastdist, true) + " AZ: " +
+                      //              lastbearing.ToString("0");
 
                 // 0 is home
                 if (pointlist[0] != null)
@@ -471,6 +474,8 @@ namespace MissionPlanner.GCSViews
                 addPolygonPointToolStripMenuItem_Click(null, null);
                 return;
             }
+
+
 
             if (sethome)
             {
@@ -1508,7 +1513,7 @@ namespace MissionPlanner.GCSViews
                         }
                         sw.Close();
 
-                        lbl_wpfile.Text = "Saved " + Path.GetFileName(file);
+                        //lbl_wpfile.Text = "Saved " + Path.GetFileName(file);
                     }
                     catch (Exception)
                     {
@@ -2701,7 +2706,7 @@ namespace MissionPlanner.GCSViews
                         }
                     }
 
-                    lbl_wpfile.Text = "Loaded " + Path.GetFileName(file);
+                   // lbl_wpfile.Text = "Loaded " + Path.GetFileName(file);
                 }
             }
         }
@@ -3333,6 +3338,45 @@ namespace MissionPlanner.GCSViews
                     if (CurentRectMarker != null)
                     {
                         // cant add WP in existing rect
+                    }
+                    else if(rallyMode == true){
+                            string altstring = TXT_DefaultAlt.Text;
+
+                            if (InputBox.Show("Altitude", "Altitude", ref altstring) == DialogResult.Cancel)
+                                return;
+
+                            int alt = 0;
+
+                            if (int.TryParse(altstring, out alt))
+                            {
+                                PointLatLngAlt rallypt = new PointLatLngAlt(currentMarker.Position.Lat, currentMarker.Position.Lng,
+                                    alt / CurrentState.multiplieralt, "Rally Point");
+                                rallypointoverlay.Markers.Add(
+                                    new GMapMarkerRallyPt(rallypt)
+                                    {
+                                        ToolTipMode = MarkerTooltipMode.OnMouseOver,
+                                        ToolTipText = "Rally Point" + "\nAlt: " + alt,
+                                        Tag = rallypointoverlay.Markers.Count,
+                                        Alt = (int)rallypt.Alt
+                                    }
+                                    );
+                            }
+                            else
+                            {
+                                CustomMessageBox.Show(Strings.InvalidAlt, Strings.ERROR);
+                            }                    
+                    }
+
+
+                    else if (fenceMode == true)
+                    {
+                        geofenceoverlay.Markers.Clear();
+                        geofenceoverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(currentMarker.Position.Lat, currentMarker.Position.Lng),
+                            GMarkerGoogleType.red)
+                        { ToolTipMode = MarkerTooltipMode.OnMouseOver, ToolTipText = "GeoFence Return" });
+
+                        MainMap.Invalidate();
+                        fenceMode = false;
                     }
                     else
                     {
@@ -5969,13 +6013,18 @@ namespace MissionPlanner.GCSViews
 
             e.Graphics.ResetTransform();
 
-            polyicon.Location = new Point(10,100);
+            polyicon.Location = new Point(1125,20);
             polyicon.Paint(e.Graphics);
+            if (init)
+            {
 
+                polyicon.IsSelected = true;
+                init = false;
+            }
             e.Graphics.ResetTransform();
         }
 
-        MissionPlanner.Controls.Icon.Polygon polyicon = new MissionPlanner.Controls.Icon.Polygon();
+        
 
         private void chk_grid_CheckedChanged(object sender, EventArgs e)
         {
@@ -6553,20 +6602,20 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void switchDockingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (panelAction.Dock == DockStyle.Bottom)
+            if (wpPlanning.Dock == DockStyle.Bottom)
             {
-                panelAction.Dock = DockStyle.Right;
+                wpPlanning.Dock = DockStyle.Right;
                 panelWaypoints.Dock = DockStyle.Bottom;
             }
             else
             {
-                panelAction.Dock = DockStyle.Bottom;
-                panelAction.Height = 120;
+                wpPlanning.Dock = DockStyle.Bottom;
+                wpPlanning.Height = 120;
                 panelWaypoints.Dock = DockStyle.Right;
                 panelWaypoints.Width = Width/2;
             }
 
-            Settings.Instance["FP_docking"] = panelAction.Dock.ToString();
+            Settings.Instance["FP_docking"] = wpPlanning.Dock.ToString();
         }
 
         private void insertSplineWPToolStripMenuItem_Click(object sender, EventArgs e)
@@ -7032,6 +7081,206 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             frmProgressReporter.Dispose();
 
             MainMap.Focus();
+        }
+
+        private void lbl_distance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void but_writewpfast_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
+
+        private void MainMap_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SurveyGrid_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+        }
+
+        private void SurveyGrid_Click(object sender, EventArgs e)
+        {
+            GridPlugin grid = new GridPlugin();
+            grid.Host = new PluginHost();
+            grid.but_Click(sender, e);
+        }
+
+        private void importShp_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
+
+        private void importShp_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog fd = new OpenFileDialog())
+            {
+                fd.Filter = "Shape file|*.shp";
+                DialogResult result = fd.ShowDialog();
+                string file = fd.FileName;
+
+                LoadSHPFile(file);
+            }
+        }
+
+        private void ClearWPs_Click(object sender, EventArgs e)
+        {
+            clearMissionToolStripMenuItem_Click(this, null);
+        }
+
+        private void myButton1_Click(object sender, EventArgs e)
+        {
+            clearPolygonToolStripMenuItem_Click(this, null);
+        }
+
+        private void elevationGraph_Click(object sender, EventArgs e)
+        {
+            elevationGraphToolStripMenuItem_Click(this, null);
+        }
+
+        private void myButton2_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
+
+        private void panel2_ExpandClick(object sender, EventArgs e)
+        {
+        }
+
+        private void panel2_ExpandClick(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
+        {
+            polyicon.IsSelected = false;
+            rallyMode = true;
+            fenceMode = false;
+            polygongridmode = false;
+        }
+
+        private void panel2_PanelCollapsing(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
+        {
+            polyicon.IsSelected = false;
+            rallyMode = false;
+            fenceMode = false;
+            polygongridmode = false;
+        }
+
+        private void clearRally_Click(object sender, EventArgs e)
+        {
+            clearRallyPointsToolStripMenuItem_Click(this, null);
+        }
+
+        private void saveRally_Click(object sender, EventArgs e)
+        {
+            saveRallyPointsToolStripMenuItem_Click(this, null);
+        }
+
+        private void loadRally_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
+
+        private void loadRally_Click(object sender, EventArgs e)
+        {
+            loadRally_Click(this, null);
+        }
+
+        private void readRally_Click(object sender, EventArgs e)
+        {
+            readRally_Click(this, null);
+        }
+
+        private void writeRally_Click(object sender, EventArgs e)
+        {
+            writeRally_Click(this, null);
+        }
+
+        private void loadFence_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void loadFence_Click(object sender, EventArgs e)
+        {
+            loadFromFileToolStripMenuItem_Click(this,null);
+        }
+
+        private void loadPoints_Click(object sender, EventArgs e)
+        {
+            loadFromFileToolStripMenuItem1_Click(this, null);
+        }
+
+        private void savePoints_Click(object sender, EventArgs e)
+        {
+            saveToFileToolStripMenuItem1_Click(this, null);
+        }
+
+        private void setReturn_Click(object sender, EventArgs e)
+        {
+            CustomMessageBox.Show("Click on the screen to select your GeoFence return point.");
+            fenceMode = true;
+        }
+
+        private void saveFence_Click(object sender, EventArgs e)
+        {
+            saveToFileToolStripMenuItem_Click(this, null);
+        }
+
+        private void writeFence_Click(object sender, EventArgs e)
+        {
+            GeoFenceuploadToolStripMenuItem_Click(this, null);
+        }
+
+        private void readFence_Click(object sender, EventArgs e)
+        {
+            GeoFencedownloadToolStripMenuItem_Click(this, null);
+        }
+
+        private void setReturn_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
+
+        private void wpPlanning_PanelCollapsing(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
+        {
+            polyicon.IsSelected = false;
+            rallyMode = false;
+            fenceMode = false;
+            polygongridmode = false;
+        }
+
+        private void wpPlanning_PanelExpanding(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
+        {
+            polyicon.IsSelected = true;
+            rallyMode = false;
+            fenceMode = false;
+            polygongridmode = true;
+        }
+
+        private void fencePlanning_PanelExpanding(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
+        {
+            polyicon.IsSelected = true;
+            rallyMode = false;
+            fenceMode = false;
+            polygongridmode = true;
+        }
+
+        private void fencePlanning_PanelCollapsing(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
+        {
+            polyicon.IsSelected = false;
+            rallyMode = true;
+            fenceMode = false;
+            polygongridmode = false;
+        }
+
+        private void clearFence_Click(object sender, EventArgs e)
+        {
+            if (geofenceoverlay.Markers.Count() != 0)
+            {
+                geofenceoverlay.Clear();
+            }
+            clearPolygonToolStripMenuItem_Click(this, null);
         }
     }
 }
