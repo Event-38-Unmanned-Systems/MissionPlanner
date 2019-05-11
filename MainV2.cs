@@ -80,6 +80,41 @@ namespace MissionPlanner
             }
         }
 
+        public double MercuryPascal = 0;
+        public double AltMSL = 0;
+        public bool canRun = false;
+        CurrentState cs3 = new CurrentState();
+        public void calcMSL(){
+
+            if (canRun)
+            {
+                try
+                {
+                    double p0 = MercuryPascal;
+                    double p = MainV2.comPort.MAV.cs.raw_press;
+                    double power = 1 / 5.257;
+                    double temp = MainV2.comPort.MAV.cs.press_temp;
+
+                    MSL_ALT_DISPLAY.Text = (Math.Floor((((Math.Pow((p0 / p), power) - 1) * (273.15 + (temp / 100))) / .0065) * CurrentState.multiplieralt)).ToString() + " Alt MSL";
+                }
+                catch { }
+            }
+            try
+            {
+                if (MainV2.comPort.MAV.cs.latddmmss != null)
+                {
+                    Lat_Lon_Display.Text = MainV2.comPort.MAV.cs.lngddmmss + " " + MainV2.comPort.MAV.cs.latddmmss;
+
+                }
+                else
+                {
+                    Lat_Lon_Display.Text = "Waiting on GPS Signal";
+                }
+               
+            }
+            catch { }
+        }
+
         public static menuicons displayicons = new burntkermitmenuicons();
 
         public abstract class menuicons
@@ -2614,7 +2649,7 @@ namespace MissionPlanner
                             }
                         }
                     }
-
+                    calcMSL();
                     // get home point on armed status change.
                     if (armedstatus != MainV2.comPort.MAV.cs.armed && comPort.BaseStream.IsOpen)
                     {

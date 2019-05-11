@@ -7193,7 +7193,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void writeRally_Click(object sender, EventArgs e)
         {
-            writeRally_Click(this, null);
+            saveRallyPointsToolStripMenuItem_Click(this, null);
         }
 
         private void loadFence_MouseClick(object sender, MouseEventArgs e)
@@ -7282,5 +7282,6 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             }
             clearPolygonToolStripMenuItem_Click(this, null);
         }
+
     }
 }

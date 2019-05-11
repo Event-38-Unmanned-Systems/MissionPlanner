@@ -54,6 +54,8 @@ namespace MissionPlanner
             this.MenuHelp = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
+            this.MSL_ALT_DISPLAY = new System.Windows.Forms.Label();
+            this.Lat_Lon_Display = new System.Windows.Forms.Label();
             this.CTX_mainmenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.MainMenu.SuspendLayout();
@@ -114,6 +116,8 @@ namespace MissionPlanner
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.Lat_Lon_Display);
+            this.panel1.Controls.Add(this.MSL_ALT_DISPLAY);
             this.panel1.Controls.Add(this.MainMenu);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
@@ -225,6 +229,16 @@ namespace MissionPlanner
             resources.ApplyResources(this.toolStripConnectionControl, "toolStripConnectionControl");
             this.toolStripConnectionControl.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
             // 
+            // MSL_ALT_DISPLAY
+            // 
+            resources.ApplyResources(this.MSL_ALT_DISPLAY, "MSL_ALT_DISPLAY");
+            this.MSL_ALT_DISPLAY.Name = "MSL_ALT_DISPLAY";
+            // 
+            // Lat_Lon_Display
+            // 
+            resources.ApplyResources(this.Lat_Lon_Display, "Lat_Lon_Display");
+            this.Lat_Lon_Display.Name = "Lat_Lon_Display";
+            // 
             // MainV2
             // 
             resources.ApplyResources(this, "$this");
@@ -264,5 +278,7 @@ namespace MissionPlanner
         private System.Windows.Forms.ToolStripButton MenuHelp;
         public System.Windows.Forms.ToolStripButton MenuConnect;
         private Controls.ToolStripConnectionControl toolStripConnectionControl;
+        private System.Windows.Forms.Label Lat_Lon_Display;
+        private System.Windows.Forms.Label MSL_ALT_DISPLAY;
     }
 }

@@ -39,6 +39,48 @@ namespace MissionPlanner
         public static float multiplieralt = 1;
         public static string AltUnit = "";
 
+        public static string DDtoDMS(double coordinate, string latlon)
+        {
+            // Set flag if number is negative
+            bool neg = coordinate < 0d;
+
+            // Work with a positive number
+            coordinate = Math.Abs(coordinate);
+
+            // Get d/m/s components
+            double d = Math.Floor(coordinate);
+            coordinate -= d;
+            coordinate *= 60;
+            double m = coordinate;
+            coordinate -= m;
+            coordinate *= 60;
+            double s = Math.Round(coordinate);
+
+            // Create padding character
+            char pad;
+            char.TryParse("0", out pad);
+
+            // Create d/m/s strings
+            string dd = d.ToString();
+            string mm = m.ToString().PadLeft(2, pad);
+            mm = m.ToString("##.##");
+            //string ss = s.ToString().PadLeft(2, pad);
+
+            // Append d/m/s
+            string dms = string.Format("{0}°{1}'\"", dd, mm);
+
+            // Append compass heading
+            if (latlon == "lon") {
+                dms += neg ? "W" : "E";
+            }
+            else if (latlon == "lat") { 
+                    dms += neg ? "S" : "N";
+            }
+
+            // Return formated string
+            return dms;
+        }
+        
         public static double toDistDisplayUnit(double input)
         {
             return input * multiplierdist;
@@ -118,6 +160,12 @@ namespace MissionPlanner
 
         [DisplayText("Longitude (dd)")]
         public double lng { get; set; }
+        // position
+        [DisplayText("Latitude (ddmm.ss)")]
+        public string latddmmss { get; set; }
+
+        [DisplayText("Longitude (ddmm.ss)")]
+        public string lngddmmss { get; set; }
 
         [DisplayText("Altitude (alt)")]
         public float alt
@@ -2342,7 +2390,15 @@ namespace MissionPlanner
                         {
                             lat = gps.lat*1.0e-7;
                             lng = gps.lon*1.0e-7;
+                            try
+                            {
 
+                            
+                                lngddmmss = DDtoDMS(lat, "lat");
+                                latddmmss = DDtoDMS(lng, "lon");
+                            }
+                            catch { 
+}
                             altasl = gps.alt/1000.0f;
                             // alt = gps.alt; // using vfr as includes baro calc
                         }

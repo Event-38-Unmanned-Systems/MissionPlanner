@@ -269,6 +269,10 @@ namespace MissionPlanner.GCSViews
 
 
             CMB_action.DataSource = list;
+            comboBox2.DataSource = Common.getModesList(MainV2.comPort.MAV.cs.firmware);
+            comboBox2.ValueMember = "Key";
+            comboBox2.DisplayMember = "Value";
+            comboBox2.Text = "Auto";
 
             CMB_modes.DataSource = Common.getModesList(MainV2.comPort.MAV.cs.firmware);
             CMB_modes.ValueMember = "Key";
@@ -4690,6 +4694,87 @@ namespace MissionPlanner.GCSViews
             }
 
             Settings.config["groundColorToolStripMenuItem"] = groundColorToolStripMenuItem.Checked.ToString();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleModeSet_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
+
+        private void simpleModeSet_Click(object sender, EventArgs e)
+        {
+            if (MainV2.comPort.MAV.cs.failsafe)
+            {
+                if (CustomMessageBox.Show("You are in failsafe, are you sure?", "Failsafe", MessageBoxButtons.YesNo) != (int)DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+            MainV2.comPort.setMode(comboBox2.Text);
+        }
+
+        private void myButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ((Control)sender).Enabled = false;
+                MainV2.comPort.setWPCurrent((ushort)CMB_setwp.SelectedIndex); // set nav to
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            }
+            ((Control)sender).Enabled = true;
+        }
+
+        private void baroCal_Click(object sender, EventArgs e)
+        {
+            if (
+                CustomMessageBox.Show("Are you sure you want to do a barometer calibration?", "Action",
+                    MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
+            {
+                try
+                {
+                    ((Control)sender).Enabled = false;
+
+                    int param1 = 0;
+                    int param3 = 1;
+
+                    
+                   
+
+                    MainV2.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "PREFLIGHT_CALIBRATION"),
+                        param1, 0, param3, 0, 0, 0, 0);
+                }
+                catch
+                {
+                    CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+                }
+                ((Control)sender).Enabled = true;
+            }
+        }
+
+        private void updatePressure_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
+
+        private void updatePressure_Click(object sender, EventArgs e)
+        {
+            try{
+
+                MainV2.instance.MercuryPascal = double.Parse(textBox1.Text) / .0002953;
+                MainV2.instance.canRun = true;
+            }
+            catch
+            {
+                CustomMessageBox.Show("please enter a valid pressure setting in IN Hg");
+            }
         }
     }
 }

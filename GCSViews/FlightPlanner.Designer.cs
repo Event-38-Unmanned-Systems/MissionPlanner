@@ -118,6 +118,7 @@ namespace MissionPlanner.GCSViews
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.setReturn = new MissionPlanner.Controls.MyButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clearFence = new MissionPlanner.Controls.MyButton();
             this.loadFence = new MissionPlanner.Controls.MyButton();
             this.saveFence = new MissionPlanner.Controls.MyButton();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -233,7 +234,6 @@ namespace MissionPlanner.GCSViews
             this.panelBASE = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.clearFence = new MissionPlanner.Controls.MyButton();
             this.panel1.SuspendLayout();
             this.panelWaypoints.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
@@ -807,6 +807,14 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // clearFence
+            // 
+            this.clearFence.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.clearFence, "clearFence");
+            this.clearFence.Name = "clearFence";
+            this.clearFence.UseVisualStyleBackColor = true;
+            this.clearFence.Click += new System.EventHandler(this.clearFence_Click);
             // 
             // loadFence
             // 
@@ -1700,14 +1708,6 @@ namespace MissionPlanner.GCSViews
             // 
             this.timer1.Interval = 1200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // clearFence
-            // 
-            this.clearFence.DialogResult = System.Windows.Forms.DialogResult.None;
-            resources.ApplyResources(this.clearFence, "clearFence");
-            this.clearFence.Name = "clearFence";
-            this.clearFence.UseVisualStyleBackColor = true;
-            this.clearFence.Click += new System.EventHandler(this.clearFence_Click);
             // 
             // FlightPlanner
             // 
