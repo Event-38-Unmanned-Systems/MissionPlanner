@@ -7150,20 +7150,66 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         {
         }
 
-        private void panel2_ExpandClick(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
+        //0 ral 1 wp 2 fence
+        int lastopen = 2;
+        
+        private void setPannel(int panel)
         {
-            polyicon.IsSelected = false;
-            rallyMode = true;
-            fenceMode = false;
-            polygongridmode = false;
+            if (panel == -1)
+            {
+                polyicon.IsSelected = false;
+                rallyMode = false;
+                fenceMode = false;
+                polygongridmode = false;
+            }
+
+            else if (panel == 0)
+            {
+                polyicon.IsSelected = false;
+                rallyMode = true;
+                fenceMode = false;
+                polygongridmode = false;
+            }
+            else if (panel == 1)
+            {
+                polyicon.IsSelected = false;
+                rallyMode = false;
+                fenceMode = false;
+                polygongridmode = false;
+            }
+            else if (panel == 2)
+            {
+                polyicon.IsSelected = true;
+                rallyMode = false;
+                fenceMode = false;
+                polygongridmode = true;
+            }
+
+        }
+
+        private void openPannel(int open)
+        {
+            if (lastopen != open)
+            {
+                setPannel(lastopen);
+                open = lastopen;
+            }
+            else
+            {
+                setPannel(open);
+                lastopen = open;
+            }
+        }
+
+        private void panel2_ExpandClick(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
+        {            
+            openPannel(0);
         }
 
         private void panel2_PanelCollapsing(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
         {
-            polyicon.IsSelected = false;
-            rallyMode = false;
-            fenceMode = false;
-            polygongridmode = false;
+            //if waypoint tab closes we have to be on rally tab.
+            setPannel(-1);
         }
 
         private void clearRally_Click(object sender, EventArgs e)
@@ -7244,34 +7290,22 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void wpPlanning_PanelCollapsing(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
         {
-            polyicon.IsSelected = false;
-            rallyMode = false;
-            fenceMode = false;
-            polygongridmode = false;
+            setPannel(0);
         }
 
         private void wpPlanning_PanelExpanding(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
         {
-            polyicon.IsSelected = true;
-            rallyMode = false;
-            fenceMode = false;
-            polygongridmode = true;
+            openPannel(1);
         }
 
         private void fencePlanning_PanelExpanding(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
         {
-            polyicon.IsSelected = true;
-            rallyMode = false;
-            fenceMode = false;
-            polygongridmode = true;
+            openPannel(2);   
         }
 
         private void fencePlanning_PanelCollapsing(object sender, BSE.Windows.Forms.XPanderStateChangeEventArgs e)
         {
-            polyicon.IsSelected = false;
-            rallyMode = true;
-            fenceMode = false;
-            polygongridmode = false;
+            setPannel(1);
         }
 
         private void clearFence_Click(object sender, EventArgs e)

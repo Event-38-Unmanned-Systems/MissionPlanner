@@ -700,8 +700,8 @@ namespace MissionPlanner.GCSViews
             this.wpPlanning.ToolTipTextCloseIcon = null;
             this.wpPlanning.ToolTipTextExpandIconPanelCollapsed = null;
             this.wpPlanning.ToolTipTextExpandIconPanelExpanded = null;
-            this.wpPlanning.PanelExpanding += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.wpPlanning_PanelExpanding);
-            this.wpPlanning.PanelCollapsing += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.wpPlanning_PanelCollapsing);
+            this.wpPlanning.PanelExpanding += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.panel2_ExpandClick);
+            this.wpPlanning.PanelCollapsing += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.panel2_PanelCollapsing);
             // 
             // splitter2
             // 
@@ -740,8 +740,8 @@ namespace MissionPlanner.GCSViews
             this.panel2.ToolTipTextCloseIcon = null;
             this.panel2.ToolTipTextExpandIconPanelCollapsed = null;
             this.panel2.ToolTipTextExpandIconPanelExpanded = null;
-            this.panel2.PanelExpanding += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.panel2_ExpandClick);
-            this.panel2.PanelCollapsing += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.panel2_PanelCollapsing);
+            this.panel2.PanelExpanding += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.wpPlanning_PanelExpanding);
+            this.panel2.PanelCollapsing += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.wpPlanning_PanelCollapsing);
             // 
             // fencePlanning
             // 
@@ -859,8 +859,9 @@ namespace MissionPlanner.GCSViews
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.groupBox6);
-            this.flowLayoutPanel3.Controls.Add(this.groupBox5);
+            this.flowLayoutPanel3.Controls.Add(this.groupBox4);
+            this.flowLayoutPanel3.Controls.Add(this.groupBox2);
+            this.flowLayoutPanel3.Controls.Add(this.wpOperations);
             resources.ApplyResources(this.flowLayoutPanel3, "flowLayoutPanel3");
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             // 
@@ -924,9 +925,8 @@ namespace MissionPlanner.GCSViews
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.groupBox4);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox2);
-            this.flowLayoutPanel1.Controls.Add(this.wpOperations);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox6);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox5);
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
