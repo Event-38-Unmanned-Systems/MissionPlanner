@@ -6109,6 +6109,7 @@ namespace MissionPlanner.GCSViews
                     MainV2.comPort.setRallyPoint(count, new PointLatLngAlt(pnt.Position) {Alt = pnt.Alt}, 0, 0, 0,
                         (byte) (float) MainV2.comPort.MAV.param["RALLY_TOTAL"]);
                     count++;
+                    CustomMessageBox.Show("Rally Points Succesfully Written");
                 }
                 catch
                 {
@@ -7229,12 +7230,12 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void loadRally_Click(object sender, EventArgs e)
         {
-            loadRally_Click(this, null);
+            loadFromFileToolStripMenuItem1_Click(this, null);
         }
 
         private void readRally_Click(object sender, EventArgs e)
         {
-            readRally_Click(this, null);
+            getRallyPointsToolStripMenuItem_Click(this, null);
         }
 
         private void writeRally_Click(object sender, EventArgs e)
