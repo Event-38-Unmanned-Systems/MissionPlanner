@@ -1055,6 +1055,31 @@ namespace MissionPlanner
                 }
             }
         }
+
+        [DisplayText("Density Altitude")]
+        public double DensityAlt
+        {
+            get
+            {
+                if (press_temp3 != 0 && press_abs3 != 0) {
+
+                    float P = press_abs3;
+                    float Psl = 1013.25f;
+                    float T = press_temp3 + 273.15f;
+                    float Tsl = 288.15f;
+                    float Tisar = .0065f;
+                    float R = 8.3144598f;
+                    float G = 9.80665f;
+                    float M = 0.028964f;
+                    double o = (1 - (Math.Pow(((P / Psl) / (T / Tsl)), ((Tisar * R) / ((G * M) - (Tisar * R))))));
+                    return o;
+                }
+                else {
+
+                    return 0;
+                }
+            }
+        }
         [DisplayText("Dist to Home NM")]
         public float DistToHomeNaut
         {
@@ -1291,10 +1316,13 @@ namespace MissionPlanner
         public int press_temp { get; set; }
         public float press_abs2 { get; set; }
         public int press_temp2 { get; set; }
+        public float press_abs3 { get; set; }        
+        public float press_temp3 { get; set; }
 
         //humidity
         public float raw_humidity { get; set; }
 
+       
         // sensor offsets
         public int mag_ofs_x { get; set; }
         public int mag_ofs_y { get; set; }
@@ -2328,6 +2356,14 @@ namespace MissionPlanner
                         raw_humidity = hum.raw_humidity;
 
                     }
+                    mavLinkMessage = MAV.getPacket((uint)MAVLink.MAVLINK_MSG_ID.SCALED_PRESSURE3);
+                    if (mavLinkMessage != null)
+                    {
+                        var press = mavLinkMessage.ToStructure<MAVLink.mavlink_scaled_pressure3_t>();
+                        press_abs3 = press.press_abs;
+                        press_temp3 = press.temperature;
+                    }
+
                     mavLinkMessage = MAV.getPacket((uint) MAVLink.MAVLINK_MSG_ID.TERRAIN_REPORT);
                     if (mavLinkMessage != null)
                     {
