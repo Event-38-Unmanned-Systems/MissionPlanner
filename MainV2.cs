@@ -3128,7 +3128,7 @@ namespace MissionPlanner
                 System.Configuration.ConfigurationManager.AppSettings["BetaUpdateLocationVersion"] = "";
             }
 
-            try
+           /* try
             {
                 // single update check per day - in a seperate thread
                 if (Settings.Instance["update_check"] != DateTime.Now.ToShortDateString())
@@ -3146,7 +3146,7 @@ namespace MissionPlanner
             {
                 log.Error("Update check failed", ex);
             }
-
+            */
             // play a tlog that was passed to the program/ load a bin log passed
             if (Program.args.Length > 0)
             {
@@ -3300,7 +3300,7 @@ namespace MissionPlanner
             }
 
             // show wizard on first use
-            if (Settings.Instance["newuser"] == null)
+        /*   if (Settings.Instance["newuser"] == null)
             {
                 if (CustomMessageBox.Show("This is your first run, Do you wish to use the setup wizard?\nRecomended for new users.", "Wizard", MessageBoxButtons.YesNo) == (int)System.Windows.Forms.DialogResult.Yes)
                 {
@@ -3312,7 +3312,7 @@ namespace MissionPlanner
                 CustomMessageBox.Show("To use the wizard please goto the initial setup screen, and click the wizard icon.", "Wizard");
 
                 Settings.Instance["newuser"] = DateTime.Now.ToShortDateString();
-            }
+            }*/
         }
 
         private Dictionary<string, string> ProcessCommandLine(string[] args)

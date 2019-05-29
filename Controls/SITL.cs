@@ -23,7 +23,7 @@ namespace MissionPlanner.Controls
 
         Uri sitlurl = new Uri("http://firmware.ardupilot.org/Tools/MissionPlanner/sitl/");
 
-        string sitldirectory = Settings.GetUserDataDirectory() + "sitl" +
+        string sitldirectory = Settings.GetRunningDirectory() + "sitl" +
                                Path.DirectorySeparatorChar;
 
         GMapOverlay markeroverlay;
@@ -188,22 +188,22 @@ namespace MissionPlanner.Controls
 
             var load = Common.LoadingBox("Downloading", "Downloading sitl software");
 
-            Download.getFilefromNet(fullurl.ToString(),
-                sitldirectory + Path.GetFileNameWithoutExtension(filename) + ".exe");
+           // Download.getFilefromNet(fullurl.ToString(),
+               // sitldirectory + Path.GetFileNameWithoutExtension(filename) + ".exe");
 
             load.Refresh();
 
             // dependancys
             var depurl = new Uri(sitlurl, "cyggcc_s-1.dll");
-            Download.getFilefromNet(depurl.ToString(), sitldirectory + depurl.Segments[depurl.Segments.Length - 1]);
+            //Download.getFilefromNet(depurl.ToString(), sitldirectory + depurl.Segments[depurl.Segments.Length - 1]);
 
             load.Refresh();
             depurl = new Uri(sitlurl, "cygstdc++-6.dll");
-            Download.getFilefromNet(depurl.ToString(), sitldirectory + depurl.Segments[depurl.Segments.Length - 1]);
+            //Download.getFilefromNet(depurl.ToString(), sitldirectory + depurl.Segments[depurl.Segments.Length - 1]);
 
             load.Refresh();
             depurl = new Uri(sitlurl, "cygwin1.dll");
-            Download.getFilefromNet(depurl.ToString(), sitldirectory + depurl.Segments[depurl.Segments.Length - 1]);
+            //Download.getFilefromNet(depurl.ToString(), sitldirectory + depurl.Segments[depurl.Segments.Length - 1]);
 
             load.Close();
 

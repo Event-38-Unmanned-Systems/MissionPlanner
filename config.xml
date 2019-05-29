@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <NUM_tracklength>200</NUM_tracklength>
+  <guid>379ef976-2e9f-4acb-9a81-cb9e261be20a</guid>
+  <terminaltheming>True</terminaltheming>
+  <plane_guid>4f911bdb-2aa0-47cc-80e3-0ff86d1fa9a6</plane_guid>
+  <copter_guid>439b1640-b6b4-4a0d-8dda-10b677711869</copter_guid>
+  <rover_guid>ed5fb293-6f6b-4b18-89aa-7f28dadb5652</rover_guid>
+  <Tuning_Graph_Selected>roll|pitch|nav_roll|nav_pitch|</Tuning_Graph_Selected>
+  <MapType>GoogleSatelliteMap</MapType>
+  <comport>AUTO</comport>
+  <AUTO_BAUD>115200</AUTO_BAUD>
+  <APMFirmware>ArduPlane</APMFirmware>
+  <menu_autohide>false</menu_autohide>
+  <groundColorToolStripMenuItem>False</groundColorToolStripMenuItem>
+  <kindexdate>5/11/2019</kindexdate>
+  <kindex>2</kindex>
+  <fw_check>5/11/2019</fw_check>
+  <AACheck2>True</AACheck2>
+  <update_check>5/11/2019</update_check>
+  <newuser>5/11/2019</newuser>
+  <maplast_lat>0</maplast_lat>
+  <maplast_lng>0</maplast_lng>
+  <maplast_zoom>3</maplast_zoom>
+  <TXT_homelat />
+  <TXT_homelng />
+  <TXT_homealt />
+  <TXT_WPRad>30</TXT_WPRad>
+  <TXT_loiterrad>45</TXT_loiterrad>
+  <TXT_DefaultAlt>100</TXT_DefaultAlt>
+  <CMB_altmode>Relative</CMB_altmode>
+  <fpminaltwarning>0</fpminaltwarning>
+  <fpcoordmouse>GEO</fpcoordmouse>
+  <displayview>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;DisplayView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;displayName&gt;Basic&lt;/displayName&gt;
+  &lt;displaySimulation&gt;true&lt;/displaySimulation&gt;
+  &lt;displayTerminal&gt;false&lt;/displayTerminal&gt;
+  &lt;displayDonate&gt;true&lt;/displayDonate&gt;
+  &lt;displayHelp&gt;true&lt;/displayHelp&gt;
+  &lt;displayAnenometer&gt;true&lt;/displayAnenometer&gt;
+  &lt;displayQuickTab&gt;true&lt;/displayQuickTab&gt;
+  &lt;displayPreFlightTab&gt;true&lt;/displayPreFlightTab&gt;
+  &lt;displayAdvActionsTab&gt;false&lt;/displayAdvActionsTab&gt;
+  &lt;displaySimpleActionsTab&gt;true&lt;/displaySimpleActionsTab&gt;
+  &lt;displayGaugesTab&gt;true&lt;/displayGaugesTab&gt;
+  &lt;displayStatusTab&gt;false&lt;/displayStatusTab&gt;
+  &lt;displayServoTab&gt;false&lt;/displayServoTab&gt;
+  &lt;displayScriptsTab&gt;false&lt;/displayScriptsTab&gt;
+  &lt;displayTelemetryTab&gt;true&lt;/displayTelemetryTab&gt;
+  &lt;displayDataflashTab&gt;true&lt;/displayDataflashTab&gt;
+  &lt;displayMessagesTab&gt;true&lt;/displayMessagesTab&gt;
+  &lt;displayRallyPointsMenu&gt;true&lt;/displayRallyPointsMenu&gt;
+  &lt;displayGeoFenceMenu&gt;true&lt;/displayGeoFenceMenu&gt;
+  &lt;displaySplineCircleAutoWp&gt;true&lt;/displaySplineCircleAutoWp&gt;
+  &lt;displayTextAutoWp&gt;true&lt;/displayTextAutoWp&gt;
+  &lt;displayCircleSurveyAutoWp&gt;true&lt;/displayCircleSurveyAutoWp&gt;
+  &lt;displayPoiMenu&gt;true&lt;/displayPoiMenu&gt;
+  &lt;displayTrackerHomeMenu&gt;true&lt;/displayTrackerHomeMenu&gt;
+  &lt;displayCheckHeightBox&gt;true&lt;/displayCheckHeightBox&gt;
+  &lt;displayPluginAutoWp&gt;true&lt;/displayPluginAutoWp&gt;
+  &lt;displayInstallFirmware&gt;true&lt;/displayInstallFirmware&gt;
+  &lt;displayWizard&gt;true&lt;/displayWizard&gt;
+  &lt;displayFrameType&gt;true&lt;/displayFrameType&gt;
+  &lt;displayAccelCalibration&gt;true&lt;/displayAccelCalibration&gt;
+  &lt;displayCompassConfiguration&gt;true&lt;/displayCompassConfiguration&gt;
+  &lt;displayRadioCalibration&gt;true&lt;/displayRadioCalibration&gt;
+  &lt;displayEscCalibration&gt;true&lt;/displayEscCalibration&gt;
+  &lt;displayFlightModes&gt;true&lt;/displayFlightModes&gt;
+  &lt;displayFailSafe&gt;true&lt;/displayFailSafe&gt;
+  &lt;displaySikRadio&gt;true&lt;/displaySikRadio&gt;
+  &lt;displayBattMonitor&gt;true&lt;/displayBattMonitor&gt;
+  &lt;displayCAN&gt;true&lt;/displayCAN&gt;
+  &lt;displayCompassMotorCalib&gt;true&lt;/displayCompassMotorCalib&gt;
+  &lt;displayRangeFinder&gt;true&lt;/displayRangeFinder&gt;
+  &lt;displayAirSpeed&gt;true&lt;/displayAirSpeed&gt;
+  &lt;displayPx4Flow&gt;true&lt;/displayPx4Flow&gt;
+  &lt;displayOpticalFlow&gt;true&lt;/displayOpticalFlow&gt;
+  &lt;displayOsd&gt;true&lt;/displayOsd&gt;
+  &lt;displayCameraGimbal&gt;true&lt;/displayCameraGimbal&gt;
+  &lt;displayMotorTest&gt;true&lt;/displayMotorTest&gt;
+  &lt;displayBluetooth&gt;true&lt;/displayBluetooth&gt;
+  &lt;displayParachute&gt;true&lt;/displayParachute&gt;
+  &lt;displayEsp&gt;true&lt;/displayEsp&gt;
+  &lt;displayAntennaTracker&gt;true&lt;/displayAntennaTracker&gt;
+  &lt;displayBasicTuning&gt;true&lt;/displayBasicTuning&gt;
+  &lt;displayExtendedTuning&gt;true&lt;/displayExtendedTuning&gt;
+  &lt;displayStandardParams&gt;true&lt;/displayStandardParams&gt;
+  &lt;displayAdvancedParams&gt;false&lt;/displayAdvancedParams&gt;
+  &lt;displayFullParamList&gt;false&lt;/displayFullParamList&gt;
+  &lt;displayFullParamTree&gt;false&lt;/displayFullParamTree&gt;
+  &lt;displayParamCommitButton&gt;false&lt;/displayParamCommitButton&gt;
+  &lt;displayBaudCMB&gt;true&lt;/displayBaudCMB&gt;
+  &lt;displaySerialPortCMB&gt;true&lt;/displaySerialPortCMB&gt;
+  &lt;standardFlightModesOnly&gt;false&lt;/standardFlightModesOnly&gt;
+  &lt;autoHideMenuForce&gt;false&lt;/autoHideMenuForce&gt;
+  &lt;isAdvancedMode&gt;false&lt;/isAdvancedMode&gt;
+&lt;/DisplayView&gt;</displayview>
+  <logdirectory>C:\Users\Event 38\Documents\Mission Planner\logs</logdirectory>
+  <tabcontrolactions>tabActionsSimple;tabPagemessages;</tabcontrolactions>
+  <MainHeight>744</MainHeight>
+  <MainWidth>1382</MainWidth>
+  <MainMaximised>Maximized</MainMaximised>
+  <MainLocX>-8</MainLocX>
+  <MainLocY>-8</MainLocY>
+  <FlightSplitter>360</FlightSplitter>
+  <distunits>Feet</distunits>
+  <altunits>Feet</altunits>
+  <speedunits>fps</speedunits>
+</Config>

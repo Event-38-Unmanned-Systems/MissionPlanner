@@ -244,7 +244,7 @@ namespace MissionPlanner.Utilities
                 return GetUserDataDirectory();
             }
 
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + Path.DirectorySeparatorChar + "Mission Planner" +
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + Path.DirectorySeparatorChar + "Mission Planner for ArgenTech" +
                           Path.DirectorySeparatorChar;
 
             return path;
@@ -256,7 +256,7 @@ namespace MissionPlanner.Utilities
         /// <returns></returns>
         public static string GetUserDataDirectory()
         {
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + "Mission Planner" +
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + "Mission Planner for ArgenTech" +
                           Path.DirectorySeparatorChar;
 
             return path;
