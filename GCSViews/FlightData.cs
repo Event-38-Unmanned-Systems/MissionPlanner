@@ -4723,7 +4723,7 @@ namespace MissionPlanner.GCSViews
             try
             {
                 ((Control)sender).Enabled = false;
-                MainV2.comPort.setWPCurrent((ushort)CMB_setwp.SelectedIndex); // set nav to
+                MainV2.comPort.setWPCurrent((ushort)comboBox1.SelectedIndex); // set nav to
             }
             catch
             {
@@ -4774,6 +4774,58 @@ namespace MissionPlanner.GCSViews
             catch
             {
                 CustomMessageBox.Show("please enter a valid pressure setting in IN Hg");
+            }
+        }
+
+        private void servoOptions10_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_Click(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+
+            comboBox1.Items.Add("0 (Home)");
+
+            if (MainV2.comPort.MAV.param["CMD_TOTAL"] != null)
+            {
+                int wps = int.Parse(MainV2.comPort.MAV.param["CMD_TOTAL"].ToString());
+                for (int z = 1; z <= wps; z++)
+                {
+                    comboBox1.Items.Add(z.ToString());
+                }
+                return;
+            }
+
+            if (MainV2.comPort.MAV.param["WP_TOTAL"] != null)
+            {
+                int wps = int.Parse(MainV2.comPort.MAV.param["WP_TOTAL"].ToString());
+                for (int z = 1; z <= wps; z++)
+                {
+                    comboBox1.Items.Add(z.ToString());
+                }
+                return;
+            }
+
+            if (MainV2.comPort.MAV.param["MIS_TOTAL"] != null)
+            {
+                int wps = int.Parse(MainV2.comPort.MAV.param["MIS_TOTAL"].ToString());
+                for (int z = 1; z <= wps; z++)
+                {
+                    comboBox1.Items.Add(z.ToString());
+                }
+                return;
+            }
+
+            if (MainV2.comPort.MAV.wps.Count > 0)
+            {
+                int wps = MainV2.comPort.MAV.wps.Count;
+                for (int z = 1; z <= wps; z++)
+                {
+                    comboBox1.Items.Add(z.ToString());
+                }
+                return;
             }
         }
     }
