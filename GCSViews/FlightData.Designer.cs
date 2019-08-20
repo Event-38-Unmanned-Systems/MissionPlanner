@@ -64,8 +64,8 @@
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.tabActionsSimple = new System.Windows.Forms.TabPage();
-            this.myButton5 = new MissionPlanner.Controls.MyButton();
-            this.myButton3 = new MissionPlanner.Controls.MyButton();
+            this.IgnitionOff = new MissionPlanner.Controls.MyButton();
+            this.IgnitionOn = new MissionPlanner.Controls.MyButton();
             this.myButton2 = new MissionPlanner.Controls.MyButton();
             this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -921,8 +921,8 @@
             // 
             // tabActionsSimple
             // 
-            this.tabActionsSimple.Controls.Add(this.myButton5);
-            this.tabActionsSimple.Controls.Add(this.myButton3);
+            this.tabActionsSimple.Controls.Add(this.IgnitionOff);
+            this.tabActionsSimple.Controls.Add(this.IgnitionOn);
             this.tabActionsSimple.Controls.Add(this.myButton2);
             this.tabActionsSimple.Controls.Add(this.myButton1);
             this.tabActionsSimple.Controls.Add(this.textBox1);
@@ -938,29 +938,33 @@
             this.tabActionsSimple.Name = "tabActionsSimple";
             this.tabActionsSimple.UseVisualStyleBackColor = true;
             // 
-            // myButton5
+            // IgnitionOff
             // 
-            this.myButton5.ColorMouseDown = System.Drawing.Color.Empty;
-            this.myButton5.ColorMouseOver = System.Drawing.Color.Empty;
-            this.myButton5.ColorNotEnabled = System.Drawing.Color.Empty;
-            this.myButton5.DialogResult = System.Windows.Forms.DialogResult.None;
-            resources.ApplyResources(this.myButton5, "myButton5");
-            this.myButton5.Name = "myButton5";
-            this.toolTip1.SetToolTip(this.myButton5, resources.GetString("myButton5.ToolTip"));
-            this.myButton5.UseVisualStyleBackColor = true;
-            this.myButton5.UseWaitCursor = true;
+            this.IgnitionOff.ColorMouseDown = System.Drawing.Color.Empty;
+            this.IgnitionOff.ColorMouseOver = System.Drawing.Color.Empty;
+            this.IgnitionOff.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.IgnitionOff.Cursor = System.Windows.Forms.Cursors.Default;
+            this.IgnitionOff.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.IgnitionOff, "IgnitionOff");
+            this.IgnitionOff.Name = "IgnitionOff";
+            this.IgnitionOff.TextColor = System.Drawing.Color.Black;
+            this.toolTip1.SetToolTip(this.IgnitionOff, resources.GetString("IgnitionOff.ToolTip"));
+            this.IgnitionOff.UseVisualStyleBackColor = true;
+            this.IgnitionOff.Click += new System.EventHandler(this.IgnitionOff_Click);
             // 
-            // myButton3
+            // IgnitionOn
             // 
-            this.myButton3.ColorMouseDown = System.Drawing.Color.Empty;
-            this.myButton3.ColorMouseOver = System.Drawing.Color.Empty;
-            this.myButton3.ColorNotEnabled = System.Drawing.Color.Empty;
-            this.myButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            resources.ApplyResources(this.myButton3, "myButton3");
-            this.myButton3.Name = "myButton3";
-            this.toolTip1.SetToolTip(this.myButton3, resources.GetString("myButton3.ToolTip"));
-            this.myButton3.UseVisualStyleBackColor = true;
-            this.myButton3.UseWaitCursor = true;
+            this.IgnitionOn.ColorMouseDown = System.Drawing.Color.Empty;
+            this.IgnitionOn.ColorMouseOver = System.Drawing.Color.Empty;
+            this.IgnitionOn.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.IgnitionOn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IgnitionOn.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.IgnitionOn, "IgnitionOn");
+            this.IgnitionOn.Name = "IgnitionOn";
+            this.IgnitionOn.TextColor = System.Drawing.Color.Black;
+            this.toolTip1.SetToolTip(this.IgnitionOn, resources.GetString("IgnitionOn.ToolTip"));
+            this.IgnitionOn.UseVisualStyleBackColor = true;
+            this.IgnitionOn.Click += new System.EventHandler(this.IgnitionOn_Click);
             // 
             // myButton2
             // 
@@ -2277,7 +2281,7 @@
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 180D;
+            this.windDir1.Direction = 360D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -2756,7 +2760,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private Controls.MyButton myButton2;
         private Controls.MyButton myButton1;
-        private Controls.MyButton myButton5;
-        private Controls.MyButton myButton3;
+        private Controls.MyButton IgnitionOff;
+        private Controls.MyButton IgnitionOn;
     }
 }

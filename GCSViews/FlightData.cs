@@ -4828,5 +4828,27 @@ namespace MissionPlanner.GCSViews
                 return;
             }
         }
+
+        private void IgnitionOn_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_SERVO, 14, 2000, 0, 0,
+                    0, 0, 0);
+
+            IgnitionOn.BGGradBot = Color.Green;
+            IgnitionOn.BGGradTop = Color.Green;
+
+            IgnitionOff.BGGradBot = Color.Red;
+            IgnitionOff.BGGradTop = Color.Red;
+        }
+
+        private void IgnitionOff_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_SERVO, 14, 1000, 0, 0,
+                    0, 0, 0);
+            IgnitionOff.BGGradBot = Color.Green;
+            IgnitionOff.BGGradTop = Color.Green;
+            IgnitionOn.BGGradBot = Color.Red;
+            IgnitionOn.BGGradTop = Color.Red;
+        }
     }
 }
