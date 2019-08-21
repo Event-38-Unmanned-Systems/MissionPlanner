@@ -1065,11 +1065,28 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            resources.GetString("comboBox2.AutoCompleteCustomSource"),
+            resources.GetString("comboBox2.AutoCompleteCustomSource1"),
+            resources.GetString("comboBox2.AutoCompleteCustomSource2"),
+            resources.GetString("comboBox2.AutoCompleteCustomSource3"),
+            resources.GetString("comboBox2.AutoCompleteCustomSource4"),
+            resources.GetString("comboBox2.AutoCompleteCustomSource5"),
+            resources.GetString("comboBox2.AutoCompleteCustomSource6"),
+            resources.GetString("comboBox2.AutoCompleteCustomSource7")});
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            resources.GetString("comboBox2.Items"),
+            resources.GetString("comboBox2.Items1"),
+            resources.GetString("comboBox2.Items2"),
+            resources.GetString("comboBox2.Items3"),
+            resources.GetString("comboBox2.Items4"),
+            resources.GetString("comboBox2.Items5"),
+            resources.GetString("comboBox2.Items6"),
+            resources.GetString("comboBox2.Items7")});
             resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            this.comboBox2.Click += new System.EventHandler(this.CMB_setwp_Click);
             // 
             // comboBox1
             // 

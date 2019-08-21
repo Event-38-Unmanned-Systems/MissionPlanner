@@ -3424,13 +3424,13 @@ namespace MissionPlanner.GCSViews
                         fenceMode = false;
                     }
 
-                    if (LandingPointMode)
+                    else if (LandingPointMode)
                     {
                         SetupLandingWaypoints();
                         LandingPointMode = false;
                     }
 
-                    if (TakeoffPointMode)
+                    else if (TakeoffPointMode)
                     {
                         TakeoffSetup();
                     }
@@ -4632,8 +4632,7 @@ namespace MissionPlanner.GCSViews
                             "0");
                 if (DialogResult.Cancel == InputBox.Show("Max Alt", "Box Maximum Altitude in " + CurrentState.AltUnit, ref maxalts))
                     return;
-                maxalt = (int)(maxalt / CurrentState.multiplieralt);
-
+                
                 if (!int.TryParse(maxalts, out maxalt))
                 {
                     CustomMessageBox.Show("Bad Max Alt");
@@ -4659,7 +4658,7 @@ namespace MissionPlanner.GCSViews
 
             try
             {
-                MainV2.comPort.setParam("FENCE_ACTION", 4);
+                MainV2.comPort.setParam("FENCE_ACTION", 0);
             }
             catch
             {

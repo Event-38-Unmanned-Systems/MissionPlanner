@@ -3800,7 +3800,7 @@ namespace MissionPlanner
 
         private void CMB_baudrate_TextChanged(object sender, EventArgs e)
         {
-            if (!int.TryParse(_connectionControl.CMB_baudrate.Text, out comPortBaud))
+            if (!int.TryParse(_connectionControl.CMB_baudrate.Text, out comPortBaud) && _connectionControl.CMB_baudrate.Text != "")
             {
                 CustomMessageBox.Show(Strings.InvalidBaudRate, Strings.ERROR);
                 return;

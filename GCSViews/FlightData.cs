@@ -269,10 +269,10 @@ namespace MissionPlanner.GCSViews
 
 
             CMB_action.DataSource = list;
-            comboBox2.DataSource = Common.getModesList(MainV2.comPort.MAV.cs.firmware);
-            comboBox2.ValueMember = "Key";
-            comboBox2.DisplayMember = "Value";
-            comboBox2.Text = "Auto";
+           // comboBox2.Datasourc
+           // comboBox2.ValueMember = "Key";
+           // comboBox2.DisplayMember = "Value";
+           // comboBox2.Text = "Auto";
 
             CMB_modes.DataSource = Common.getModesList(MainV2.comPort.MAV.cs.firmware);
             CMB_modes.ValueMember = "Key";
