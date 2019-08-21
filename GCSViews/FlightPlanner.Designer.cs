@@ -283,7 +283,7 @@ namespace MissionPlanner.GCSViews
             this.TXT_DefaultAlt.Leave += new System.EventHandler(this.TXT_DefaultAlt_Leave);
             // 
             // LBL_WPRad
-            //
+            // 
             resources.ApplyResources(this.LBL_WPRad, "LBL_WPRad");
             this.LBL_WPRad.Name = "LBL_WPRad";
             // 
@@ -885,6 +885,7 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.planTakeoff, "planTakeoff");
             this.planTakeoff.Name = "planTakeoff";
             this.planTakeoff.UseVisualStyleBackColor = true;
+            this.planTakeoff.Click += new System.EventHandler(this.planTakeoff_Click);
             // 
             // elevationGraph
             // 

@@ -2649,7 +2649,9 @@ namespace MissionPlanner
                             }
                         }
                     }
+
                     calcMSL();
+
                     // get home point on armed status change.
                     if (armedstatus != MainV2.comPort.MAV.cs.armed && comPort.BaseStream.IsOpen)
                     {

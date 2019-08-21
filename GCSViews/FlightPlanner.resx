@@ -975,7 +975,7 @@
     <value>Commands</value>
   </data>
   <data name="&gt;&gt;Commands.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyDataGridView, MissionPlanner, Version=1.3.7171.20219, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.MyDataGridView, MissionPlanner, Version=1.3.7171.38180, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;Commands.Parent" xml:space="preserve">
     <value>panelWaypoints</value>
@@ -1422,7 +1422,7 @@
     <value>1, 22</value>
   </data>
   <data name="flowLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 392</value>
+    <value>145, 392</value>
   </data>
   <data name="flowLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>51</value>
@@ -1443,13 +1443,13 @@
     <value>Right</value>
   </data>
   <data name="fencePlanning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 22</value>
+    <value>0, 22</value>
   </data>
   <data name="fencePlanning.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
   </data>
   <data name="fencePlanning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 415</value>
+    <value>147, 415</value>
   </data>
   <data name="fencePlanning.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>

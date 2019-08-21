@@ -60,6 +60,7 @@ namespace MissionPlanner.GCSViews
         public bool landingStripMode = false;
         public int landingStripPointCount = 0;
         PointLatLng beginningOfRunway = new PointLatLng(0, 0);
+        PointLatLng takeOff = new PointLatLng(0, 0);
         PointLatLng endOfRunway = new PointLatLng(0, 0);
         List<PointLatLng> landingStripPoints = new List<PointLatLng>();
         PointLatLng landingPoint = new PointLatLng();
@@ -69,6 +70,8 @@ namespace MissionPlanner.GCSViews
         public bool stripentered;
         MissionPlanner.Controls.Icon.Polygon polyicon = new MissionPlanner.Controls.Icon.Polygon();
         altmode currentaltmode = altmode.Relative;
+        bool TakeoffPointMode = false;
+
 
         bool grid;
         public static FlightPlanner instance;
@@ -3427,7 +3430,12 @@ namespace MissionPlanner.GCSViews
                         LandingPointMode = false;
                     }
 
-                    if (landingStripMode)
+                    if (TakeoffPointMode)
+                    {
+                        TakeoffSetup();
+                    }
+
+                    else if (landingStripMode)
                     {
                         SetupLandingStrip();
 
@@ -3438,6 +3446,7 @@ namespace MissionPlanner.GCSViews
                             landingStripPointCount = 0;
                         }
                     }
+
                     else
                     {
                         AddWPToMap(currentMarker.Position.Lat, currentMarker.Position.Lng, 0);
@@ -4599,30 +4608,31 @@ namespace MissionPlanner.GCSViews
             int minalt = 0;
             int maxalt = 0;
 
-            if (MainV2.comPort.MAV.param.ContainsKey("FENCE_MINALT"))
-            {
-                string minalts =
-                    (int.Parse(MainV2.comPort.MAV.param["FENCE_MINALT"].ToString())*CurrentState.multiplieralt)
-                        .ToString(
-                            "0");
-                if (DialogResult.Cancel == InputBox.Show("Min Alt", "Box Minimum Altitude?", ref minalts))
-                    return;
+          //  if (MainV2.comPort.MAV.param.ContainsKey("FENCE_MINALT"))
+          //  {
+            //    string minalts =
+         //           (int.Parse(MainV2.comPort.MAV.param["FENCE_MINALT"].ToString())*CurrentState.multiplieralt)
+             //           .ToString(
+           //                "0");
+             //   if (DialogResult.Cancel == InputBox.Show("Min Alt", "Box Minimum Altitude?", ref minalts))
+             //       return;
 
-                if (!int.TryParse(minalts, out minalt))
-                {
-                    CustomMessageBox.Show("Bad Min Alt");
-                    return;
-                }
-            }
-
+              //  if (!int.TryParse(minalts, out minalt))
+            //    {
+             //       CustomMessageBox.Show("Bad Min Alt");
+             //       return;
+              //  }
+          //  }
+        
             if (MainV2.comPort.MAV.param.ContainsKey("FENCE_MAXALT"))
             {
                 string maxalts =
                     (int.Parse(MainV2.comPort.MAV.param["FENCE_MAXALT"].ToString())*CurrentState.multiplieralt)
                         .ToString(
                             "0");
-                if (DialogResult.Cancel == InputBox.Show("Max Alt", "Box Maximum Altitude?", ref maxalts))
+                if (DialogResult.Cancel == InputBox.Show("Max Alt", "Box Maximum Altitude in " + CurrentState.AltUnit, ref maxalts))
                     return;
+                maxalt = (int)(maxalt / CurrentState.multiplieralt);
 
                 if (!int.TryParse(maxalts, out maxalt))
                 {
@@ -4649,7 +4659,7 @@ namespace MissionPlanner.GCSViews
 
             try
             {
-                MainV2.comPort.setParam("FENCE_ACTION", 0);
+                MainV2.comPort.setParam("FENCE_ACTION", 4);
             }
             catch
             {
@@ -7408,7 +7418,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         {
 
 
-            int missionAlt = 120;
+            int missionAlt = (int)(120 * CurrentState.multiplieralt);
+
             InputBox.Show("Enter landing strip transit Alt", "Enter safe transit alt in " + CurrentState.AltUnit, ref missionAlt);
 
 
@@ -7661,5 +7672,34 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 SetupLandingWaypoints();
             }        
     }
+
+        private void planTakeoff_Click(object sender, EventArgs e)
+        {
+            CustomMessageBox.Show("Select a point you'd like to take off towards");
+            TakeoffPointMode = true;
+            LandingPointMode = false;
+        }
+
+        private void TakeoffSetup()
+        {
+            takeOff = new PointLatLng(MouseDownEnd.Lat, MouseDownEnd.Lng);
+            int VtolAlt = (int)(30 * CurrentState.multiplieralt);
+            InputBox.Show("Desired VTOL Takeoff Alt", "Enter Desired VTOL Takeoff Alt in " + CurrentState.AltUnit, ref VtolAlt);
+
+            //add VTOL Takeoff at desired alt. Default 30m
+            selectedrow = Commands.Rows.Add();
+            Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.VTOL_TAKEOFF.ToString();
+            ChangeColumnHeader(MAVLink.MAV_CMD.VTOL_TAKEOFF.ToString());
+            setfromMap(0, 0, (int)VtolAlt);
+
+            selectedrow = Commands.Rows.Add();
+            Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.WAYPOINT.ToString();
+            ChangeColumnHeader(MAVLink.MAV_CMD.WAYPOINT.ToString());
+            setfromMap(takeOff.Lat, takeOff.Lng, int.Parse(TXT_DefaultAlt.Text));
+
+            writeKML();
+
+            TakeoffPointMode = false;
+        }
     }
 }
