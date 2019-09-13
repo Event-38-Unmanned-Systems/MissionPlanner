@@ -124,6 +124,7 @@ namespace MissionPlanner.GCSViews
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.writeFence = new MissionPlanner.Controls.MyButton();
             this.readFence = new MissionPlanner.Controls.MyButton();
+            this.disableFence = new MissionPlanner.Controls.MyButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.planTakeoff = new MissionPlanner.Controls.MyButton();
@@ -447,6 +448,7 @@ namespace MissionPlanner.GCSViews
             this.panelWaypoints.ToolTipTextCloseIcon = null;
             this.panelWaypoints.ToolTipTextExpandIconPanelCollapsed = null;
             this.panelWaypoints.ToolTipTextExpandIconPanelExpanded = null;
+            this.panelWaypoints.CloseClick += new System.EventHandler<System.EventArgs>(this.panelWaypoints_CloseClick);
             this.panelWaypoints.ExpandClick += new System.EventHandler<System.EventArgs>(this.panelWaypoints_ExpandClick);
             // 
             // splitter1
@@ -741,6 +743,7 @@ namespace MissionPlanner.GCSViews
             this.panel2.ToolTipTextCloseIcon = null;
             this.panel2.ToolTipTextExpandIconPanelCollapsed = null;
             this.panel2.ToolTipTextExpandIconPanelExpanded = null;
+            this.panel2.CloseClick += new System.EventHandler<System.EventArgs>(this.panel2_CloseClick);
             this.panel2.PanelExpanding += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.wpPlanning_PanelExpanding);
             this.panel2.PanelCollapsing += new System.EventHandler<BSE.Windows.Forms.XPanderStateChangeEventArgs>(this.wpPlanning_PanelCollapsing);
             // 
@@ -839,6 +842,7 @@ namespace MissionPlanner.GCSViews
             // 
             this.groupBox8.Controls.Add(this.writeFence);
             this.groupBox8.Controls.Add(this.readFence);
+            this.groupBox8.Controls.Add(this.disableFence);
             resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.TabStop = false;
@@ -858,6 +862,14 @@ namespace MissionPlanner.GCSViews
             this.readFence.Name = "readFence";
             this.readFence.UseVisualStyleBackColor = true;
             this.readFence.Click += new System.EventHandler(this.readFence_Click);
+            // 
+            // disableFence
+            // 
+            this.disableFence.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.disableFence, "disableFence");
+            this.disableFence.Name = "disableFence";
+            this.disableFence.UseVisualStyleBackColor = true;
+            this.disableFence.MouseClick += new System.Windows.Forms.MouseEventHandler(this.disableFence_MouseClick);
             // 
             // flowLayoutPanel3
             // 
@@ -1915,5 +1927,6 @@ namespace MissionPlanner.GCSViews
         private MyButton loadPoints;
         private MyButton clearFence;
         private MyButton planTakeoff;
+        private MyButton disableFence;
     }
 }
