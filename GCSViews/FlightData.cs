@@ -1152,6 +1152,7 @@ namespace MissionPlanner.GCSViews
                             updateClearMissionRouteMarkers();
                             
                             var wps = MainV2.comPort.MAV.wps.Values.ToList();
+
                             if (wps.Count >= 1)
                             {
                                 var homeplla = new PointLatLngAlt(MainV2.comPort.MAV.cs.HomeLocation.Lat,
@@ -1169,13 +1170,13 @@ namespace MissionPlanner.GCSViews
                                     {
                                         overlay.CreateOverlay((MAVLink.MAV_FRAME)wps[0].frame, homeplla,
                                             mission_items,
-                                            0 / CurrentState.multiplieralt, 0 / CurrentState.multiplieralt);
+                                            0 / CurrentState.multiplieralt, 0 / CurrentState.multiplieralt, CurrentState.multiplieralt);
                                     }
                                     else
                                     {
                                         overlay.CreateOverlay((MAVLink.MAV_FRAME)wps[1].frame, homeplla,
                                             mission_items,
-                                            0 / CurrentState.multiplieralt, 0 / CurrentState.multiplieralt);
+                                            0 / CurrentState.multiplieralt, 0 / CurrentState.multiplieralt, CurrentState.multiplieralt);
 
                                     }
                                 }
@@ -1225,7 +1226,10 @@ namespace MissionPlanner.GCSViews
 
                             foreach (var mark in MainV2.comPort.MAV.rallypoints.Values)
                             {
-                                rallypointoverlay.Markers.Add(new GMapMarkerRallyPt(mark));
+                                var marknew = new MAVLink.mavlink_rally_point_t();
+                                marknew = mark;
+                                marknew.alt = (short)(mark.alt * CurrentState.multiplieralt);
+                                rallypointoverlay.Markers.Add(new GMapMarkerRallyPt(marknew));
                             }
 
                             // optional on Flight data

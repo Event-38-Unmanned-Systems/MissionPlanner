@@ -24,7 +24,7 @@ namespace MissionPlanner.ArduPilot
         /// list of point as per mission including jump repeats
         public List<PointLatLngAlt> fullpointlist = new List<PointLatLngAlt>();
 
-        public void CreateOverlay(MAVLink.MAV_FRAME altmode, PointLatLngAlt home, List<Locationwp> missionitems, double wpradius, double loiterradius)
+        public void CreateOverlay(MAVLink.MAV_FRAME altmode, PointLatLngAlt home, List<Locationwp> missionitems, double wpradius, double loiterradius,float altmult)
         {
             overlay.Clear();
 
@@ -40,7 +40,7 @@ namespace MissionPlanner.ArduPilot
 
             pointlist.Add(home);
             fullpointlist.Add(pointlist[pointlist.Count - 1]);
-            addpolygonmarker("H", home.Lng, home.Lat, home.Alt, null, 0);
+            addpolygonmarker("H", home.Lng, home.Lat, home.Alt * altmult, null, 0);
 
             int a = 0;
             foreach (var itemtuple in missionitems.PrevNowNext())
@@ -48,7 +48,7 @@ namespace MissionPlanner.ArduPilot
                 var itemprev = itemtuple.Item1;
                 var item = itemtuple.Item2;
                 var itemnext = itemtuple.Item3;
-
+                item.alt = (float)(item.alt * altmult);
                 ushort command = item.id;
 
                 // invalid locationwp

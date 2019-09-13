@@ -1333,6 +1333,7 @@ namespace MissionPlanner.GCSViews
                         double.Parse(TXT_homealt.Text) / CurrentState.multiplieralt, "H")
                     { Tag2 = CMB_altmode.SelectedValue.ToString() };
                 }
+             
                 catch (Exception ex)
                 {
                     CustomMessageBox.Show(Strings.Invalid_home_location, Strings.ERROR);
@@ -1355,7 +1356,7 @@ namespace MissionPlanner.GCSViews
 
                     overlay.CreateOverlay((MAVLink.MAV_FRAME)(altmode)CMB_altmode.SelectedValue, home, commandlist,
                         double.Parse(TXT_WPRad.Text) / CurrentState.multiplieralt,
-                        double.Parse(TXT_loiterrad.Text) / CurrentState.multiplieralt);
+                        double.Parse(TXT_loiterrad.Text) / CurrentState.multiplieralt, CurrentState.multiplieralt);
                 }
                 catch (FormatException ex)
                 {
@@ -4803,7 +4804,6 @@ namespace MissionPlanner.GCSViews
 
             // add now - so local points are calced
             geofenceoverlay.Polygons.Add(geofencepolygon);
-
             // update flight data
             FlightData.geofence.Markers.Clear();
             FlightData.geofence.Polygons.Clear();
