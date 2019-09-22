@@ -4832,17 +4832,47 @@ namespace MissionPlanner.GCSViews
                 return;
             }
         }
+        bool ignitionOn = false;
 
         private void IgnitionOn_Click(object sender, EventArgs e)
         {
-            MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_SERVO, 14, 2000, 0, 0,
-                    0, 0, 0);
 
-            IgnitionOn.BGGradBot = Color.Green;
-            IgnitionOn.BGGradTop = Color.Green;
+            if (CustomMessageBox.Show("Are you sure you want to " + IgnitionOn.Text + " ?", "Action",
+                     MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
+            {
+                ;
+                try
+                {
 
-            IgnitionOff.BGGradBot = Color.Red;
-            IgnitionOff.BGGradTop = Color.Red;
+                    if (IgnitionOn.Text == "Arm Ignition")
+                    {
+                        if (MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_RELAY, 1, 1, 0, 0, 0, 0, 0))
+                        {
+                            IgnitionOn.Text = "Disarm Ignition";
+                        }
+                        else
+                        {
+                            CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+                        }
+                    }
+
+                    else if (IgnitionOn.Text == "Disarm Ignition")
+                    {
+
+                        if (MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_RELAY, 1, 0, 0, 0, 0, 0, 0))
+                        {
+                            IgnitionOn.Text = "Arm Ignition";
+                        }
+                        else
+                        {
+                            CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+                        }
+                    }
+
+                }
+                catch { }
+            }
+           
         }
 
         private void IgnitionOff_Click(object sender, EventArgs e)
