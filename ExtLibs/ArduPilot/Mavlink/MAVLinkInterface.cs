@@ -3765,6 +3765,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting");
             // create a state for any sysid/compid includes gcs on log playback
             if (!MAVlist.Contains(sysid, compid))
             {
+                
                 // create an item - hidden
                 MAVlist.AddHiddenList(sysid, compid);
                 // prevent packetloss counter on connect

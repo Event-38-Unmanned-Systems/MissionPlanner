@@ -13,6 +13,7 @@ using System.Runtime.Serialization;
 using MissionPlanner.ArduPilot;
 using Newtonsoft.Json;
 
+
 namespace MissionPlanner
 {
     public class CurrentState : ICloneable
@@ -32,6 +33,8 @@ namespace MissionPlanner
         public int lastautowp = -1;
 
         // multipliers
+        int attempt = 1;
+        MAVState tinyMav;
         public static float multiplierdist = 1;
         public static string DistanceUnit = "";
         public static float multiplierspeed = 1;
@@ -104,6 +107,18 @@ namespace MissionPlanner
         // orientation - rads
         [DisplayText("Roll (deg)")]
         public float roll { get; set; }
+
+        [DisplayText("Fuel Used (KG)")]
+        public float FuelUsed { get; set; }
+
+        [DisplayText("RPM")]
+        public float tinyrpm { get; set; }
+
+        [DisplayText("Fuel Pres (kpa)")]
+        public float fuelpress { get; set; }
+
+        [DisplayText("CHT °C")]
+        public float CHT { get; set; }
 
         [DisplayText("Pitch (deg)")]
         public float pitch { get; set; }
@@ -1903,7 +1918,24 @@ namespace MissionPlanner
                         wpno = highlatency.wp_num;
                         wp_dist = highlatency.wp_distance;
                     }
-                   
+                    if (mavinterface.MAVlist.Contains(0, 190))
+                    {
+
+                        mavLinkMessage = mavinterface.MAVlist[0,190].getPacket((uint)MAVLink.MAVLINK_MSG_ID.RPM);
+                        if (mavLinkMessage != null)
+                        {
+                           var rpm = mavLinkMessage.ToStructure<MAVLink.mavlink_rpm_t>();
+                            tinyrpm = rpm.rpm1;
+                        }
+                        mavLinkMessage = mavinterface.MAVlist[0, 190].getPacket((uint)MAVLink.MAVLINK_MSG_ID.SCALED_PRESSURE);
+                        if (mavLinkMessage != null)
+                        {
+                            var pres = mavLinkMessage.ToStructure<MAVLink.mavlink_scaled_pressure_t>();
+                            FuelUsed = pres.press_diff/1000;
+                            fuelpress = pres.press_abs;
+                            CHT = pres.temperature;
+                        }
+                    }
                     mavLinkMessage = MAV.getPacket((uint)MAVLink.MAVLINK_MSG_ID.HIL_CONTROLS);
 
                     if (mavLinkMessage != null) // hil mavlink 0.9 and 1.0
@@ -2442,7 +2474,12 @@ namespace MissionPlanner
                     if (mavLinkMessage != null)
                     {
                         var gps = mavLinkMessage.ToStructure<MAVLink.mavlink_gps_raw_int_t>();
+                        
 
+
+                            lngddmmss = DDtoDMS(gps.lat * 1.0e-7, "lat");
+                            latddmmss = DDtoDMS(gps.lon * 1.0e-7, "lon");
+                        
                         if (!useLocation)
                         {
                             lat = gps.lat*1.0e-7;
