@@ -4884,5 +4884,10 @@ namespace MissionPlanner.GCSViews
             IgnitionOn.BGGradBot = Color.Red;
             IgnitionOn.BGGradTop = Color.Red;
         }
+
+        private void myLabel1_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
     }
 }

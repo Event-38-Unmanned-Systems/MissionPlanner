@@ -64,13 +64,13 @@
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.tabActionsSimple = new System.Windows.Forms.TabPage();
+            this.simpleJoy = new MissionPlanner.Controls.MyButton();
             this.IgnitionOff = new MissionPlanner.Controls.MyButton();
             this.IgnitionOn = new MissionPlanner.Controls.MyButton();
             this.myButton2 = new MissionPlanner.Controls.MyButton();
             this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.updatePressure = new MissionPlanner.Controls.MyButton();
-            this.myLabel1 = new MissionPlanner.Controls.MyLabel();
             this.baroCal = new MissionPlanner.Controls.MyButton();
             this.armSimple = new MissionPlanner.Controls.MyButton();
             this.simpleModeSet = new MissionPlanner.Controls.MyButton();
@@ -193,6 +193,7 @@
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -921,13 +922,14 @@
             // 
             // tabActionsSimple
             // 
+            this.tabActionsSimple.Controls.Add(this.label7);
+            this.tabActionsSimple.Controls.Add(this.simpleJoy);
             this.tabActionsSimple.Controls.Add(this.IgnitionOff);
             this.tabActionsSimple.Controls.Add(this.IgnitionOn);
             this.tabActionsSimple.Controls.Add(this.myButton2);
             this.tabActionsSimple.Controls.Add(this.myButton1);
             this.tabActionsSimple.Controls.Add(this.textBox1);
             this.tabActionsSimple.Controls.Add(this.updatePressure);
-            this.tabActionsSimple.Controls.Add(this.myLabel1);
             this.tabActionsSimple.Controls.Add(this.baroCal);
             this.tabActionsSimple.Controls.Add(this.armSimple);
             this.tabActionsSimple.Controls.Add(this.simpleModeSet);
@@ -937,6 +939,18 @@
             resources.ApplyResources(this.tabActionsSimple, "tabActionsSimple");
             this.tabActionsSimple.Name = "tabActionsSimple";
             this.tabActionsSimple.UseVisualStyleBackColor = true;
+            // 
+            // simpleJoy
+            // 
+            this.simpleJoy.ColorMouseDown = System.Drawing.Color.Empty;
+            this.simpleJoy.ColorMouseOver = System.Drawing.Color.Empty;
+            this.simpleJoy.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.simpleJoy.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.simpleJoy, "simpleJoy");
+            this.simpleJoy.Name = "simpleJoy";
+            this.toolTip1.SetToolTip(this.simpleJoy, resources.GetString("simpleJoy.ToolTip"));
+            this.simpleJoy.UseVisualStyleBackColor = true;
+            this.simpleJoy.Click += new System.EventHandler(this.BUT_joystick_Click);
             // 
             // IgnitionOff
             // 
@@ -1007,12 +1021,6 @@
             this.updatePressure.UseVisualStyleBackColor = true;
             this.updatePressure.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.updatePressure_PaintSurface);
             this.updatePressure.Click += new System.EventHandler(this.updatePressure_Click);
-            // 
-            // myLabel1
-            // 
-            resources.ApplyResources(this.myLabel1, "myLabel1");
-            this.myLabel1.Name = "myLabel1";
-            this.myLabel1.resize = false;
             // 
             // baroCal
             // 
@@ -2298,7 +2306,7 @@
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 180D;
+            this.windDir1.Direction = 360D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -2520,6 +2528,11 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
             // 
             // FlightData
             // 
@@ -2772,12 +2785,13 @@
         private Controls.MyButton armSimple;
         private Controls.MyButton baroCal;
         private Controls.MyButton updatePressure;
-        private Controls.MyLabel myLabel1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private Controls.MyButton myButton2;
         private Controls.MyButton myButton1;
         private Controls.MyButton IgnitionOff;
         private Controls.MyButton IgnitionOn;
+        private Controls.MyButton simpleJoy;
+        private System.Windows.Forms.Label label7;
     }
 }

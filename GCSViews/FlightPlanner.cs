@@ -780,7 +780,7 @@ namespace MissionPlanner.GCSViews
             {
                 foreach (string item in cmdParamNames.Keys)
                 {
-                    if (item == "WAYPOINT" || item == "LOITER_UNLIM" || item == "LOITER_TURNS" || item == "LOITER_TO_ALT" || item == "VTOL_TAKEOFF" || item == "VTOL_LAND" || item == "ALTITUDE_WAIT" || item == "DO_LAND_START" || item == "DO_JUMP" || item == "DO_SET_CAM_TRIG_DIST")
+                    if (item == "WAYPOINT" || item == "LOITER_UNLIM" || item == "LOITER_TURNS" || item == "LOITER_TO_ALT" || item == "VTOL_TAKEOFF" || item == "VTOL_LAND" || item == "DO_LAND_START" || item == "DO_JUMP" || item == "DO_SET_CAM_TRIG_DIST")
                     {
                         cmds.Add(item);
                     }
