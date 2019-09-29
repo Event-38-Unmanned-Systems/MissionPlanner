@@ -203,8 +203,8 @@ namespace MissionPlanner.Grid
             CHK_camdirection.Checked = griddata.camdir;
             CHK_usespeed.Checked = griddata.usespeed;
             NUM_UpDownFlySpeed.Value = griddata.speed;
-            CHK_toandland.Checked = griddata.autotakeoff;
-            CHK_toandland_RTL.Checked = griddata.autotakeoff_RTL;
+            //CHK_toandland.Checked = griddata.autotakeoff;
+           // CHK_toandland_RTL.Checked = griddata.autotakeoff_RTL;
             NUM_split.Value = griddata.splitmission;
 
 
@@ -260,8 +260,8 @@ namespace MissionPlanner.Grid
             griddata.camdir = CHK_camdirection.Checked;
             griddata.speed = NUM_UpDownFlySpeed.Value;
             griddata.usespeed = CHK_usespeed.Checked;
-            griddata.autotakeoff = CHK_toandland.Checked;
-            griddata.autotakeoff_RTL = CHK_toandland_RTL.Checked;
+           // griddata.autotakeoff = CHK_toandland.Checked;
+           // griddata.autotakeoff_RTL = CHK_toandland_RTL.Checked;
             griddata.splitmission = NUM_split.Value;
 
             griddata.internals = CHK_internals.Checked;
@@ -312,8 +312,8 @@ namespace MissionPlanner.Grid
                 loadsetting("grid_camdir", CHK_camdirection);
                 loadsetting("grid_usespeed", CHK_usespeed);
                 loadsetting("grid_speed", NUM_UpDownFlySpeed);
-                loadsetting("grid_autotakeoff", CHK_toandland);
-                loadsetting("grid_autotakeoff_RTL", CHK_toandland_RTL);
+               // loadsetting("grid_autotakeoff", CHK_toandland);
+               // loadsetting("grid_autotakeoff_RTL", CHK_toandland_RTL);
 
                 loadsetting("grid_dist", NUM_Distance);
                 loadsetting("grid_overshoot1", NUM_overshoot);
@@ -401,8 +401,8 @@ namespace MissionPlanner.Grid
 
             plugin.Host.config["grid_startfrom"] = CMB_startfrom.Text;
 
-            plugin.Host.config["grid_autotakeoff"] = CHK_toandland.Checked.ToString();
-            plugin.Host.config["grid_autotakeoff_RTL"] = CHK_toandland_RTL.Checked.ToString();
+            //plugin.Host.config["grid_autotakeoff"] = CHK_toandland.Checked.ToString();
+           // plugin.Host.config["grid_autotakeoff_RTL"] = CHK_toandland_RTL.Checked.ToString();
 
             plugin.Host.config["grid_internals"] = CHK_internals.Checked.ToString();
             plugin.Host.config["grid_footprints"] = CHK_footprints.Checked.ToString();
@@ -1527,11 +1527,11 @@ namespace MissionPlanner.Grid
             {
                 MainV2.instance.FlightPlanner.quickadd = true;
 
-                if (NUM_split.Value > 1 && CHK_toandland.Checked != true)
+               /* if (NUM_split.Value > 1 && CHK_toandland.Checked != true)
                 {
                     CustomMessageBox.Show("You must use Land/RTL to split a mission", Strings.ERROR);
                     return;
-                }
+                }*/
 
                 var gridobject = savegriddata();
 
@@ -1554,7 +1554,7 @@ namespace MissionPlanner.Grid
                         wpend--;
                     }
 
-                    if (CHK_toandland.Checked)
+                   /* if (CHK_toandland.Checked)
                     {
                         if (plugin.Host.cs.firmware == Firmwares.ArduCopter2)
                         {
@@ -1570,7 +1570,7 @@ namespace MissionPlanner.Grid
 
                             wpsplitstart.Add(wpno);
                         }
-                    }
+                    }*/
 
                     if (CHK_usespeed.Checked)
                     {
@@ -1742,7 +1742,7 @@ namespace MissionPlanner.Grid
                         }
                     }
 
-                    if (CHK_toandland.Checked)
+                   /* if (CHK_toandland.Checked)
                     {
                         if (CHK_toandland_RTL.Checked)
                         {
@@ -1753,7 +1753,7 @@ namespace MissionPlanner.Grid
                             plugin.Host.AddWPtoList(MAVLink.MAV_CMD.LAND, 0, 0, 0, 0, plugin.Host.cs.HomeLocation.Lng,
                                 plugin.Host.cs.HomeLocation.Lat, 0, gridobject);
                         }
-                    }
+                    }*/
                 }
 
                 if (NUM_split.Value > 1)

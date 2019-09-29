@@ -2978,7 +2978,7 @@ Control-O to load form file</value>
     <value>NoControl</value>
   </data>
   <data name="label37.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 214</value>
+    <value>6, 174</value>
   </data>
   <data name="label37.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 13</value>
@@ -2988,6 +2988,9 @@ Control-O to load form file</value>
   </data>
   <data name="label37.Text" xml:space="preserve">
     <value>Split into x segments</value>
+  </data>
+  <data name="label37.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;label37.Name" xml:space="preserve">
     <value>label37</value>
@@ -3002,13 +3005,16 @@ Control-O to load form file</value>
     <value>0</value>
   </data>
   <data name="NUM_split.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 212</value>
+    <value>140, 174</value>
   </data>
   <data name="NUM_split.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 20</value>
   </data>
   <data name="NUM_split.TabIndex" type="System.Int32, mscorlib">
     <value>66</value>
+  </data>
+  <data name="NUM_split.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;NUM_split.Name" xml:space="preserve">
     <value>NUM_split</value>
@@ -3052,66 +3058,6 @@ Control-O to load form file</value>
   <data name="&gt;&gt;CHK_usespeed.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="CHK_toandland_RTL.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CHK_toandland_RTL.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CHK_toandland_RTL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 194</value>
-  </data>
-  <data name="CHK_toandland_RTL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 17</value>
-  </data>
-  <data name="CHK_toandland_RTL.TabIndex" type="System.Int32, mscorlib">
-    <value>64</value>
-  </data>
-  <data name="CHK_toandland_RTL.Text" xml:space="preserve">
-    <value>Use RTL</value>
-  </data>
-  <data name="&gt;&gt;CHK_toandland_RTL.Name" xml:space="preserve">
-    <value>CHK_toandland_RTL</value>
-  </data>
-  <data name="&gt;&gt;CHK_toandland_RTL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CHK_toandland_RTL.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;CHK_toandland_RTL.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="CHK_toandland.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CHK_toandland.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CHK_toandland.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 171</value>
-  </data>
-  <data name="CHK_toandland.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 17</value>
-  </data>
-  <data name="CHK_toandland.TabIndex" type="System.Int32, mscorlib">
-    <value>63</value>
-  </data>
-  <data name="CHK_toandland.Text" xml:space="preserve">
-    <value>Add Takeoff and Land WP's</value>
-  </data>
-  <data name="&gt;&gt;CHK_toandland.Name" xml:space="preserve">
-    <value>CHK_toandland</value>
-  </data>
-  <data name="&gt;&gt;CHK_toandland.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CHK_toandland.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;CHK_toandland.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="label24.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -3140,7 +3086,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;label24.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="NUM_UpDownFlySpeed.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 115</value>
@@ -3161,7 +3107,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;NUM_UpDownFlySpeed.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="label26.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3191,7 +3137,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3221,7 +3167,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="NUM_angle.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 66</value>
@@ -3242,7 +3188,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;NUM_angle.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="CMB_camera.Location" type="System.Drawing.Point, System.Drawing">
     <value>105, 13</value>
@@ -3263,7 +3209,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;CMB_camera.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="CHK_camdirection.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3293,7 +3239,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;CHK_camdirection.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="NUM_altitude.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 40</value>
@@ -3314,7 +3260,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;NUM_altitude.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3344,7 +3290,7 @@ Control-O to load form file</value>
     <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>11</value>
   </data>
   <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>

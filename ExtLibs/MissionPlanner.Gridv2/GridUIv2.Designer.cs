@@ -107,6 +107,7 @@
             // 
             // BUT_Accept
             // 
+            this.BUT_Accept.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_Accept, "BUT_Accept");
             this.BUT_Accept.Name = "BUT_Accept";
             this.BUT_Accept.UseVisualStyleBackColor = true;
@@ -200,8 +201,6 @@
             // chk_includeland
             // 
             resources.ApplyResources(this.chk_includeland, "chk_includeland");
-            this.chk_includeland.Checked = true;
-            this.chk_includeland.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_includeland.Name = "chk_includeland";
             this.chk_includeland.UseVisualStyleBackColor = true;
             // 
@@ -229,8 +228,6 @@
             // CHK_includetakeoff
             // 
             resources.ApplyResources(this.CHK_includetakeoff, "CHK_includetakeoff");
-            this.CHK_includetakeoff.Checked = true;
-            this.CHK_includetakeoff.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_includetakeoff.Name = "CHK_includetakeoff";
             this.CHK_includetakeoff.UseVisualStyleBackColor = true;
             // 
@@ -301,6 +298,7 @@
             this.map.EmptyTileColor = System.Drawing.Color.Gray;
             this.map.GrayScaleMode = false;
             this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.map.HoldInvalidation = false;
             this.map.LevelsKeepInMemmory = 5;
             this.map.MarkersEnabled = true;
             this.map.MaxZoom = 19;

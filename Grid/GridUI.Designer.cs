@@ -134,11 +134,7 @@
             this.tabSimple = new System.Windows.Forms.TabPage();
             this.label38 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.NUM_split = new System.Windows.Forms.NumericUpDown();
             this.CHK_usespeed = new System.Windows.Forms.CheckBox();
-            this.CHK_toandland_RTL = new System.Windows.Forms.CheckBox();
-            this.CHK_toandland = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
             this.NUM_UpDownFlySpeed = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
@@ -159,6 +155,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TRK_zoom = new MissionPlanner.Controls.MyTrackBar();
             this.map = new MissionPlanner.Controls.myGMAP();
+            this.NUM_split = new System.Windows.Forms.NumericUpDown();
+            this.label37 = new System.Windows.Forms.Label();
             this.groupBox5.SuspendLayout();
             this.tabCamera.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -186,13 +184,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUM_spacing)).BeginInit();
             this.tabSimple.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_split)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_UpDownFlySpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_angle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_altitude)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TRK_zoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_split)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox5
@@ -588,6 +586,7 @@
             // 
             // BUT_samplephoto
             // 
+            this.BUT_samplephoto.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_samplephoto, "BUT_samplephoto");
             this.BUT_samplephoto.Name = "BUT_samplephoto";
             this.BUT_samplephoto.UseVisualStyleBackColor = true;
@@ -706,6 +705,7 @@
             // 
             // BUT_save
             // 
+            this.BUT_save.DialogResult = System.Windows.Forms.DialogResult.None;
             resources.ApplyResources(this.BUT_save, "BUT_save");
             this.BUT_save.Name = "BUT_save";
             this.BUT_save.UseVisualStyleBackColor = true;
@@ -1056,8 +1056,6 @@
             this.groupBox6.Controls.Add(this.label37);
             this.groupBox6.Controls.Add(this.NUM_split);
             this.groupBox6.Controls.Add(this.CHK_usespeed);
-            this.groupBox6.Controls.Add(this.CHK_toandland_RTL);
-            this.groupBox6.Controls.Add(this.CHK_toandland);
             this.groupBox6.Controls.Add(this.label24);
             this.groupBox6.Controls.Add(this.NUM_UpDownFlySpeed);
             this.groupBox6.Controls.Add(this.label26);
@@ -1071,53 +1069,11 @@
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
             // 
-            // label37
-            // 
-            resources.ApplyResources(this.label37, "label37");
-            this.label37.Name = "label37";
-            // 
-            // NUM_split
-            // 
-            resources.ApplyResources(this.NUM_split, "NUM_split");
-            this.NUM_split.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.NUM_split.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUM_split.Name = "NUM_split";
-            this.NUM_split.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUM_split.ValueChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
-            // 
             // CHK_usespeed
             // 
             resources.ApplyResources(this.CHK_usespeed, "CHK_usespeed");
             this.CHK_usespeed.Name = "CHK_usespeed";
             this.CHK_usespeed.UseVisualStyleBackColor = true;
-            // 
-            // CHK_toandland_RTL
-            // 
-            resources.ApplyResources(this.CHK_toandland_RTL, "CHK_toandland_RTL");
-            this.CHK_toandland_RTL.Checked = true;
-            this.CHK_toandland_RTL.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_toandland_RTL.Name = "CHK_toandland_RTL";
-            this.CHK_toandland_RTL.UseVisualStyleBackColor = true;
-            // 
-            // CHK_toandland
-            // 
-            resources.ApplyResources(this.CHK_toandland, "CHK_toandland");
-            this.CHK_toandland.Checked = true;
-            this.CHK_toandland.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_toandland.Name = "CHK_toandland";
-            this.CHK_toandland.UseVisualStyleBackColor = true;
             // 
             // label24
             // 
@@ -1271,6 +1227,7 @@
             // BUT_Accept
             // 
             resources.ApplyResources(this.BUT_Accept, "BUT_Accept");
+            this.BUT_Accept.DialogResult = System.Windows.Forms.DialogResult.None;
             this.BUT_Accept.Name = "BUT_Accept";
             this.BUT_Accept.UseVisualStyleBackColor = true;
             this.BUT_Accept.Click += new System.EventHandler(this.BUT_Accept_Click);
@@ -1323,6 +1280,32 @@
             this.map.MouseDown += new System.Windows.Forms.MouseEventHandler(this.map_MouseDown);
             this.map.MouseMove += new System.Windows.Forms.MouseEventHandler(this.map_MouseMove);
             // 
+            // NUM_split
+            // 
+            resources.ApplyResources(this.NUM_split, "NUM_split");
+            this.NUM_split.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.NUM_split.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUM_split.Name = "NUM_split";
+            this.NUM_split.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUM_split.ValueChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
+            // 
+            // label37
+            // 
+            resources.ApplyResources(this.label37, "label37");
+            this.label37.Name = "label37";
+            // 
             // GridUI
             // 
             resources.ApplyResources(this, "$this");
@@ -1369,7 +1352,6 @@
             this.tabSimple.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_split)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_UpDownFlySpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_angle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_altitude)).EndInit();
@@ -1377,6 +1359,7 @@
             this.groupBox4.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TRK_zoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_split)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1460,8 +1443,6 @@
         private System.Windows.Forms.TabPage tabSimple;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.CheckBox CHK_usespeed;
-        private System.Windows.Forms.CheckBox CHK_toandland_RTL;
-        private System.Windows.Forms.CheckBox CHK_toandland;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.NumericUpDown NUM_UpDownFlySpeed;
         private System.Windows.Forms.Label label26;
@@ -1494,8 +1475,6 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.NumericUpDown NUM_leadin;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.NumericUpDown NUM_split;
         private System.Windows.Forms.CheckBox chk_stopstart;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label lbl_gndelev;
@@ -1514,5 +1493,7 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.NumericUpDown num_corridorwidth;
         private System.Windows.Forms.CheckBox chk_spiral;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.NumericUpDown NUM_split;
     }
 }
