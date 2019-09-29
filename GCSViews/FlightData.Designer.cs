@@ -194,6 +194,7 @@
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifyandSet1 = new MissionPlanner.Controls.ModifyandSet();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -922,6 +923,7 @@
             // 
             // tabActionsSimple
             // 
+            this.tabActionsSimple.Controls.Add(this.modifyandSet1);
             this.tabActionsSimple.Controls.Add(this.label7);
             this.tabActionsSimple.Controls.Add(this.simpleJoy);
             this.tabActionsSimple.Controls.Add(this.IgnitionOn);
@@ -1081,8 +1083,7 @@
             resources.GetString("comboBox2.Items3"),
             resources.GetString("comboBox2.Items4"),
             resources.GetString("comboBox2.Items5"),
-            resources.GetString("comboBox2.Items6"),
-            resources.GetString("comboBox2.Items7")});
+            resources.GetString("comboBox2.Items6")});
             resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
@@ -2535,6 +2536,28 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
+            // modifyandSet1
+            // 
+            this.modifyandSet1.ButtonText = "Set Loiter Rad";
+            resources.ApplyResources(this.modifyandSet1, "modifyandSet1");
+            this.modifyandSet1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.modifyandSet1.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.modifyandSet1.Name = "modifyandSet1";
+            this.modifyandSet1.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.modifyandSet1.Click += new System.EventHandler(this.modifyandSet1_Click);
+            // 
             // FlightData
             // 
             this.Controls.Add(this.MainH);
@@ -2794,5 +2817,6 @@
         private Controls.MyButton IgnitionOn;
         private Controls.MyButton simpleJoy;
         private System.Windows.Forms.Label label7;
+        private Controls.ModifyandSet modifyandSet1;
     }
 }

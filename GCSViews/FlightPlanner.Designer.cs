@@ -297,6 +297,7 @@ namespace MissionPlanner.GCSViews
             // 
             resources.ApplyResources(this.TXT_loiterrad, "TXT_loiterrad");
             this.TXT_loiterrad.Name = "TXT_loiterrad";
+            this.TXT_loiterrad.TextChanged += new System.EventHandler(this.TXT_loiterrad_TextChanged);
             this.TXT_loiterrad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_loiterrad_KeyPress);
             this.TXT_loiterrad.Leave += new System.EventHandler(this.TXT_loiterrad_Leave);
             // 

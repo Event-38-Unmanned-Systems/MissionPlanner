@@ -4894,5 +4894,28 @@ namespace MissionPlanner.GCSViews
         {
 
         }
+
+        private void setLoiter_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void modifyandSet1_Click(object sender, EventArgs e)
+        {
+            int newrad = (int)modifyandSet1.Value;
+
+            if ((Math.Abs(newrad / CurrentState.multiplierdist) <= 300) && (Math.Abs(newrad / CurrentState.multiplierdist) >= 150))
+            {
+
+                try
+                {
+                    MainV2.comPort.setParam(new[] { "LOITER_RAD", "WP_LOITER_RAD" }, newrad / CurrentState.multiplierdist);
+                }
+                catch
+                {
+                    CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
+                }
+            }
+            else { CustomMessageBox.Show("Keep the loiter radius between " + 150 * CurrentState.multiplierdist + CurrentState.DistanceUnit + " and " + 300 * CurrentState.multiplierdist + CurrentState.DistanceUnit); }
+        }
     }
 }
