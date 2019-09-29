@@ -64,8 +64,8 @@
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.tabActionsSimple = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.simpleJoy = new MissionPlanner.Controls.MyButton();
-            this.IgnitionOff = new MissionPlanner.Controls.MyButton();
             this.IgnitionOn = new MissionPlanner.Controls.MyButton();
             this.myButton2 = new MissionPlanner.Controls.MyButton();
             this.myButton1 = new MissionPlanner.Controls.MyButton();
@@ -77,6 +77,7 @@
             this.myButton4 = new MissionPlanner.Controls.MyButton();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.IgnitionOff = new MissionPlanner.Controls.MyButton();
             this.tabPagePreFlight = new System.Windows.Forms.TabPage();
             this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
             this.tabGauges = new System.Windows.Forms.TabPage();
@@ -193,7 +194,6 @@
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -924,7 +924,6 @@
             // 
             this.tabActionsSimple.Controls.Add(this.label7);
             this.tabActionsSimple.Controls.Add(this.simpleJoy);
-            this.tabActionsSimple.Controls.Add(this.IgnitionOff);
             this.tabActionsSimple.Controls.Add(this.IgnitionOn);
             this.tabActionsSimple.Controls.Add(this.myButton2);
             this.tabActionsSimple.Controls.Add(this.myButton1);
@@ -936,9 +935,15 @@
             this.tabActionsSimple.Controls.Add(this.myButton4);
             this.tabActionsSimple.Controls.Add(this.comboBox2);
             this.tabActionsSimple.Controls.Add(this.comboBox1);
+            this.tabActionsSimple.Controls.Add(this.IgnitionOff);
             resources.ApplyResources(this.tabActionsSimple, "tabActionsSimple");
             this.tabActionsSimple.Name = "tabActionsSimple";
             this.tabActionsSimple.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
             // 
             // simpleJoy
             // 
@@ -951,20 +956,6 @@
             this.toolTip1.SetToolTip(this.simpleJoy, resources.GetString("simpleJoy.ToolTip"));
             this.simpleJoy.UseVisualStyleBackColor = true;
             this.simpleJoy.Click += new System.EventHandler(this.BUT_joystick_Click);
-            // 
-            // IgnitionOff
-            // 
-            this.IgnitionOff.ColorMouseDown = System.Drawing.Color.Empty;
-            this.IgnitionOff.ColorMouseOver = System.Drawing.Color.Empty;
-            this.IgnitionOff.ColorNotEnabled = System.Drawing.Color.Empty;
-            this.IgnitionOff.Cursor = System.Windows.Forms.Cursors.Default;
-            this.IgnitionOff.DialogResult = System.Windows.Forms.DialogResult.None;
-            resources.ApplyResources(this.IgnitionOff, "IgnitionOff");
-            this.IgnitionOff.Name = "IgnitionOff";
-            this.IgnitionOff.TextColor = System.Drawing.Color.Black;
-            this.toolTip1.SetToolTip(this.IgnitionOff, resources.GetString("IgnitionOff.ToolTip"));
-            this.IgnitionOff.UseVisualStyleBackColor = true;
-            this.IgnitionOff.Click += new System.EventHandler(this.IgnitionOff_Click);
             // 
             // IgnitionOn
             // 
@@ -1105,6 +1096,21 @@
             resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
+            // 
+            // IgnitionOff
+            // 
+            this.IgnitionOff.ColorMouseDown = System.Drawing.Color.Empty;
+            this.IgnitionOff.ColorMouseOver = System.Drawing.Color.Empty;
+            this.IgnitionOff.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.IgnitionOff.Cursor = System.Windows.Forms.Cursors.Default;
+            this.IgnitionOff.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.IgnitionOff, "IgnitionOff");
+            this.IgnitionOff.Name = "IgnitionOff";
+            this.IgnitionOff.TextColor = System.Drawing.Color.Black;
+            this.toolTip1.SetToolTip(this.IgnitionOff, resources.GetString("IgnitionOff.ToolTip"));
+            this.IgnitionOff.UseVisualStyleBackColor = true;
+            this.IgnitionOff.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.IgnitionOff_PaintSurface);
+            this.IgnitionOff.Click += new System.EventHandler(this.IgnitionOff_Click);
             // 
             // tabPagePreFlight
             // 
@@ -2528,11 +2534,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
             // 
             // FlightData
             // 

@@ -1096,12 +1096,12 @@ namespace MissionPlanner.GCSViews
                     if (tracklast.AddSeconds(1.2) < DateTime.Now)
                     {
                         // show disable joystick button
-                        if (MainV2.joystick != null && MainV2.joystick.enabled)
-                        {
-                            this.Invoke((MethodInvoker) delegate {
-                                but_disablejoystick.Visible = true;
-                            });
-                        }
+                      //  if (MainV2.joystick != null && MainV2.joystick.enabled)
+                       // {
+                       //     this.Invoke((MethodInvoker) delegate {
+                        //        but_disablejoystick.Visible = true;
+                        //    });
+                      //  }
 
                         adsb.CurrentPosition = MainV2.comPort.MAV.cs.HomeLocation;
 
@@ -4844,11 +4844,11 @@ namespace MissionPlanner.GCSViews
                 try
                 {
 
-                    if (IgnitionOn.Text == "Arm Ignition")
+                    if (IgnitionOn.Text == "Enable Ignition")
                     {
                         if (MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_RELAY, 1, 1, 0, 0, 0, 0, 0))
                         {
-                            IgnitionOn.Text = "Disarm Ignition";
+                            IgnitionOn.Text = "Disable Ignition";
                         }
                         else
                         {
@@ -4856,12 +4856,12 @@ namespace MissionPlanner.GCSViews
                         }
                     }
 
-                    else if (IgnitionOn.Text == "Disarm Ignition")
+                    else if (IgnitionOn.Text == "Disable Ignition")
                     {
 
                         if (MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_RELAY, 1, 0, 0, 0, 0, 0, 0))
                         {
-                            IgnitionOn.Text = "Arm Ignition";
+                            IgnitionOn.Text = "Enable Ignition";
                         }
                         else
                         {
@@ -4886,6 +4886,11 @@ namespace MissionPlanner.GCSViews
         }
 
         private void myLabel1_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        {
+
+        }
+
+        private void IgnitionOff_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
         {
 
         }
