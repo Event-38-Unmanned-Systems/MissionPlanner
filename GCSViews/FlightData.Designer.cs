@@ -8,8 +8,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainH = new System.Windows.Forms.SplitContainer();
             this.SubMainLeft = new System.Windows.Forms.SplitContainer();
             this.hud1 = new MissionPlanner.Controls.HUD();
@@ -64,6 +64,8 @@
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.tabActionsSimple = new System.Windows.Forms.TabPage();
+            this.myButton3 = new MissionPlanner.Controls.MyButton();
+            this.modifyandSet1 = new MissionPlanner.Controls.ModifyandSet();
             this.label7 = new System.Windows.Forms.Label();
             this.simpleJoy = new MissionPlanner.Controls.MyButton();
             this.IgnitionOn = new MissionPlanner.Controls.MyButton();
@@ -77,7 +79,6 @@
             this.myButton4 = new MissionPlanner.Controls.MyButton();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.IgnitionOff = new MissionPlanner.Controls.MyButton();
             this.tabPagePreFlight = new System.Windows.Forms.TabPage();
             this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
             this.tabGauges = new System.Windows.Forms.TabPage();
@@ -194,7 +195,6 @@
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.modifyandSet1 = new MissionPlanner.Controls.ModifyandSet();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -923,6 +923,7 @@
             // 
             // tabActionsSimple
             // 
+            this.tabActionsSimple.Controls.Add(this.myButton3);
             this.tabActionsSimple.Controls.Add(this.modifyandSet1);
             this.tabActionsSimple.Controls.Add(this.label7);
             this.tabActionsSimple.Controls.Add(this.simpleJoy);
@@ -937,10 +938,43 @@
             this.tabActionsSimple.Controls.Add(this.myButton4);
             this.tabActionsSimple.Controls.Add(this.comboBox2);
             this.tabActionsSimple.Controls.Add(this.comboBox1);
-            this.tabActionsSimple.Controls.Add(this.IgnitionOff);
             resources.ApplyResources(this.tabActionsSimple, "tabActionsSimple");
             this.tabActionsSimple.Name = "tabActionsSimple";
             this.tabActionsSimple.UseVisualStyleBackColor = true;
+            // 
+            // myButton3
+            // 
+            this.myButton3.ColorMouseDown = System.Drawing.Color.Empty;
+            this.myButton3.ColorMouseOver = System.Drawing.Color.Empty;
+            this.myButton3.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.myButton3.DialogResult = System.Windows.Forms.DialogResult.None;
+            resources.ApplyResources(this.myButton3, "myButton3");
+            this.myButton3.Name = "myButton3";
+            this.toolTip1.SetToolTip(this.myButton3, resources.GetString("myButton3.ToolTip"));
+            this.myButton3.UseVisualStyleBackColor = true;
+            this.myButton3.Click += new System.EventHandler(this.myButton3_Click);
+            // 
+            // modifyandSet1
+            // 
+            this.modifyandSet1.ButtonText = "Set Loiter Rad";
+            resources.ApplyResources(this.modifyandSet1, "modifyandSet1");
+            this.modifyandSet1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.modifyandSet1.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.modifyandSet1.Name = "modifyandSet1";
+            this.modifyandSet1.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.modifyandSet1.Click += new System.EventHandler(this.modifyandSet1_Click);
             // 
             // label7
             // 
@@ -1097,21 +1131,6 @@
             resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
-            // 
-            // IgnitionOff
-            // 
-            this.IgnitionOff.ColorMouseDown = System.Drawing.Color.Empty;
-            this.IgnitionOff.ColorMouseOver = System.Drawing.Color.Empty;
-            this.IgnitionOff.ColorNotEnabled = System.Drawing.Color.Empty;
-            this.IgnitionOff.Cursor = System.Windows.Forms.Cursors.Default;
-            this.IgnitionOff.DialogResult = System.Windows.Forms.DialogResult.None;
-            resources.ApplyResources(this.IgnitionOff, "IgnitionOff");
-            this.IgnitionOff.Name = "IgnitionOff";
-            this.IgnitionOff.TextColor = System.Drawing.Color.Black;
-            this.toolTip1.SetToolTip(this.IgnitionOff, resources.GetString("IgnitionOff.ToolTip"));
-            this.IgnitionOff.UseVisualStyleBackColor = true;
-            this.IgnitionOff.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.IgnitionOff_PaintSurface);
-            this.IgnitionOff.Click += new System.EventHandler(this.IgnitionOff_Click);
             // 
             // tabPagePreFlight
             // 
@@ -2313,7 +2332,7 @@
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 360D;
+            this.windDir1.Direction = 180D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -2506,8 +2525,8 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
             this.dataGridViewImageColumn1.Image = global::MissionPlanner.Properties.Resources.up;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -2515,8 +2534,8 @@
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
             this.dataGridViewImageColumn2.Image = global::MissionPlanner.Properties.Resources.down;
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -2535,28 +2554,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            // 
-            // modifyandSet1
-            // 
-            this.modifyandSet1.ButtonText = "Set Loiter Rad";
-            resources.ApplyResources(this.modifyandSet1, "modifyandSet1");
-            this.modifyandSet1.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.modifyandSet1.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.modifyandSet1.Name = "modifyandSet1";
-            this.modifyandSet1.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.modifyandSet1.Click += new System.EventHandler(this.modifyandSet1_Click);
             // 
             // FlightData
             // 
@@ -2813,10 +2810,10 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private Controls.MyButton myButton2;
         private Controls.MyButton myButton1;
-        private Controls.MyButton IgnitionOff;
         private Controls.MyButton IgnitionOn;
         private Controls.MyButton simpleJoy;
         private System.Windows.Forms.Label label7;
         private Controls.ModifyandSet modifyandSet1;
+        private Controls.MyButton myButton3;
     }
 }

@@ -3443,7 +3443,7 @@ namespace MissionPlanner.GCSViews
             if (Settings.Instance.ContainsKey("guided_alt"))
                 alt = Settings.Instance["guided_alt"];
 
-            if (DialogResult.Cancel == InputBox.Show("Enter Alt", "Enter Guided Mode Alt", ref alt))
+            if (DialogResult.Cancel == InputBox.Show("Enter Alt", "Enter Guided Mode Alt in " + CurrentState.AltUnit, ref alt))
                 return;
 
             Settings.Instance["guided_alt"] = alt;
@@ -4875,15 +4875,7 @@ namespace MissionPlanner.GCSViews
            
         }
 
-        private void IgnitionOff_Click(object sender, EventArgs e)
-        {
-            MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_SERVO, 14, 1000, 0, 0,
-                    0, 0, 0);
-            IgnitionOff.BGGradBot = Color.Green;
-            IgnitionOff.BGGradTop = Color.Green;
-            IgnitionOn.BGGradBot = Color.Red;
-            IgnitionOn.BGGradTop = Color.Red;
-        }
+
 
         private void myLabel1_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
         {
@@ -4915,7 +4907,41 @@ namespace MissionPlanner.GCSViews
                     CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
                 }
             }
-            else { CustomMessageBox.Show("Keep the loiter radius between " + 150 * CurrentState.multiplierdist + CurrentState.DistanceUnit + " and " + 300 * CurrentState.multiplierdist + CurrentState.DistanceUnit); }
+            else if ((Math.Abs(newrad / CurrentState.multiplierdist) >= 300))
+            {
+                if (
+    CustomMessageBox.Show("Setting a large loiter radius effects the radius of home and rally points. Are you sure?", "Action",
+        MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
+                {
+                    try
+                    {
+                        MainV2.comPort.setParam(new[] { "LOITER_RAD", "WP_LOITER_RAD" }, newrad / CurrentState.multiplierdist);
+                    }
+                    catch
+                    {
+                        CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
+                    }
+                }
+                else
+                {
+                    CustomMessageBox.Show("set radius canceled");
+                }
+            }
+            else CustomMessageBox.Show("set a radius larger than " + 150 * CurrentState.multiplierdist + " " + CurrentState.multiplieralt);
+            }
+
+        private void myButton3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_LAND_START, 0, 0, 0, 0,
+        0, 0, 0);
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
+            }
+
         }
     }
 }

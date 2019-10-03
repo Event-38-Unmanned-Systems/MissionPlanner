@@ -3399,7 +3399,7 @@ namespace MissionPlanner.GCSViews
                     else if (rallyMode == true) {
                         string altstring = TXT_DefaultAlt.Text;
 
-                        if (InputBox.Show("Altitude", "Altitude", ref altstring) == DialogResult.Cancel)
+                        if (InputBox.Show("Altitude", "Rally Altitude in " + CurrentState.AltUnit , ref altstring) == DialogResult.Cancel)
                             return;
 
                         int alt = 0;
