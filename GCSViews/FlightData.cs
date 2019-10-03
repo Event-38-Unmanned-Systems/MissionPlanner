@@ -4927,7 +4927,7 @@ namespace MissionPlanner.GCSViews
                     CustomMessageBox.Show("set radius canceled");
                 }
             }
-            else CustomMessageBox.Show("set a radius larger than " + 150 * CurrentState.multiplierdist + " " + CurrentState.multiplieralt);
+            else CustomMessageBox.Show("set a radius larger than " + 150 * CurrentState.multiplierdist + " " + CurrentState.DistanceUnit);
             }
 
         private void myButton3_Click(object sender, EventArgs e)
