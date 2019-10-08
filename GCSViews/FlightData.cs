@@ -4720,6 +4720,7 @@ namespace MissionPlanner.GCSViews
                 }
             }
             MainV2.comPort.setMode(comboBox2.Text);
+            comboBox2.Text = "";
         }
 
         private void myButton4_Click(object sender, EventArgs e)
@@ -4943,5 +4944,51 @@ namespace MissionPlanner.GCSViews
             }
 
         }
+
+        private void enableFailsafes_Click(object sender, EventArgs e)
+        {
+            if (CustomMessageBox.Show("Are you sure you want to enable failsafes?", "Action",
+        MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
+            {
+                try
+                {
+                    //gcs failsafe enabled
+                    MainV2.comPort.setParam("FS_GCS_ENABL", 1);
+                    //thr failsafe enabled
+                    MainV2.comPort.setParam("THR_FAILSAFE", 1);
+                    //enable fence RTL failsafe
+                    MainV2.comPort.setParam("FENCE_ACTION", 4);
+                    CustomMessageBox.Show("failsafes enabled");
+                }
+                catch
+                {
+                    CustomMessageBox.Show("Unable to set failsafes");
+                }
+            }
+            else { CustomMessageBox.Show("failsafes unchanged"); }
+        }
+
+        private void disableFailsafes_Click(object sender, EventArgs e)
+        {
+            if (CustomMessageBox.Show("Are you sure you want to disable all failsafes?", "Action",
+                    MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
+            {
+                try
+                {
+                    //gcs failsafe disabled
+                    MainV2.comPort.setParam("FS_GCS_ENABL", 0);
+                    //thr failsafe disabled
+                    MainV2.comPort.setParam("THR_FAILSAFE", 0);
+                    //disable fence action
+                    MainV2.comPort.setParam("FENCE_ACTION", 0);
+
+                    CustomMessageBox.Show("failsafes disabled");
+                }
+                catch {
+                    CustomMessageBox.Show("Unable to set failsafes");
+                }
+            }
+            else { CustomMessageBox.Show("failsafes unchanged"); }
+            }
     }
 }

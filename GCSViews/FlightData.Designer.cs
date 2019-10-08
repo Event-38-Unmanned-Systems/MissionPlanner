@@ -195,6 +195,9 @@
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Failsafes = new System.Windows.Forms.ToolStripMenuItem();
+            this.enableFailsafes = new System.Windows.Forms.ToolStripMenuItem();
+            this.disableFailsafes = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -2200,7 +2203,8 @@
             this.setHomeHereToolStripMenuItem,
             this.takeOffToolStripMenuItem,
             this.onOffCameraOverlapToolStripMenuItem,
-            this.altitudeAngelSettingsToolStripMenuItem});
+            this.altitudeAngelSettingsToolStripMenuItem,
+            this.Failsafes});
             this.contextMenuStripMap.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStripMap, "contextMenuStripMap");
             // 
@@ -2332,7 +2336,7 @@
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 360D;
+            this.windDir1.Direction = 180D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -2554,6 +2558,26 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            // 
+            // Failsafes
+            // 
+            this.Failsafes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enableFailsafes,
+            this.disableFailsafes});
+            this.Failsafes.Name = "Failsafes";
+            resources.ApplyResources(this.Failsafes, "Failsafes");
+            // 
+            // enableFailsafes
+            // 
+            this.enableFailsafes.Name = "enableFailsafes";
+            resources.ApplyResources(this.enableFailsafes, "enableFailsafes");
+            this.enableFailsafes.Click += new System.EventHandler(this.enableFailsafes_Click);
+            // 
+            // disableFailsafes
+            // 
+            this.disableFailsafes.Name = "disableFailsafes";
+            resources.ApplyResources(this.disableFailsafes, "disableFailsafes");
+            this.disableFailsafes.Click += new System.EventHandler(this.disableFailsafes_Click);
             // 
             // FlightData
             // 
@@ -2815,5 +2839,8 @@
         private System.Windows.Forms.Label label7;
         private Controls.ModifyandSet modifyandSet1;
         private Controls.MyButton myButton3;
+        private System.Windows.Forms.ToolStripMenuItem Failsafes;
+        private System.Windows.Forms.ToolStripMenuItem enableFailsafes;
+        private System.Windows.Forms.ToolStripMenuItem disableFailsafes;
     }
 }
