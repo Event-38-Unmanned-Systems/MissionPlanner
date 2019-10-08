@@ -4728,7 +4728,23 @@ namespace MissionPlanner.GCSViews
             try
             {
                 ((Control)sender).Enabled = false;
-                MainV2.comPort.setWPCurrent((ushort)comboBox1.SelectedIndex); // set nav to
+                 if (comboBox1.SelectedIndex == 0 && MainV2.comPort.MAV.cs.alt > Math.Abs(CurrentState.multiplieralt * 10))
+                {
+                    CustomMessageBox.Show("Do NOT set the aircraft to VTOL_TAKEOFF while already in air. Recalibrate the barometer if still on the ground or select another waypoint");
+                }
+                else if (comboBox1.SelectedIndex == 0 )
+                {
+                    MainV2.comPort.setWPCurrent((ushort)comboBox1.SelectedIndex);
+                }
+                else if (FlightPlanner.instance.Commands.Rows[comboBox1.SelectedIndex - 1].Cells[0].Value.ToString() == "VTOL_TAKEOFF" && MainV2.comPort.MAV.cs.alt > Math.Abs(CurrentState.multiplieralt * 10)) {
+                    CustomMessageBox.Show("Do NOT set the aircraft to VTOL_TAKEOFF while already in air. Recalibrate the barometer if still on the ground or select another waypoint."); }
+
+                else if (FlightPlanner.instance.Commands.Rows[comboBox1.SelectedIndex - 1].Cells[0].Value.ToString() == "VTOL_LAND")
+                {
+                    CustomMessageBox.Show("Setting the aircraft to VTOL_LAND will cause a transition to occurr imediately. Use the approach path or QLAND instead");
+                }
+
+                else { MainV2.comPort.setWPCurrent((ushort)comboBox1.SelectedIndex); } // set nav to
             }
             catch
             {

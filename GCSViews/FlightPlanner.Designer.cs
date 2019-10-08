@@ -1766,7 +1766,7 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_status;
-        private Controls.MyDataGridView Commands;
+        public Controls.MyDataGridView Commands;
         private Controls.MyButton BUT_Add;
         private System.Windows.Forms.Label LBL_WPRad;
         private System.Windows.Forms.Label LBL_defalutalt;

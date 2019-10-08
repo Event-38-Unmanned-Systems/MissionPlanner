@@ -168,6 +168,9 @@
             this.takeOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onOffCameraOverlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altitudeAngelSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Failsafes = new System.Windows.Forms.ToolStripMenuItem();
+            this.enableFailsafes = new System.Windows.Forms.ToolStripMenuItem();
+            this.disableFailsafes = new System.Windows.Forms.ToolStripMenuItem();
             this.but_disablejoystick = new MissionPlanner.Controls.MyButton();
             this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             this.windDir1 = new MissionPlanner.Controls.WindDir();
@@ -195,9 +198,6 @@
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Failsafes = new System.Windows.Forms.ToolStripMenuItem();
-            this.enableFailsafes = new System.Windows.Forms.ToolStripMenuItem();
-            this.disableFailsafes = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -2312,6 +2312,26 @@
             resources.ApplyResources(this.altitudeAngelSettingsToolStripMenuItem, "altitudeAngelSettingsToolStripMenuItem");
             this.altitudeAngelSettingsToolStripMenuItem.Click += new System.EventHandler(this.altitudeAngelSettingsToolStripMenuItem_Click);
             // 
+            // Failsafes
+            // 
+            this.Failsafes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enableFailsafes,
+            this.disableFailsafes});
+            this.Failsafes.Name = "Failsafes";
+            resources.ApplyResources(this.Failsafes, "Failsafes");
+            // 
+            // enableFailsafes
+            // 
+            this.enableFailsafes.Name = "enableFailsafes";
+            resources.ApplyResources(this.enableFailsafes, "enableFailsafes");
+            this.enableFailsafes.Click += new System.EventHandler(this.enableFailsafes_Click);
+            // 
+            // disableFailsafes
+            // 
+            this.disableFailsafes.Name = "disableFailsafes";
+            resources.ApplyResources(this.disableFailsafes, "disableFailsafes");
+            this.disableFailsafes.Click += new System.EventHandler(this.disableFailsafes_Click);
+            // 
             // but_disablejoystick
             // 
             this.but_disablejoystick.ColorMouseDown = System.Drawing.Color.Empty;
@@ -2336,7 +2356,7 @@
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 180D;
+            this.windDir1.Direction = 360D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -2558,26 +2578,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            // 
-            // Failsafes
-            // 
-            this.Failsafes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.enableFailsafes,
-            this.disableFailsafes});
-            this.Failsafes.Name = "Failsafes";
-            resources.ApplyResources(this.Failsafes, "Failsafes");
-            // 
-            // enableFailsafes
-            // 
-            this.enableFailsafes.Name = "enableFailsafes";
-            resources.ApplyResources(this.enableFailsafes, "enableFailsafes");
-            this.enableFailsafes.Click += new System.EventHandler(this.enableFailsafes_Click);
-            // 
-            // disableFailsafes
-            // 
-            this.disableFailsafes.Name = "disableFailsafes";
-            resources.ApplyResources(this.disableFailsafes, "disableFailsafes");
-            this.disableFailsafes.Click += new System.EventHandler(this.disableFailsafes_Click);
             // 
             // FlightData
             // 
