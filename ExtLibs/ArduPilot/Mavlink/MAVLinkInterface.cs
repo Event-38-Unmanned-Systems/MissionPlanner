@@ -1246,7 +1246,10 @@ Mission Planner waits for 2 valid heartbeat packets before connecting");
 
         void FrmProgressReporterGetParams(IProgressReporterDialogue sender)
         {
-            getParamList(MAV.sysid, MAV.compid);
+            if (MAV.aptype.ToString() != "ADSB")
+            {
+                getParamList(MAV.sysid, MAV.compid);
+            }
         }
 
         /// <summary>
