@@ -1725,7 +1725,8 @@ namespace MissionPlanner
 
         private void Parent_OnPacketReceived(object sender, MAVLink.MAVLinkMessage mavLinkMessage)
         {
-            if (mavLinkMessage.sysid == parent.sysid && mavLinkMessage.compid == parent.compid
+            //allows passthrough of E38 Mavlink messages to main autopilot interface --mwright
+            if (mavLinkMessage.sysid == parent.sysid && mavLinkMessage.compid == parent.compid || (mavLinkMessage.sysid == parent.sysid && (mavLinkMessage.compid == 180 || mavLinkMessage.compid == 181) && mavLinkMessage.msgid != (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
                 || mavLinkMessage.msgid == (uint)MAVLink.MAVLINK_MSG_ID.RADIO // propagate the RADIO/RADIO_STATUS message across all devices on this link
                 || mavLinkMessage.msgid == (uint)MAVLink.MAVLINK_MSG_ID.RADIO_STATUS)
             {
