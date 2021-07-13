@@ -179,30 +179,6 @@
   <data name="&gt;&gt;cmb_Baud.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="cmb_ConnectionType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 0</value>
-  </data>
-  <data name="cmb_ConnectionType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 21</value>
-  </data>
-  <data name="cmb_ConnectionType.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="cmb_ConnectionType.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cmb_ConnectionType.Name" xml:space="preserve">
-    <value>cmb_ConnectionType</value>
-  </data>
-  <data name="&gt;&gt;cmb_ConnectionType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmb_ConnectionType.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cmb_ConnectionType.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="cmb_Connection.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
   </data>
@@ -222,7 +198,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cmb_Connection.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="linkLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -252,13 +228,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="cmb_sysid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 21</value>
+    <value>43, 21</value>
   </data>
   <data name="cmb_sysid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 21</value>
+    <value>81, 21</value>
   </data>
   <data name="cmb_sysid.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -273,6 +249,27 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cmb_sysid.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cmb_uav.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 21</value>
+  </data>
+  <data name="cmb_uav.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 21</value>
+  </data>
+  <data name="cmb_uav.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cmb_uav.Name" xml:space="preserve">
+    <value>cmb_uav</value>
+  </data>
+  <data name="&gt;&gt;cmb_uav.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmb_uav.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmb_uav.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -282,7 +279,7 @@
     <value>230, 40</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 40</value>
+    <value>278, 40</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ConnectionControl</value>

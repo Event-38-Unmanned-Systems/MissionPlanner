@@ -40,6 +40,8 @@ namespace MissionPlanner
 {
     public partial class MainV2 : Form
     {
+        public static UAVStats CurrentUAV = new UAVStats();
+        public Dictionary<string, UAVStats> UAVs = new Dictionary<string, UAVStats>();
         private static readonly ILog log =
             LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -1626,6 +1628,15 @@ namespace MissionPlanner
 
                 if (getparams)
                 {
+                    try
+                    {
+                        MainV2.instance.toolStripConnectionControl.ConnectionControl.cmb_uav.SelectedItem = CurrentUAV.setStats(comPort.GetParam("SYSID_THISMAV"));
+                    }
+                    catch
+                    {
+                        CustomMessageBox.Show("unable to detect airframe model");
+                    }
+
                     var ftpfile = false;
                     if ((MainV2.comPort.MAV.cs.capabilities & (int) MAVLink.MAV_PROTOCOL_CAPABILITY.FTP) > 0)
                     {
@@ -3116,7 +3127,9 @@ namespace MissionPlanner
             ThreadPool.QueueUserWorkItem(BGGetKIndex);
 
             // update firmware version list - only once per day
-            ThreadPool.QueueUserWorkItem(BGFirmwareCheck);
+           //--mwright ThreadPool.QueueUserWorkItem(BGFirmwareCheck);
+
+            CurrentUAV.load_uavs(System.IO.Directory.GetCurrentDirectory().ToString() + "/Uavs.xml");
 
             log.Info("start AutoConnect");
             AutoConnect.NewMavlinkConnection += (sender, serial) =>
@@ -4367,11 +4380,11 @@ namespace MissionPlanner
         {
             try
             {
-                System.Diagnostics.Process.Start("https://ardupilot.org/?utm_source=Menu&utm_campaign=MP");
+             //   System.Diagnostics.Process.Start("https://ardupilot.org/?utm_source=Menu&utm_campaign=MP");
             }
             catch
             {
-                CustomMessageBox.Show("Failed to open url https://ardupilot.org");
+               // CustomMessageBox.Show("Failed to open url https://ardupilot.org");
             }
         }
 

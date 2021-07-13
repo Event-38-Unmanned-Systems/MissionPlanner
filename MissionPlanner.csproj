@@ -605,6 +605,7 @@
     <Compile Include="test\FirmwareSelection.xaml.cs">
       <DependentUpon>FirmwareSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UavStats.cs" />
     <Compile Include="UserPanel\UserPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>

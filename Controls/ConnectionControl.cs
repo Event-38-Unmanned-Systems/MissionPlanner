@@ -39,7 +39,7 @@ namespace MissionPlanner.Controls
             this.linkLabel1.Visible = isConnected;
             cmb_Baud.Enabled = !isConnected;
             cmb_Connection.Enabled = !isConnected;
-
+            cmb_uav.Enabled = !isConnected;
             UpdateSysIDS();
         }
 
@@ -172,6 +172,16 @@ namespace MissionPlanner.Controls
                     e.Value = temp.port.BaseStream.PortName + "-" + ((int)temp.sysid) + "-" + mavComponentString.Replace("_", " ");
                 }
             }
+        }
+
+        private void cmb_uav_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MainV2.CurrentUAV.setStatsbyName(cmb_uav.SelectedItem.ToString());
+        }
+
+        private void cmb_Connection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

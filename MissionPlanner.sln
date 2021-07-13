@@ -180,11 +180,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPlanner.Drawing", "E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForms", "WinForms", "{82872363-B5AC-4ACE-9200-83F5EF9AF27A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{42EE913C-092C-420B-83B3-F27AA8C26BD7}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParameterMetaDataGenerator", "ExtLibs\ParameterMetaDataGenerator\ParameterMetaDataGenerator.csproj", "{A0B60830-D1C0-4E1F-9E44-793A71C5D720}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceMap", "Plugins\FaceMap\FaceMap.csproj", "{3D787D5F-1DCA-4C2E-8D3A-93353E7BB62A}"
@@ -212,6 +207,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accessibility-net_4_x", "ExtLibs\mono\mcs\class\Accessibility\Accessibility-net_4_x.csproj", "{E51283DC-7090-479E-B723-01C0953F18EA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Runtime.Serialization.Formatters.Soap-net_4_x", "ExtLibs\mono\mcs\class\System.Runtime.Serialization.Formatters.Soap\System.Runtime.Serialization.Formatters.Soap-net_4_x.csproj", "{A157AD69-59D4-49DE-94B3-DB883B2BEAA5}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Event38 Mission Planner", "..\Event38 Mission Planner\Event38 Mission Planner.vdproj", "{E7EE7F0E-F105-4379-B516-BEA836A5D430}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -519,6 +516,8 @@ Global
 		{A157AD69-59D4-49DE-94B3-DB883B2BEAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A157AD69-59D4-49DE-94B3-DB883B2BEAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A157AD69-59D4-49DE-94B3-DB883B2BEAA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7EE7F0E-F105-4379-B516-BEA836A5D430}.Debug|Any CPU.ActiveCfg = Debug
+		{E7EE7F0E-F105-4379-B516-BEA836A5D430}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

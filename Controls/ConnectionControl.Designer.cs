@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConnectionControl));
             this.cmb_Baud = new System.Windows.Forms.ComboBox();
-   
             this.cmb_Connection = new System.Windows.Forms.ComboBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.cmb_sysid = new System.Windows.Forms.ComboBox();
+            this.cmb_uav = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cmb_Baud
@@ -58,7 +58,6 @@
             resources.GetString("cmb_Baud.Items12")});
             resources.ApplyResources(this.cmb_Baud, "cmb_Baud");
             this.cmb_Baud.Name = "cmb_Baud";
-
             // 
             // cmb_Connection
             // 
@@ -70,6 +69,7 @@
             resources.ApplyResources(this.cmb_Connection, "cmb_Connection");
             this.cmb_Connection.Name = "cmb_Connection";
             this.cmb_Connection.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cmb_Connection_DrawItem);
+            this.cmb_Connection.SelectedIndexChanged += new System.EventHandler(this.cmb_Connection_SelectedIndexChanged);
             // 
             // linkLabel1
             // 
@@ -91,9 +91,20 @@
             this.cmb_sysid.SelectedIndexChanged += new System.EventHandler(this.CMB_sysid_SelectedIndexChanged);
             this.cmb_sysid.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmb_sysid_Format);
             // 
+            // cmb_uav
+            // 
+            this.cmb_uav.BackColor = System.Drawing.Color.Black;
+            this.cmb_uav.DropDownWidth = 160;
+            this.cmb_uav.ForeColor = System.Drawing.Color.White;
+            this.cmb_uav.FormattingEnabled = true;
+            resources.ApplyResources(this.cmb_uav, "cmb_uav");
+            this.cmb_uav.Name = "cmb_uav";
+            this.cmb_uav.SelectedIndexChanged += new System.EventHandler(this.cmb_uav_SelectedIndexChanged);
+            // 
             // ConnectionControl
             // 
             this.BackgroundImage = global::MissionPlanner.Properties.Resources.bgdark;
+            this.Controls.Add(this.cmb_uav);
             this.Controls.Add(this.cmb_sysid);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.cmb_Connection);
@@ -113,5 +124,6 @@
         private System.Windows.Forms.ComboBox cmb_Connection;
         private System.Windows.Forms.LinkLabel linkLabel1;
         public System.Windows.Forms.ComboBox cmb_sysid;
+        public System.Windows.Forms.ComboBox cmb_uav;
     }
 }
