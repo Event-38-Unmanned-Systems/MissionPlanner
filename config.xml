@@ -195,7 +195,6 @@
   <LB_Grid>True</LB_Grid>
   <LB_Map>True</LB_Map>
   <LB_Time>True</LB_Time>
-  <logdirectory>C:\Users\Mathew\Documents\Mission Planner\logs</logdirectory>
   <MainHeight>1056</MainHeight>
   <MainLocX>-8</MainLocX>
   <MainLocY>-8</MainLocY>

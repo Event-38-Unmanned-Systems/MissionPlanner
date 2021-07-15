@@ -307,7 +307,7 @@ namespace MissionPlanner.Utilities
         static string GetConfigFullPath()
         {
             // old path details
-            string directory = GetRunningDirectory();
+            string directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
