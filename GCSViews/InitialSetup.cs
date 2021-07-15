@@ -57,8 +57,8 @@ namespace MissionPlanner.GCSViews
             get
             {
                 return isConnected && isPlane &&
-                       MainV2.comPort.MAV.param.ContainsKey("Q_ENABLE") &&
-                       (MainV2.comPort.MAV.param["Q_ENABLE"].Value == 1.0);
+                       ((MainV2.comPort.MAV.param.ContainsKey("Q_ENABLE") &&
+                       (MainV2.comPort.MAV.param["Q_ENABLE"].Value == 1.0)) || (MainV2.CurrentUAV.isFW ==1 && MainV2.CurrentUAV.isFW == 1));
             }
         }
 

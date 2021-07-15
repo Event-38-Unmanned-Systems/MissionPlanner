@@ -49,8 +49,10 @@ namespace MissionPlanner
         public double crtdwnFW;
         public double flightSpeedMFW;
         public double climbWattsFW;
+        public double cruiseWattsFW;
         public double missionAltFW;
         public double resumeAltFW;
+        public double LandAltFW;
 
         //VTOL
         public int isVTOL;
@@ -69,7 +71,7 @@ namespace MissionPlanner
         public int runwayautoprompt; //auto prompt setting up a landing after survey grid screen
         public int landwp; //final waypoint in the landing sequence
         public double landLoitAlt; //altitude for loiter point in approach path
-
+        public double landMedPtAlt;
         //button access
         public int gpslanding; //set landing at takeoff point
         public int runway; // has access to landing strip
@@ -255,6 +257,9 @@ namespace MissionPlanner
                                                 case "climbWattsFW":
                                                     UAV.climbWattsFW = double.Parse(xmlreader.ReadString(), new System.Globalization.CultureInfo("en-US"));
                                                     break;
+                                                case "cruiseWattsFW":
+                                                    UAV.cruiseWattsFW = double.Parse(xmlreader.ReadString(), new System.Globalization.CultureInfo("en-US"));
+                                                    break;
                                                 case "missionAltFW":
                                                     UAV.missionAltFW = double.Parse(xmlreader.ReadString(), new System.Globalization.CultureInfo("en-US"));
                                                     break;
@@ -302,6 +307,9 @@ namespace MissionPlanner
                                                     break;
                                                 case "landLoitAlt":
                                                     UAV.landLoitAlt = double.Parse(xmlreader.ReadString(), new System.Globalization.CultureInfo("en-US"));
+                                                    break;
+                                                case "landMedPtAlt":
+                                                    UAV.landMedPtAlt = double.Parse(xmlreader.ReadString(), new System.Globalization.CultureInfo("en-US"));
                                                     break;
                                                 case "gpslanding":
                                                     UAV.gpslanding = int.Parse(xmlreader.ReadString(), new System.Globalization.CultureInfo("en-US"));

@@ -1,10 +1,202 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Models>
+  <Model>
+    <uav>E384</uav>
+	<addToList>0</addToList>
+    <firmware>ArduPlane</firmware>
+    <maxMissionDist>70</maxMissionDist>
+    <avionicsBatteryHigh>15.99</avionicsBatteryHigh>
+    <avionicsBatteryMed>15.98</avionicsBatteryMed> 
+    <avionicsBatteryLow>14.5</avionicsBatteryLow>
+	<flightBatteryHigh>15.99</flightBatteryHigh>
+    <flightBatteryMed>15.98</flightBatteryMed> 
+    <flightBatteryLow>14.5</flightBatteryLow>
+    <flightSpeedM>10</flightSpeedM>
+    <sysid>0</sysid>
+    <amphour>134.4</amphour>
+    <landwp>6</landwp>    
+    <flighttime>60</flighttime>
+    <maxflighttime>90</maxflighttime>
+    <resumealt>80</resumealt>
+    <gpslanding>1</gpslanding>
+    <autoland>0</autoland>
+    <resumeMission>0</resumeMission>
+    <runway>1</runway>
+    <runwayautoprompt>0</runwayautoprompt>
+    <maxgradient>30</maxgradient>
+    <takeoffpitch>25</takeoffpitch>
+    <hasTerrainFollow>0</hasTerrainFollow>
+    <hasChute>0</hasChute>  
+  </Model>
+  <Model>
+    <uav>E384-LR</uav>
+	<addToList>0</addToList>
+    <firmware>ArduPlane</firmware>
+    <maxMissionDist>82</maxMissionDist>
+	<avionicsBatteryHigh>14.8</avionicsBatteryHigh>
+    <avionicsBatteryMed>14.79</avionicsBatteryMed> 
+    <avionicsBatteryLow>11.15</avionicsBatteryLow>
+	<flightBatteryHigh>14.8</flightBatteryHigh>
+    <flightBatteryMed>14.79</flightBatteryMed> 
+    <flightBatteryLow>11.15</flightBatteryLow>
+    <flightSpeedM>10</flightSpeedM>
+    <sysid>3</sysid>
+    <amphour>134.4</amphour>
+    <landwp>6</landwp>
+    <flighttime>60</flighttime>
+    <maxflighttime>90</maxflighttime>
+    <resumealt>80</resumealt>
+    <gpslanding>1</gpslanding>
+    <autoland>0</autoland>
+    <resumeMission>0</resumeMission>
+    <runway>1</runway>
+    <runwayautoprompt>0</runwayautoprompt>
+    <maxgradient>30</maxgradient>
+    <takeoffpitch>25</takeoffpitch>
+    <hasTerrainFollow>1</hasTerrainFollow>
+    <hasChute>0</hasChute>
+  </Model>
+  <Model>
+    <uav>E386</uav>
+	<addToList>0</addToList>
+    <firmware>ArduPlane</firmware>
+    <maxMissionDist>70</maxMissionDist>
+	<avionicsBatteryHigh>14.8</avionicsBatteryHigh>
+    <avionicsBatteryMed>14.79</avionicsBatteryMed> 
+    <avionicsBatteryLow>11.15</avionicsBatteryLow>
+	<flightBatteryHigh>14.8</flightBatteryHigh>
+    <flightBatteryMed>14.79</flightBatteryMed> 
+    <flightBatteryLow>11.15</flightBatteryLow>
+    <flightSpeedM>10</flightSpeedM>
+    <sysid>1</sysid>
+    <amphour>134.4</amphour>
+    <landwp>6</landwp>
+    <flighttime>60</flighttime>
+    <maxflighttime>90</maxflighttime>
+    <resumealt>80</resumealt>
+    <gpslanding>1</gpslanding>
+    <autoland>1</autoland>
+    <resumeMission>0</resumeMission>
+    <runway>1</runway>
+    <runwayautoprompt>1</runwayautoprompt>
+    <maxgradient>30</maxgradient>
+    <takeoffpitch>25</takeoffpitch>
+    <hasTerrainFollow>1</hasTerrainFollow>
+    <hasChute>1</hasChute>
+  </Model>    
+    <Model>
+    <uav>E384-Heavy</uav>
+    <firmware>ArduPlane</firmware>
+    <maxMissionDist>90</maxMissionDist>
+    <batteryHigh>14.8</batteryHigh>
+    <batteryMed>14.79</batteryMed> 
+    <batteryLow>11.15</batteryLow>
+    <flightSpeedM>11</flightSpeedM>
+    <sysid>4</sysid>
+    <flightSpeedF>36.0892</flightSpeedF>
+    <amphour>134.4</amphour>
+    <landwp>6</landwp>
+    <flighttime>60</flighttime>
+    <maxflighttime>170</maxflighttime>
+    <resumealt>80</resumealt>
+    <gpslanding>0</gpslanding>
+    <autoland>0</autoland>
+    <resumeMission>0</resumeMission>
+    <runway>0</runway>
+    <runwayautoprompt>0</runwayautoprompt>
+    <maxgradient>30</maxgradient>
+    <takeoffpitch>20</takeoffpitch>
+    <hasTerrainFollow>1</hasTerrainFollow>
+    <hasChute>0</hasChute>
+  </Model>
+  <Model>
+    <uav>E400</uav>	
+	<firmware>ArduPlane</firmware>
+	<addToList>1</addToList>
+	<sysid>10</sysid>
+    <avionicsBatteryLow>14.5</avionicsBatteryLow>
+	<avionicsBatteryMed>15.98</avionicsBatteryMed> 
+    <avionicsBatteryHigh>15.99</avionicsBatteryHigh>
+    <flightBatteryLow>14.5</flightBatteryLow>
+    <flightBatteryMed>15.98</flightBatteryMed> 
+	<flightBatteryHigh>15.99</flightBatteryHigh>
+    <flightSpeedM>17</flightSpeedM>
+    <amphour>134.4</amphour>
+    <landwp>6</landwp>    
+    <flighttime>60</flighttime>
+    <maxflighttime>90</maxflighttime>
+    <resumealt>80</resumealt>
+    <gpslanding>1</gpslanding>
+    <autoland>1</autoland>
+    <resumeMission>1</resumeMission>
+    <runway>1</runway>
+    <runwayautoprompt>0</runwayautoprompt>
+    <maxgradient>30</maxgradient>
+    <takeoffpitch>25</takeoffpitch>
+    <hasTerrainFollow>0</hasTerrainFollow>
+    <hasChute>0</hasChute>  
+  </Model>
+  <Model>
+    <uav>E450</uav>	
+	<firmware>ArduPlane</firmware>
+	<addToList>1</addToList>
+	<sysid>15</sysid>
+    <avionicsBatteryLow>44</avionicsBatteryLow>
+	<avionicsBatteryMed>46</avionicsBatteryMed> 
+    <avionicsBatteryHigh>48</avionicsBatteryHigh>
+	<avionicsAH>11000</avionicsAH>
+    <flightBatteryLow>44</flightBatteryLow>
+    <flightBatteryMed>46</flightBatteryMed> 
+	<flightBatteryHigh>48</flightBatteryHigh>
+	<flightAH>11000</flightAH>
+	<hasGas>0</hasGas>
+	<lowGas>0</lowGas>
+	<medGas>0</medGas>
+	<highGas>0</highGas>
+	<maxCHT>0</maxCHT>
+	<minCHT>0</minCHT>
+	<isFW>1</isFW>
+	<takeoffpitch>3</takeoffpitch>	
+	<maxgradient>1</maxgradient>
+	<crtUpFW>1.5</crtUpFW>
+	<crtdwnFW>1.5</crtdwnFW>
+	<flightSpeedMFW>17.5</flightSpeedMFW>
+	<climbWattsFW>600</climbWattsFW>	
+	<missionAltFW>100</missionAltFW>
+    <resumeAltFW>100</resumeAltFW> 
+	<LandAltFW>0</LandAltFW> 
+	<isVTOL>1</isVTOL>
+	<transitionDist>140</transitionDist>
+	<deTransitionDist>80</deTransitionDist>
+	<vtolTKoffAlt>30</vtolTKoffAlt>	
+	<vtolLandAlt>30</vtolLandAlt>
+	<crtUpVTOL>2</crtUpVTOL>
+	<crtdwnVTOL>1.5</crtdwnVTOL>
+	<flightSpeedMVTOL>5</flightSpeedMVTOL>
+	<climbWattsVTOL>800</climbWattsVTOL>
+	<missionAltVTOL>30</missionAltVTOL>
+    <resumeAltVTOL>30</resumeAltVTOL> 	
+    <runwayautoprompt>0</runwayautoprompt>
+    <landwp>1</landwp>
+    <landLoitAlt>80</landLoitAlt>
+    <landMedPtAlt>60</landMedPtAlt>		
+    <gpslanding>1</gpslanding>
+    <runway>1</runway>
+    <resumeMission>1</resumeMission>	
+    <maxMissionDist>100000</maxMissionDist>
+    <maxFlightTime>1</maxFlightTime>	
+    <hasTerrainFollow>0</hasTerrainFollow>
+    <hasChute>0</hasChute>  
+</Model> 
+  <Model>
+    <uav>E500</uav>
+	<addToList>1</addToList>
+  </Model>
    <Model>
     <uav>admin/template</uav>	
 	<firmware>1</firmware>
-	<addToList>1</addToList>
-	<sysid>1</sysid>
+	<addToList>0</addToList>
+	<sysid>-1</sysid>
     <avionicsBatteryLow>1</avionicsBatteryLow>
 	<avionicsBatteryMed>1</avionicsBatteryMed> 
     <avionicsBatteryHigh>1</avionicsBatteryHigh>
@@ -28,6 +220,7 @@
 	<climbWattsFW>1</climbWattsFW>	
 	<missionAltFW>1</missionAltFW>
     <resumeAltFW>1</resumeAltFW> 
+	<LandAltFW>0</LandAltFW> 
 	<isVTOL>1</isVTOL>
 	<transitionDist>1</transitionDist>
 	<deTransitionDist>1</deTransitionDist>
@@ -41,7 +234,8 @@
     <resumeAltVTOL>1</resumeAltVTOL> 	
     <runwayautoprompt>1</runwayautoprompt>
     <landwp>1</landwp>
-    <landLoitAlt>1</landLoitAlt>	
+    <landLoitAlt>1</landLoitAlt>
+    <landMedPtAlt>1</landMedPtAlt>		
     <gpslanding>1</gpslanding>
     <runway>1</runway>
     <resumeMission>1</resumeMission>	
