@@ -16,7 +16,7 @@ namespace MissionPlanner.Utilities
     {
         static Settings _instance;
 
-        public static string AppConfigName { get; set; } = "Mission Planner";
+        public static string AppConfigName { get; set; } = "Event38 Mission Planner";
 
         public static Settings Instance
         {
@@ -94,6 +94,12 @@ namespace MissionPlanner.Utilities
         {
             get { return this["APMFirmware"]; }
             set { this["APMFirmware"] = value; }
+        }
+
+        public string lastUAV
+        {
+            get { return this["lastUAV"]; }
+            set { this["lastUAV"] = value; }
         }
 
         public string BaudRate

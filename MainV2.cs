@@ -682,7 +682,7 @@ namespace MissionPlanner
                     Settings.FileName = cmds["config"];
                 }
             }
-
+            
             // load config
             LoadConfig();
 
@@ -1637,6 +1637,7 @@ namespace MissionPlanner
                     try
                     {
                         MainV2.instance.toolStripConnectionControl.ConnectionControl.cmb_uav.SelectedItem = CurrentUAV.setStats(comPort.GetParam("SYSID_THISMAV"));
+                        Settings.Instance.lastUAV = MainV2.CurrentUAV.uav;
                     }
                     catch
                     {
@@ -2202,7 +2203,6 @@ namespace MissionPlanner
                 log.Info("Loading config");
 
                 Settings.Instance.Load();
-
                 comPortName = Settings.Instance.ComPort;
             }
             catch (Exception ex)
@@ -2222,6 +2222,7 @@ namespace MissionPlanner
                     Settings.Instance.BaudRate = _connectionControl.CMB_baudrate.Text;
 
                 Settings.Instance.APMFirmware = MainV2.comPort.MAV.cs.firmware.ToString();
+                
 
                 Settings.Instance.Save();
             }
@@ -3136,6 +3137,7 @@ namespace MissionPlanner
            //--mwright ThreadPool.QueueUserWorkItem(BGFirmwareCheck);
 
             CurrentUAV.load_uavs(System.IO.Directory.GetCurrentDirectory().ToString() + "/Uavs.xml");
+            _connectionControl.cmb_uav.SelectedItem = Settings.Instance.lastUAV;
 
             log.Info("start AutoConnect");
             AutoConnect.NewMavlinkConnection += (sender, serial) =>

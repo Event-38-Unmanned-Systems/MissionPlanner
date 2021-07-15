@@ -177,6 +177,9 @@ namespace MissionPlanner.Controls
         private void cmb_uav_SelectedIndexChanged(object sender, EventArgs e)
         {
             MainV2.CurrentUAV.setStatsbyName(cmb_uav.SelectedItem.ToString());
+            
+
+
         }
 
         private void cmb_Connection_SelectedIndexChanged(object sender, EventArgs e)

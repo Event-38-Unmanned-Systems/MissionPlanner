@@ -125,7 +125,6 @@ namespace MissionPlanner
         }
         public void setStatsbyName(string name)
         {
-
             foreach (var uav in MainV2.instance.UAVs.Values)
             {
 
@@ -154,6 +153,7 @@ namespace MissionPlanner
                 }
 
             }
+            
 
         }
 

@@ -112,7 +112,7 @@
   <Model>
     <uav>E400</uav>	
 	<firmware>ArduPlane</firmware>
-	<addToList>1</addToList>
+	<addToList>0</addToList>
 	<sysid>10</sysid>
     <avionicsBatteryLow>14.5</avionicsBatteryLow>
 	<avionicsBatteryMed>15.98</avionicsBatteryMed> 
@@ -156,24 +156,25 @@
 	<maxCHT>0</maxCHT>
 	<minCHT>0</minCHT>
 	<isFW>1</isFW>
-	<takeoffpitch>3</takeoffpitch>	
+	<takeoffpitch>7.5</takeoffpitch>	
 	<maxgradient>1</maxgradient>
-	<crtUpFW>1.5</crtUpFW>
-	<crtdwnFW>1.5</crtdwnFW>
+	<crtUpFW>2</crtUpFW>
+	<crtdwnFW>1.8</crtdwnFW>
 	<flightSpeedMFW>17.5</flightSpeedMFW>
-	<climbWattsFW>600</climbWattsFW>	
+	<climbWattsFW>1682</climbWattsFW>
+	<cruiseWattsFW>400</cruiseWattsFW>		
 	<missionAltFW>100</missionAltFW>
     <resumeAltFW>100</resumeAltFW> 
 	<LandAltFW>0</LandAltFW> 
 	<isVTOL>1</isVTOL>
-	<transitionDist>140</transitionDist>
+	<transitionDist>200</transitionDist>
 	<deTransitionDist>80</deTransitionDist>
 	<vtolTKoffAlt>30</vtolTKoffAlt>	
 	<vtolLandAlt>30</vtolLandAlt>
-	<crtUpVTOL>2</crtUpVTOL>
-	<crtdwnVTOL>1.5</crtdwnVTOL>
+	<crtUpVTOL>.7</crtUpVTOL>
+	<crtdwnVTOL>1</crtdwnVTOL>
 	<flightSpeedMVTOL>5</flightSpeedMVTOL>
-	<climbWattsVTOL>800</climbWattsVTOL>
+	<climbWattsVTOL>3550</climbWattsVTOL>
 	<missionAltVTOL>30</missionAltVTOL>
     <resumeAltVTOL>30</resumeAltVTOL> 	
     <runwayautoprompt>0</runwayautoprompt>
@@ -182,7 +183,7 @@
     <landMedPtAlt>60</landMedPtAlt>		
     <gpslanding>1</gpslanding>
     <runway>1</runway>
-    <resumeMission>1</resumeMission>	
+    <resumeMission>0</resumeMission>	
     <maxMissionDist>100000</maxMissionDist>
     <maxFlightTime>1</maxFlightTime>	
     <hasTerrainFollow>0</hasTerrainFollow>
@@ -190,7 +191,7 @@
 </Model> 
   <Model>
     <uav>E500</uav>
-	<addToList>1</addToList>
+	<addToList>0</addToList>
   </Model>
    <Model>
     <uav>admin/template</uav>	

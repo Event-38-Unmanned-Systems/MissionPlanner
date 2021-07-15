@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <_BAUD>115200</_BAUD>
+  <AACheck2>True</AACheck2>
+  <APMFirmware>ArduPlane</APMFirmware>
+  <AUTO_BAUD>115200</AUTO_BAUD>
+  <AutoConnect>[
+  {
+    "Label": "Mavlink default port",
+    "Enabled": true,
+    "Port": 14550,
+    "Protocol": 1,
+    "Format": 0,
+    "Direction": 0,
+    "ConfigString": ""
+  },
+  {
+    "Label": "Mavlink alt port",
+    "Enabled": true,
+    "Port": 14551,
+    "Protocol": 1,
+    "Format": 0,
+    "Direction": 0,
+    "ConfigString": ""
+  },
+  {
+    "Label": "Video udp 5000 h264",
+    "Enabled": true,
+    "Port": 5000,
+    "Protocol": 1,
+    "Format": 1,
+    "Direction": 0,
+    "ConfigString": "udpsrc port=5000 buffer-size=90000 ! application/x-rtp ! rtph264depay ! avdec_h264 ! queue leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "Video udp 5100 h264",
+    "Enabled": true,
+    "Port": 5100,
+    "Protocol": 1,
+    "Format": 1,
+    "Direction": 0,
+    "ConfigString": "udpsrc port=5100 buffer-size=90000 ! application/x-rtp ! rtph264depay ! avdec_h264 ! queue leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "Video udp 5600 h264",
+    "Enabled": true,
+    "Port": 5600,
+    "Protocol": 1,
+    "Format": 1,
+    "Direction": 0,
+    "ConfigString": "udpsrc port=5600 buffer-size=90000 ! application/x-rtp ! rtph264depay ! avdec_h264 ! queue leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "Video udp 5601 h265",
+    "Enabled": true,
+    "Port": 5601,
+    "Protocol": 1,
+    "Format": 1,
+    "Direction": 0,
+    "ConfigString": "udpsrc port=5601 buffer-size=90000 ! application/x-rtp ! rtph265depay ! avdec_h265 ! queue leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "SkyViper",
+    "Enabled": false,
+    "Port": 554,
+    "Protocol": 0,
+    "Format": 1,
+    "Direction": 1,
+    "ConfigString": "rtspsrc location=rtsp://192.168.99.1/media/stream2 debug=false buffer-mode=1 latency=100 ntp-time-source=3 ! application/x-rtp ! rtph264depay ! queue ! avdec_h264 ! queue leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "HereLink",
+    "Enabled": false,
+    "Port": 8554,
+    "Protocol": 0,
+    "Format": 1,
+    "Direction": 1,
+    "ConfigString": "rtspsrc location=rtsp://192.168.43.1:8554/fpv_stream latency=41 udp-reconnect=1 timeout=0 do-retransmission=false ! application/x-rtp ! rtph264depay ! h264parse ! queue ! avdec_h264 ! queue leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "Serial",
+    "Enabled": false,
+    "Port": 57600,
+    "Protocol": 2,
+    "Format": 0,
+    "Direction": 1,
+    "ConfigString": ""
+  }
+]</AutoConnect>
+  <CMB_altmode>Relative</CMB_altmode>
+  <COM10_BAUD>115200</COM10_BAUD>
+  <COM13_BAUD>57600</COM13_BAUD>
+  <COM14_BAUD>57600</COM14_BAUD>
+  <COM18_BAUD>57600</COM18_BAUD>
+  <COM3_BAUD>57600</COM3_BAUD>
+  <COM5_BAUD>115200</COM5_BAUD>
+  <COM6_BAUD>115200</COM6_BAUD>
+  <COM7_BAUD>57600</COM7_BAUD>
+  <COM9_BAUD>57600</COM9_BAUD>
+  <comport>COM10</comport>
+  <displayview>{
+  "displayName": 0,
+  "displaySimulation": true,
+  "displayTerminal": false,
+  "displayDonate": true,
+  "displayHelp": true,
+  "displayAnenometer": true,
+  "displayQuickTab": true,
+  "displayPreFlightTab": true,
+  "displayAdvActionsTab": false,
+  "displaySimpleActionsTab": true,
+  "displayGaugesTab": true,
+  "displayStatusTab": false,
+  "displayServoTab": false,
+  "displayScriptsTab": false,
+  "displayTelemetryTab": true,
+  "displayDataflashTab": true,
+  "displayMessagesTab": true,
+  "displayRallyPointsMenu": true,
+  "displayGeoFenceMenu": true,
+  "displaySplineCircleAutoWp": true,
+  "displayTextAutoWp": true,
+  "displayCircleSurveyAutoWp": true,
+  "displayPoiMenu": true,
+  "displayTrackerHomeMenu": true,
+  "displayCheckHeightBox": true,
+  "displayPluginAutoWp": true,
+  "displayInstallFirmware": true,
+  "displayWizard": true,
+  "displayFrameType": true,
+  "displayAccelCalibration": true,
+  "displayCompassConfiguration": true,
+  "displayRadioCalibration": true,
+  "displayEscCalibration": true,
+  "displayFlightModes": true,
+  "displayFailSafe": true,
+  "displaySikRadio": true,
+  "displayBattMonitor": true,
+  "displayCAN": true,
+  "displayCompassMotorCalib": true,
+  "displayRangeFinder": true,
+  "displayAirSpeed": true,
+  "displayPx4Flow": true,
+  "displayOpticalFlow": true,
+  "displayOsd": true,
+  "displayCameraGimbal": true,
+  "displayMotorTest": true,
+  "displayBluetooth": true,
+  "displayParachute": true,
+  "displayEsp": true,
+  "displayAntennaTracker": true,
+  "displayBasicTuning": true,
+  "displayExtendedTuning": true,
+  "displayStandardParams": true,
+  "displayAdvancedParams": false,
+  "displayFullParamList": false,
+  "displayFullParamTree": false,
+  "displayParamCommitButton": false,
+  "displayBaudCMB": true,
+  "displaySerialPortCMB": true,
+  "standardFlightModesOnly": false,
+  "autoHideMenuForce": false,
+  "isAdvancedMode": false
+}</displayview>
+  <FlightSplitter>555</FlightSplitter>
+  <fpcoordmouse>GEO</fpcoordmouse>
+  <fpminaltwarning>0</fpminaltwarning>
+  <fw_check>7/14/2021</fw_check>
+  <groundColorToolStripMenuItem>False</groundColorToolStripMenuItem>
+  <guid>a4ee51e8-24a6-4d4b-9ccf-890955bf62e0</guid>
+  <HUD_Dropout_StartLocation>{
+  "Location": "234, 234",
+  "Size": "553, 431",
+  "State": 0
+}</HUD_Dropout_StartLocation>
+  <HudItems>Speed</HudItems>
+  <InputBoxAirSpeedWhatdoyouwantittosay>Low+Air+Speed+%7Basp%7D</InputBoxAirSpeedWhatdoyouwantittosay>
+  <InputBoxBatteryLevelWhatpercentagedoyouwanttowarnat>0;1</InputBoxBatteryLevelWhatpercentagedoyouwanttowarnat>
+  <InputBoxBatteryLevelWhatVoltagedoyouwanttowarnat>0;1</InputBoxBatteryLevelWhatVoltagedoyouwanttowarnat>
+  <InputBoxCreateThemeCopyEnternemthemenamewithoutextension>BurntKermit</InputBoxCreateThemeCopyEnternemthemenamewithoutextension>
+  <InputBoxDesiredVTOLTakeoffAltEnterDesiredVTOLTakeoffAltinm>30</InputBoxDesiredVTOLTakeoffAltEnterDesiredVTOLTakeoffAltinm>
+  <InputBoxEnterlandingstriptransitAltEntersafetransitaltinm>120;100;0</InputBoxEnterlandingstriptransitAltEntersafetransitaltinm>
+  <InputBoxGroundSpeedWhatdoyouwantittosay>Low+Ground+Speed+%7B1%7D;Low+Ground+Speed+%7Bgspd%7D</InputBoxGroundSpeedWhatdoyouwantittosay>
+  <InputBoxHomeAltHomeAltitude>100</InputBoxHomeAltHomeAltitude>
+  <InputBoxHudHeaderPleaseenteryouritemprefix>battery_voltage2%3A+;battery_voltage%3A+;battery_voltage3%3A+;battery_voltage4%3A+;current3%3A+;current4%3A+;battery_voltage5%3A+;battery_voltage6%3A+;current5%3A+;current6%3A+</InputBoxHudHeaderPleaseenteryouritemprefix>
+  <InputBoxLocationEnteryourlocation>richfield%2Coh;allerdale+park%2C+richfield+ohio;akron%2Cohio</InputBoxLocationEnteryourlocation>
+  <InputBoxNotificationWhatdoyouwantittosay>WARNING%2C+Battery+at+%7Bbatv%7D+Volt%2C+%7Bbatp%7D+percent</InputBoxNotificationWhatdoyouwantittosay>
+  <InputBoxPOIEnterID />
+  <InputBoxremotehostEnterhostnameipensureremoteendisalreadystarted>192.168.1.116</InputBoxremotehostEnterhostnameipensureremoteendisalreadystarted>
+  <InputBoxremotePortEnterremoteport>5761;5760</InputBoxremotePortEnterremoteport>
+  <InputBoxspeedtriggerWhatspeeddoyouwanttowarnatms>10</InputBoxspeedtriggerWhatspeeddoyouwanttowarnatms>
+  <kindex>2</kindex>
+  <kindexdate>7/14/2021</kindexdate>
+  <lastUAV>E450</lastUAV>
+  <LB_Grid>True</LB_Grid>
+  <LB_Map>True</LB_Map>
+  <LB_Time>True</LB_Time>
+  <logdirectory>C:\Users\Mathew\Documents\Mission Planner\logs</logdirectory>
+  <MainHeight>1056</MainHeight>
+  <MainLocX>-8</MainLocX>
+  <MainLocY>-8</MainLocY>
+  <MainMaximised>Maximized</MainMaximised>
+  <MainWidth>1936</MainWidth>
+  <maplast_lat>40.9089778661861</maplast_lat>
+  <maplast_lng>-84.545567035675</maplast_lng>
+  <maplast_zoom>16</maplast_zoom>
+  <MapType>GoogleSatelliteMap</MapType>
+  <menu_autohide>false</menu_autohide>
+  <rawparam_Command_widthpercent>14</rawparam_Command_widthpercent>
+  <rawparam_Desc_widthpercent>53</rawparam_Desc_widthpercent>
+  <rawparam_Fav_widthpercent>5</rawparam_Fav_widthpercent>
+  <rawparam_Options_widthpercent>17</rawparam_Options_widthpercent>
+  <rawparam_Units_widthpercent>5</rawparam_Units_widthpercent>
+  <rawparam_Value_widthpercent>5</rawparam_Value_widthpercent>
+  <SHOWAGAIN_FlightPlan_Fence>False</SHOWAGAIN_FlightPlan_Fence>
+  <speechbattery>WARNING, Battery at {batv} Volt, {batp} percent</speechbattery>
+  <speechbatteryenabled>True</speechbatteryenabled>
+  <speechbatterypercent>1</speechbatterypercent>
+  <speechbatteryvolt>1</speechbatteryvolt>
+  <speechcustomenabled>True</speechcustomenabled>
+  <speechenable>True</speechenable>
+  <speechlowairspeed>Low Air Speed {asp}</speechlowairspeed>
+  <speechlowairspeedtrigger>10</speechlowairspeedtrigger>
+  <speechlowgroundspeed>Low Ground Speed {gspd}</speechlowgroundspeed>
+  <speechlowgroundspeedtrigger>10</speechlowgroundspeedtrigger>
+  <speechlowspeedenabled>True</speechlowspeedenabled>
+  <tabcontrolactions>tabQuick;tabActions;tabPagePreFlight;</tabcontrolactions>
+  <TCP_BAUD>57600</TCP_BAUD>
+  <TCP_host>192.168.1.116</TCP_host>
+  <TCP_port>5760</TCP_port>
+  <terminaltheming>True</terminaltheming>
+  <theme>BurntKermit.mpsystheme</theme>
+  <Tuning_Graph_Selected>battery_voltage|</Tuning_Graph_Selected>
+  <TXT_DefaultAlt>100</TXT_DefaultAlt>
+  <TXT_homealt />
+  <TXT_homelat />
+  <TXT_homelng />
+  <TXT_loiterrad>150</TXT_loiterrad>
+  <TXT_WPRad>30</TXT_WPRad>
+  <UDP_BAUD>57600</UDP_BAUD>
+  <update_check>7/14/2021</update_check>
+  <Vibration_StartLocation>{
+  "Location": "52, 52",
+  "Size": "371, 313",
+  "State": 0
+}</Vibration_StartLocation>
+</Config>
