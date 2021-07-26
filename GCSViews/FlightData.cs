@@ -5159,5 +5159,35 @@ namespace MissionPlanner.GCSViews
                 tabStatus.AutoScrollPosition.Y);
             e.Graphics.DrawImageUnscaled(bmp, 0, 0);
         }
+
+        private void enableGen_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, 158, MAVLink.MAV_CMD.DO_SET_RELAY, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,false);
+        }
+
+        private void disableGenerator_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, 158, MAVLink.MAV_CMD.DO_REPEAT_RELAY, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, false);
+        }
+        public void configUI()
+        {
+            if (MainV2.CurrentUAV.hasGenerator == 1)
+            {
+                enableGen.Visible = true;
+                disableGenerator.Visible = true;
+                setWatts.Visible = true;
+            }
+            else
+            {
+                enableGen.Visible = false;
+                disableGenerator.Visible = false;
+                setWatts.Visible = false;
+            }
+        }
+
+        private void setWatts_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, 158, MAVLink.MAV_CMD.DO_SET_SERVO, 10.0f, (float) setWatts.Value, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, false);
+        }
     }
 }

@@ -84,7 +84,7 @@ namespace MissionPlanner
         //add ons
         public int hasTerrainFollow;
         public int hasChute;
-
+        public int hasGenerator;
 
         public string setStats(float sysid)
         {
@@ -331,6 +331,9 @@ namespace MissionPlanner
                                                     break;
                                                 case "hasChute":
                                                     UAV.hasChute = int.Parse(xmlreader.ReadString(), new System.Globalization.CultureInfo("en-US"));
+                                                    break;
+                                                case "hasGenerator":
+                                                    UAV.hasGenerator = int.Parse(xmlreader.ReadString(), new System.Globalization.CultureInfo("en-US"));
                                                     break;
                                                 case "Model":
                                                     MainV2.instance.UAVs[UAV.uav] = UAV;

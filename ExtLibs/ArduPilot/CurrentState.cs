@@ -678,6 +678,10 @@ namespace MissionPlanner
         [GroupText("ESC")] public float esc8_curr { get; set; }
         [GroupText("ESC")] public float esc8_rpm { get; set; }
         [GroupText("ESC")] public float esc8_temp { get; set; }
+        [GroupText("generator")] public float GEN_PUMPPWM { get; set; }
+        [GroupText("generator")] public float GEN_CPUTEMP { get; set; }
+        [GroupText("generator")] public float GEN_AMBTMP { get; set; }
+        [GroupText("generator")] public float GEN_STATE { get; set; }
 
         public float ch3percent
         {
@@ -1113,6 +1117,30 @@ namespace MissionPlanner
         [GroupText("Battery")] public double battery_cell6 { get; set; }
 
         [GroupText("Battery")] public double battery_temp { get; set; }
+
+        [GroupText("Battery")]
+        [DisplayText("Bat temp (C)")]
+        public double battery_temp3 { get; set; }
+
+        [GroupText("Battery")]
+        [DisplayText("Bat temp (C)")]
+        public double battery_temp4 { get; set; }
+
+        [GroupText("Battery")]
+        [DisplayText("Bat temp (C)")]
+        public double battery_temp5 { get; set; }
+
+        [GroupText("Battery")]
+        [DisplayText("Bat temp (C)")]
+        public double battery_temp6 { get; set; }
+
+        [GroupText("Battery")]
+        [DisplayText("Bat temp (C)")]
+        public double battery_temp7 { get; set; }
+
+        [GroupText("Battery")]
+        [DisplayText("Bat temp (C)")]
+        public double battery_temp8 { get; set; }
 
         [GroupText("Battery")]
         [DisplayText("Bat used EST (mah)")]
@@ -1726,7 +1754,7 @@ namespace MissionPlanner
         private void Parent_OnPacketReceived(object sender, MAVLink.MAVLinkMessage mavLinkMessage)
         {
             //allows passthrough of E38 Mavlink messages to main autopilot interface --mwright
-            if (mavLinkMessage.sysid == parent.sysid && mavLinkMessage.compid == parent.compid || (mavLinkMessage.sysid == parent.sysid && (mavLinkMessage.compid == 180 || mavLinkMessage.compid == 181) && mavLinkMessage.msgid != (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
+            if (mavLinkMessage.sysid == parent.sysid && mavLinkMessage.compid == parent.compid || (mavLinkMessage.sysid == parent.sysid && (mavLinkMessage.compid == 180 || mavLinkMessage.compid == 181 || mavLinkMessage.compid == 158) && mavLinkMessage.msgid != (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
                 || mavLinkMessage.msgid == (uint)MAVLink.MAVLINK_MSG_ID.RADIO // propagate the RADIO/RADIO_STATUS message across all devices on this link
                 || mavLinkMessage.msgid == (uint)MAVLink.MAVLINK_MSG_ID.RADIO_STATUS)
             {
@@ -2398,7 +2426,7 @@ namespace MissionPlanner
                                     battery_temp = bats.temperature / 100.0;
                             }
                             else if (bats.id == 1)
-                            {
+                            {                            
                                 battery_usedmah2 = bats.current_consumed;
                                 battery_remaining2 = bats.battery_remaining;
                                 _current2 = bats.current_battery / 100.0f;
@@ -2409,6 +2437,7 @@ namespace MissionPlanner
                                 battery_remaining3 = bats.battery_remaining;
                                 battery_voltage3 = bats.voltages.Sum(a => a != ushort.MaxValue ? a / 1000.0 : 0);
                                 current3 = bats.current_battery / 100.0f;
+                                battery_temp3 = bats.temperature / 10;
                             }
                             else if (bats.id == 3)
                             {
@@ -2416,6 +2445,7 @@ namespace MissionPlanner
                                 battery_remaining4 = bats.battery_remaining;
                                 battery_voltage4 = bats.voltages.Sum(a => a != ushort.MaxValue ? a / 1000.0 : 0);
                                 current4 = bats.current_battery / 100.0f;
+                                battery_temp4 = bats.temperature / 10;
                             }
                             else if (bats.id == 4)
                             {
@@ -2423,6 +2453,7 @@ namespace MissionPlanner
                                 battery_remaining5 = bats.battery_remaining;
                                 battery_voltage5 = bats.voltages.Sum(a => a != ushort.MaxValue ? a / 1000.0 : 0);
                                 current5 = bats.current_battery / 100.0f;
+                                battery_temp5 = bats.temperature / 10;
                             }
                             else if (bats.id == 5)
                             {
@@ -2430,6 +2461,7 @@ namespace MissionPlanner
                                 battery_remaining6 = bats.battery_remaining;
                                 battery_voltage6 = bats.voltages.Sum(a => a != ushort.MaxValue ? a / 1000.0 : 0);
                                 current6 = bats.current_battery / 100.0f;
+                                battery_temp6 = bats.temperature / 10;
                             }
                             else if (bats.id == 6)
                             {
@@ -2437,6 +2469,7 @@ namespace MissionPlanner
                                 battery_remaining7 = bats.battery_remaining;
                                 battery_voltage7 = bats.voltages.Sum(a => a != ushort.MaxValue ? a / 1000.0 : 0);
                                 current7 = bats.current_battery / 100.0f;
+                                battery_temp7 = bats.temperature / 10;
                             }
                             else if (bats.id == 7)
                             {
@@ -2444,6 +2477,7 @@ namespace MissionPlanner
                                 battery_remaining8 = bats.battery_remaining;
                                 battery_voltage8 = bats.voltages.Sum(a => a != ushort.MaxValue ? a / 1000.0 : 0);
                                 current8 = bats.current_battery / 100.0f;
+                                battery_temp8 = bats.temperature / 10;
                             }
                         }
 
@@ -2498,6 +2532,20 @@ namespace MissionPlanner
                             accel_cal_x = sensofs.accel_cal_x;
                             accel_cal_y = sensofs.accel_cal_y;
                             accel_cal_z = sensofs.accel_cal_z;
+                        }
+
+                        break;
+                    case (uint)MAVLink.MAVLINK_MSG_ID.RAW_PRESSURE:
+
+                        {
+                            var raw_press = mavLinkMessage.ToStructure<MAVLink.mavlink_raw_pressure_t>();
+                            if (mavLinkMessage.compid == 151)
+                            {
+                                GEN_PUMPPWM = raw_press.press_abs;
+                                GEN_CPUTEMP = raw_press.press_diff1;
+                                GEN_AMBTMP = raw_press.press_diff2;
+                                GEN_STATE = raw_press.temperature;
+                            }
                         }
 
                         break;

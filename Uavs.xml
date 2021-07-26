@@ -188,6 +188,7 @@
     <maxFlightTime>1</maxFlightTime>	
     <hasTerrainFollow>0</hasTerrainFollow>
     <hasChute>0</hasChute>  
+    <hasGenerator>1</hasGenerator>  	
 </Model> 
   <Model>
     <uav>E500</uav>
@@ -244,5 +245,6 @@
     <maxFlightTime>1</maxFlightTime>	
     <hasTerrainFollow>1</hasTerrainFollow>
     <hasChute>1</hasChute>  
+    <hasGenerator>1</hasGenerator>  	
   </Model> 
 </Models>
