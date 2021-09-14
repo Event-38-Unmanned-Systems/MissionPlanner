@@ -1143,7 +1143,7 @@ namespace MissionPlanner.GCSViews
                         cell.Value = alt.ToString();
                     if (ans == 0 && ((Commands.Rows[selectedrow].Cells[Command.Index].Value.ToString() != "VTOL_LAND") && (Commands.Rows[selectedrow].Cells[Command.Index].Value.ToString() != "LAND"))) // default
                         cell.Value = 50;
-                    if (ans == 0 && (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2))
+                    if (ans == 0 && (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2) && (Commands.Rows[selectedrow].Cells[Command.Index].Value.ToString() != "LAND"))
                         cell.Value = 15;
 
                     // not online and verify alt via srtm
@@ -6155,7 +6155,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             writeKML();
         }
 
-        private void updateCMDParams()
+        public void updateCMDParams()
         {
             cmdParamNames = readCMDXML();
 
@@ -6744,6 +6744,11 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
                         if (landingStripPointCount >= 2) //they have placed two points
                         {
+                            landingStripMode = false;
+                            ModifiedLandingPoint = false;
+                            landingStripPointCount = 0;
+                        }
+                        else if (landingStripPointCount == 1 && MainV2.CurrentUAV.isVTOL == 1 && MainV2.CurrentUAV.isFW == 0) {
                             landingStripMode = false;
                             ModifiedLandingPoint = false;
                             landingStripPointCount = 0;
@@ -7347,10 +7352,22 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             //}
 
             //New method to determine landing direction based on picking beginning and end of runway
+
             if (landingStripMode == false)
             {
-                CustomMessageBox.Show("Please select the beginning point of your runway and the end point");
+                if ((MainV2.CurrentUAV.isVTOL == 1) && (MainV2.CurrentUAV.isFW == 1))
+                {
+                    CustomMessageBox.Show("Select your approach direction and landing point");
+                }
+                else if (MainV2.CurrentUAV.isFW == 1) {
+                    CustomMessageBox.Show("Select your approach direction and landing point");
+                }
+                else if (MainV2.CurrentUAV.isVTOL == 1) {
+                    CustomMessageBox.Show("Select your landing point");
+                }
+                else { CustomMessageBox.Show("unsupported model"); }                
             }
+
             ModifiedLandingPoint = false;
             landingStripMode = true;
         }
@@ -7463,7 +7480,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 selectedrow = Commands.Rows.Add();
                 Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.TAKEOFF.ToString();
                 ChangeColumnHeader(MAVLink.MAV_CMD.TAKEOFF.ToString());
-                setfromMap(MainV2.CurrentUAV.takeoffpitch, 0,0, (int)tkoffAlt);
+                setfromMap(MainV2.CurrentUAV.takeoffpitch, 0,(int)tkoffAlt,0);
 
             }
             else if (MainV2.CurrentUAV.isVTOL == 1)
@@ -7475,7 +7492,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 selectedrow = Commands.Rows.Add();
                 Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.TAKEOFF.ToString();
                 ChangeColumnHeader(MAVLink.MAV_CMD.TAKEOFF.ToString());
-                setfromMap(0, 0, 0, (int)tkoffAlt);
+                setfromMap(0, 0,(int)tkoffAlt,0);
             }
 
 
@@ -7487,146 +7504,170 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         public void SetupLandingWaypoints()
         {
 
-
-            int missionAlt = (int)(MainV2.CurrentUAV.missionAltFW * CurrentState.multiplieralt);
-            double distByDescent = 0;
-            InputBox.Show("Enter landing strip transit Alt", "Enter safe transit alt in " + CurrentState.AltUnit, ref missionAlt);
-
-
-            bool containsLand = false;
-            //remove old land WPs and runway overlay if they are present
-            if (Commands.Rows.Count > 1) //there are waypoints already planned
+            if (MainV2.CurrentUAV.isVTOL == 1 && MainV2.CurrentUAV.isFW == 1 || MainV2.CurrentUAV.isFW == 1)
             {
-                int landEndIndex = 0;
-                int landStartIndex = 0;
+                int missionAlt = (int)(MainV2.CurrentUAV.missionAltFW * CurrentState.multiplieralt);
+                double distByDescent = 0;
+                InputBox.Show("Enter landing strip transit Alt", "Enter safe transit alt in " + CurrentState.AltUnit, ref missionAlt);
 
-                for (int i = 0; i <= pointlist.Count - 2; i++) //home adds an extra point
+
+                bool containsLand = false;
+                //remove old land WPs and runway overlay if they are present
+                if (Commands.Rows.Count > 1) //there are waypoints already planned
                 {
-                    if (Commands.Rows[i].Cells[Command.Index].Value.ToString().Contains("DO_LAND_START"))
+                    int landEndIndex = 0;
+                    int landStartIndex = 0;
+
+                    for (int i = 0; i <= pointlist.Count - 2; i++) //home adds an extra point
                     {
-                        containsLand = true;
-                        landStartIndex = i;
+                        if (Commands.Rows[i].Cells[Command.Index].Value.ToString().Contains("DO_LAND_START"))
+                        {
+                            containsLand = true;
+                            landStartIndex = i;
+                        }
+                        else if (Commands.Rows[i].Cells[Command.Index].Value.ToString().Contains("VTOL_LAND") || Commands.Rows[i].Cells[Command.Index].Value.ToString().Contains("LAND"))
+                        {
+                            containsLand = true;
+                            landEndIndex = i;
+                        }
                     }
-                    else if (Commands.Rows[i].Cells[Command.Index].Value.ToString().Contains("VTOL_LAND") || Commands.Rows[i].Cells[Command.Index].Value.ToString().Contains("LAND"))
+                    if (containsLand == true)
                     {
-                        containsLand = true;
-                        landEndIndex = i;
+                        for (int i = landStartIndex; i <= landEndIndex; i++)
+                            Commands.Rows.RemoveAt(landStartIndex);
                     }
                 }
-                if (containsLand == true)
+
+
+
+                PointLatLngAlt plla = new PointLatLngAlt(0, 0, 0);
+                PointLatLngAlt pllaLoitOffs = new PointLatLngAlt(0, 0, 0);
+
+
+                if (!ModifiedLandingPoint)
                 {
-                    for (int i = landStartIndex; i <= landEndIndex; i++)
-                        Commands.Rows.RemoveAt(landStartIndex);
+                    landingPoint = endOfRunway;
                 }
-            }
+
+                if (MainV2.CurrentUAV.isFW == 1 && MainV2.CurrentUAV.isVTOL == 1)
+                {
+                    distByDescent = (((MainV2.CurrentUAV.landLoitAlt - MainV2.CurrentUAV.vtolLandAlt) / MainV2.CurrentUAV.crtdwnFW) * MainV2.CurrentUAV.flightSpeedMFW) + MainV2.CurrentUAV.deTransitionDist;
+                    plla = endOfRunway.newpos(LandingDirection, distByDescent);
+                    pllaLoitOffs = endOfRunway.newpos(LandingDirection + 10, distByDescent);
+                }
+                else if (MainV2.CurrentUAV.isFW == 1)
+                {
+                    distByDescent = (((MainV2.CurrentUAV.landLoitAlt - MainV2.CurrentUAV.LandAltFW) / MainV2.CurrentUAV.crtdwnFW) * MainV2.CurrentUAV.flightSpeedMFW);
+                    plla = endOfRunway.newpos(LandingDirection + 10, distByDescent);
+                    pllaLoitOffs = endOfRunway.newpos(LandingDirection + 10, distByDescent);
+                }
+
+                //add "DO_LAND_START" command
+                selectedrow = Commands.Rows.Add();
+                Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.DO_LAND_START.ToString();
+                ChangeColumnHeader(MAVLink.MAV_CMD.DO_LAND_START.ToString());
+                setfromMap(pllaLoitOffs.Lat, pllaLoitOffs.Lng, (int)(missionAlt * CurrentState.multiplieralt)); //WP marker for approach path
+                writeKML();
 
 
 
-            PointLatLngAlt plla = new PointLatLngAlt(0,0,0);
-            PointLatLngAlt pllaLoitOffs = new PointLatLngAlt(0, 0, 0);
-     
-
-            if (!ModifiedLandingPoint)
-            {
-                landingPoint = endOfRunway;
-            }
-
-            if (MainV2.CurrentUAV.isFW == 1 && MainV2.CurrentUAV.isVTOL == 1)
-            {
-                distByDescent = (((MainV2.CurrentUAV.landLoitAlt - MainV2.CurrentUAV.vtolLandAlt) / MainV2.CurrentUAV.crtdwnFW) * MainV2.CurrentUAV.flightSpeedMFW) + MainV2.CurrentUAV.deTransitionDist;
-                plla = endOfRunway.newpos(LandingDirection, distByDescent);                
-                pllaLoitOffs = endOfRunway.newpos(LandingDirection+10, distByDescent);
-            }
-            else if (MainV2.CurrentUAV.isFW == 1)
-            {
-                distByDescent = (((MainV2.CurrentUAV.landLoitAlt - MainV2.CurrentUAV.LandAltFW) / MainV2.CurrentUAV.crtdwnFW) * MainV2.CurrentUAV.flightSpeedMFW);
-                plla = endOfRunway.newpos(LandingDirection+10, distByDescent);
-                pllaLoitOffs = endOfRunway.newpos(LandingDirection + 10, distByDescent);
-            }
-
-            //add "DO_LAND_START" command
-            selectedrow = Commands.Rows.Add();
-            Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.DO_LAND_START.ToString();
-            ChangeColumnHeader(MAVLink.MAV_CMD.DO_LAND_START.ToString());
-            setfromMap(pllaLoitOffs.Lat, pllaLoitOffs.Lng, (int)(missionAlt * CurrentState.multiplieralt)); //WP marker for approach path
-            writeKML();
+                //add waypoint above loiter wp
+                selectedrow = Commands.Rows.Add();
+                Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.WAYPOINT.ToString(); //wp on top of loiter point. This gives us a safe altitude to translate at if we're landing in an area with obsticles E.G a valley
+                ChangeColumnHeader(MAVLink.MAV_CMD.WAYPOINT.ToString());
+                setfromMap(pllaLoitOffs.Lat, pllaLoitOffs.Lng, missionAlt);
+                writeKML();
 
 
-
-            //add waypoint above loiter wp
-            selectedrow = Commands.Rows.Add();
-            Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.WAYPOINT.ToString(); //wp on top of loiter point. This gives us a safe altitude to translate at if we're landing in an area with obsticles E.G a valley
-            ChangeColumnHeader(MAVLink.MAV_CMD.WAYPOINT.ToString());
-            setfromMap(pllaLoitOffs.Lat, pllaLoitOffs.Lng, missionAlt); 
-            writeKML();
-
-
-            //add first wp of landing procedure
-            selectedrow = Commands.Rows.Add();
-            Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.LOITER_TO_ALT.ToString();
-            Commands.Rows[selectedrow].Cells[Param1.Index].Value = 0; //?
-            Commands.Rows[selectedrow].Cells[Param2.Index].Value = -150; //counterclockwise
-            Commands.Rows[selectedrow].Cells[Param4.Index].Value = 0; //exit tangent
-            ChangeColumnHeader(MAVLink.MAV_CMD.LOITER_TO_ALT.ToString());
-            setfromMap(pllaLoitOffs.Lat, pllaLoitOffs.Lng, (int)(MainV2.CurrentUAV.landLoitAlt * CurrentState.multiplieralt)); //WP 500 meters out in the direction of landing and 100 meters altitude
-            writeKML();
+                //add first wp of landing procedure
+                selectedrow = Commands.Rows.Add();
+                Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.LOITER_TO_ALT.ToString();
+                Commands.Rows[selectedrow].Cells[Param1.Index].Value = 0; //?
+                Commands.Rows[selectedrow].Cells[Param2.Index].Value = -150; //counterclockwise
+                Commands.Rows[selectedrow].Cells[Param4.Index].Value = 0; //exit tangent
+                ChangeColumnHeader(MAVLink.MAV_CMD.LOITER_TO_ALT.ToString());
+                setfromMap(pllaLoitOffs.Lat, pllaLoitOffs.Lng, (int)(MainV2.CurrentUAV.landLoitAlt * CurrentState.multiplieralt)); //WP 500 meters out in the direction of landing and 100 meters altitude
+                writeKML();
 
 
-            //add med point of landing procedure
-            distByDescent = distByDescent - (((MainV2.CurrentUAV.landLoitAlt - MainV2.CurrentUAV.landMedPtAlt) / MainV2.CurrentUAV.crtdwnFW) * MainV2.CurrentUAV.flightSpeedMFW);
-            plla = endOfRunway.newpos(LandingDirection, distByDescent);
-            selectedrow = Commands.Rows.Add();
-            Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.WAYPOINT.ToString();
-            ChangeColumnHeader(MAVLink.MAV_CMD.WAYPOINT.ToString());
-            setfromMap(plla.Lat, plla.Lng, (int)(MainV2.CurrentUAV.landMedPtAlt * CurrentState.multiplieralt)); //WP 315 meters out in the direction of landing and 50 meters altitude
-            writeKML();
-
-            if (MainV2.CurrentUAV.isFW == 1 && MainV2.CurrentUAV.isVTOL == 1)
-            {
-                distByDescent = distByDescent - (((MainV2.CurrentUAV.landMedPtAlt - MainV2.CurrentUAV.vtolLandAlt) / MainV2.CurrentUAV.crtdwnFW) * MainV2.CurrentUAV.flightSpeedMFW);
-                distByDescent = Math.Min(distByDescent, MainV2.CurrentUAV.deTransitionDist);
+                //add med point of landing procedure
+                distByDescent = distByDescent - (((MainV2.CurrentUAV.landLoitAlt - MainV2.CurrentUAV.landMedPtAlt) / MainV2.CurrentUAV.crtdwnFW) * MainV2.CurrentUAV.flightSpeedMFW);
                 plla = endOfRunway.newpos(LandingDirection, distByDescent);
-                //add transition waypoint of landing procedure
                 selectedrow = Commands.Rows.Add();
                 Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.WAYPOINT.ToString();
                 ChangeColumnHeader(MAVLink.MAV_CMD.WAYPOINT.ToString());
-                setfromMap(plla.Lat, plla.Lng, (int)(MainV2.CurrentUAV.vtolLandAlt * CurrentState.multiplieralt)); //WP 100 meters out in the direction of landing and 50 meters altitude
+                setfromMap(plla.Lat, plla.Lng, (int)(MainV2.CurrentUAV.landMedPtAlt * CurrentState.multiplieralt)); //WP 315 meters out in the direction of landing and 50 meters altitude
                 writeKML();
 
-                //add final land wp of landing procedure for vtol landing
-                selectedrow = Commands.Rows.Add();
-                Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.VTOL_LAND.ToString();
-                ChangeColumnHeader(MAVLink.MAV_CMD.VTOL_LAND.ToString());
-                setfromMap(landingPoint.Lat, landingPoint.Lng, 0);
-                writeKML();
+                if (MainV2.CurrentUAV.isFW == 1 && MainV2.CurrentUAV.isVTOL == 1)
+                {
+                    distByDescent = distByDescent - (((MainV2.CurrentUAV.landMedPtAlt - MainV2.CurrentUAV.vtolLandAlt) / MainV2.CurrentUAV.crtdwnFW) * MainV2.CurrentUAV.flightSpeedMFW);
+                    distByDescent = Math.Min(distByDescent, MainV2.CurrentUAV.deTransitionDist);
+                    plla = endOfRunway.newpos(LandingDirection, distByDescent);
+                    //add transition waypoint of landing procedure
+                    selectedrow = Commands.Rows.Add();
+                    Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.WAYPOINT.ToString();
+                    ChangeColumnHeader(MAVLink.MAV_CMD.WAYPOINT.ToString());
+                    setfromMap(plla.Lat, plla.Lng, (int)(MainV2.CurrentUAV.vtolLandAlt * CurrentState.multiplieralt)); //WP 100 meters out in the direction of landing and 50 meters altitude
+                    writeKML();
+
+                    //add final land wp of landing procedure for vtol landing
+                    selectedrow = Commands.Rows.Add();
+                    Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.VTOL_LAND.ToString();
+                    ChangeColumnHeader(MAVLink.MAV_CMD.VTOL_LAND.ToString());
+                    setfromMap(landingPoint.Lat, landingPoint.Lng, 0);
+                    writeKML();
+                }
+
+                else if (MainV2.CurrentUAV.isFW == 1)
+                {
+                    //add final land wp of landing procedure for FW landing
+                    selectedrow = Commands.Rows.Add();
+                    Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.LAND.ToString();
+                    ChangeColumnHeader(MAVLink.MAV_CMD.LAND.ToString());
+                    setfromMap(landingPoint.Lat, landingPoint.Lng, 0);
+                    writeKML();
+                }
+
+                foreach (GMapOverlay item in MainMap.Overlays)
+                {
+                    item.IsVisibile = true;
+
+                }
             }
 
-            else if (MainV2.CurrentUAV.isFW == 1)
+            else if (MainV2.CurrentUAV.isVTOL == 1 && MainV2.CurrentUAV.isFW == 0)
             {
-                //add final land wp of landing procedure for FW landing
+                int missionAlt = (int)(MainV2.CurrentUAV.missionAltVTOL * CurrentState.multiplieralt);
+
+                if (!ModifiedLandingPoint)
+                {
+                    landingPoint = endOfRunway;
+                }
+
+                //add final land wp of landing procedure for vtol landing
                 selectedrow = Commands.Rows.Add();
                 Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.LAND.ToString();
                 ChangeColumnHeader(MAVLink.MAV_CMD.LAND.ToString());
                 setfromMap(landingPoint.Lat, landingPoint.Lng, 0);
                 writeKML();
-            }
-
-
-          //  runwayoverlay.Markers.Add(LandingZoneMarker);
-           // runwayoverlay.Polygons.Add(LandingZone);
-
-            foreach (GMapOverlay item in MainMap.Overlays)
-            {
-                item.IsVisibile = true;
 
             }
-
         }
         public void SetupLandingStrip()
         {
             landingStripPointCount = landingStripPointCount + 1;
 
-            if (landingStripPointCount == 1) //first point of a new runway
+            if (landingStripPointCount == 1 && MainV2.CurrentUAV.isFW == 0 && MainV2.CurrentUAV.isVTOL == 1) //first point of a new runway
+            {
+                runwayoverlay.Clear();
+                landingStripPoints.Clear(); //clear old points
+
+                endOfRunway = new PointLatLngAlt(MouseDownEnd.Lat, MouseDownEnd.Lng, 0);
+                SetupLandingWaypoints();
+            }
+
+            else if (landingStripPointCount == 1) //first point of a new runway
             {
                 runwayoverlay.Clear();
                 landingStripPoints.Clear(); //clear old points

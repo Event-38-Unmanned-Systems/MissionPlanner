@@ -5169,7 +5169,8 @@ namespace MissionPlanner.GCSViews
         {
             MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, 158, MAVLink.MAV_CMD.DO_REPEAT_RELAY, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, false);
         }
-        public void configUI()
+
+        public void configGenerator()
         {
             if (MainV2.CurrentUAV.hasGenerator == 1)
             {
@@ -5183,6 +5184,43 @@ namespace MissionPlanner.GCSViews
                 disableGenerator.Visible = false;
                 setWatts.Visible = false;
             }
+
+        }
+        //add airframe type specific interface changes here
+        public void checkCapabilities() {
+            //VTOL only 
+            if (MainV2.CurrentUAV.isVTOL == 1 && MainV2.CurrentUAV.isFW == 0)
+            {
+
+
+            }
+            //FW VTOL
+            else if (MainV2.CurrentUAV.isVTOL == 1 && MainV2.CurrentUAV.isFW == 1)
+            {
+
+            }
+            //FW
+            else if (MainV2.CurrentUAV.isVTOL == 0 && MainV2.CurrentUAV.isFW == 1)
+            {
+
+            }
+            else if (MainV2.CurrentUAV.isVTOL == 0 && MainV2.CurrentUAV.isFW == 0)
+            {
+
+            }
+            else {
+            
+            }
+        }
+
+        public void configUI()
+        {
+            configGenerator();
+
+            checkCapabilities();
+
+            MainV2.instance.FlightPlanner.updateCMDParams();
+
         }
 
         private void setWatts_Click(object sender, EventArgs e)
