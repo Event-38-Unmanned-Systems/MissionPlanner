@@ -137,7 +137,7 @@ namespace MissionPlanner
                     {
                         MainV2.comPort.MAV.cs.firmware = Firmwares.ArduPlane;
                     }
-                    if (MainV2.CurrentUAV.firmware == "ArduCopter2")
+                    if (MainV2.CurrentUAV.firmware == "ArduCopter")
                     {
                         MainV2.comPort.MAV.cs.firmware = Firmwares.ArduCopter2;
                     }

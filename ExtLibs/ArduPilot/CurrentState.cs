@@ -678,6 +678,9 @@ namespace MissionPlanner
         [GroupText("ESC")] public float esc8_curr { get; set; }
         [GroupText("ESC")] public float esc8_rpm { get; set; }
         [GroupText("ESC")] public float esc8_temp { get; set; }
+
+        [GroupText("generator")] public int PDB_POWER { get; set; }
+        [GroupText("generator")] public int PDB_STATE { get; set; }
         [GroupText("generator")] public float GEN_PUMPPWM { get; set; }
         [GroupText("generator")] public float GEN_CPUTEMP { get; set; }
         [GroupText("generator")] public float GEN_AMBTMP { get; set; }
@@ -2426,7 +2429,7 @@ namespace MissionPlanner
                                     battery_temp = bats.temperature / 100.0;
                             }
                             else if (bats.id == 1)
-                            {                            
+                            {
                                 battery_usedmah2 = bats.current_consumed;
                                 battery_remaining2 = bats.battery_remaining;
                                 _current2 = bats.current_battery / 100.0f;
@@ -2454,6 +2457,12 @@ namespace MissionPlanner
                                 battery_voltage5 = bats.voltages.Sum(a => a != ushort.MaxValue ? a / 1000.0 : 0);
                                 current5 = bats.current_battery / 100.0f;
                                 battery_temp5 = bats.temperature / 10;
+                                if (mavLinkMessage.compid == 158)
+                                {
+                                    battery_remaining5 = -1;
+                                    PDB_POWER = bats.energy_consumed;
+                                    PDB_STATE = bats.battery_remaining;
+                                }
                             }
                             else if (bats.id == 5)
                             {
@@ -2538,13 +2547,17 @@ namespace MissionPlanner
                     case (uint)MAVLink.MAVLINK_MSG_ID.RAW_PRESSURE:
 
                         {
-                            var raw_press = mavLinkMessage.ToStructure<MAVLink.mavlink_raw_pressure_t>();
-                            if (mavLinkMessage.compid == 151)
+                            if (mavLinkMessage.compid != 158)
                             {
-                                GEN_PUMPPWM = raw_press.press_abs;
-                                GEN_CPUTEMP = raw_press.press_diff1;
-                                GEN_AMBTMP = raw_press.press_diff2;
-                                GEN_STATE = raw_press.temperature;
+                                var raw_press = mavLinkMessage.ToStructure<MAVLink.mavlink_raw_pressure_t>();
+                            }
+                            if (mavLinkMessage.compid == 158)
+                            {
+                                var raw_pressalt = mavLinkMessage.ToStructure<MAVLink.mavlink_raw_pressure_t>();
+                                GEN_PUMPPWM = raw_pressalt.press_abs/10;
+                                GEN_CPUTEMP = raw_pressalt.press_diff1/10;
+                                GEN_AMBTMP = raw_pressalt.press_diff2/10;
+                                GEN_STATE = raw_pressalt.temperature;
                             }
                         }
 

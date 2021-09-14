@@ -1636,7 +1636,8 @@ namespace MissionPlanner
                 {
                     try
                     {
-                        MainV2.instance.toolStripConnectionControl.ConnectionControl.cmb_uav.SelectedItem = CurrentUAV.setStats(comPort.GetParam("SYSID_THISMAV"));
+                        MainV2.instance.toolStripConnectionControl.ConnectionControl.cmb_uav.SelectedItem = CurrentUAV.setStats(comPort.GetParam("SYSID_SW_TYPE"));
+                        
                         Settings.Instance.lastUAV = MainV2.CurrentUAV.uav;
                     }
                     catch
