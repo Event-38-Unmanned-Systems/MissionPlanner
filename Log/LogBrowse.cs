@@ -3378,5 +3378,52 @@ main()
                 }
             }
         }
+
+        private void exportColumnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int columnStart = 0;
+            int columnEnd = 0;
+            int startLine = 0;
+            int endLine = 0;
+            string fileName = "output-";
+
+            InputBox.Show("column start", "Enter column start", ref columnStart);
+            InputBox.Show("column end", "Enter column end", ref columnEnd);
+            InputBox.Show("line index start", "Enter start index line", ref startLine);
+            InputBox.Show("line start", "Enter end index line", ref endLine);
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            while (columnStart < columnEnd)
+            {
+                sfd.FileName = fileName + columnStart.ToString() + ".csv";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    
+                    using (StreamWriter sw = new StreamWriter(sfd.OpenFile()))
+                    {
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            if ((int)row.Cells[0].Value > startLine && (int)row.Cells[0].Value < endLine)
+                            {
+                                //items[column].ToString())
+
+                                StringBuilder sb = new StringBuilder();
+                                sb.Append(row.Cells[columnStart].Value.ToString());
+                                sb.Append(',');
+                                sw.Write(sb.ToString());
+
+                            }
+                            if ((int)row.Cells[0].Value > endLine)
+                            {
+                                sw.Close();
+                                columnStart = columnStart + 1;
+                                break;                         
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }

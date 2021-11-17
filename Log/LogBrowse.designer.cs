@@ -61,6 +61,7 @@ namespace MissionPlanner.Log
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainerAllTree = new System.Windows.Forms.SplitContainer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.exportColumnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerZgGrid)).BeginInit();
             this.splitContainerZgGrid.Panel1.SuspendLayout();
@@ -90,6 +91,8 @@ namespace MissionPlanner.Log
             // 
             // exportVisibleToolStripMenuItem
             // 
+            this.exportVisibleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportColumnToolStripMenuItem});
             this.exportVisibleToolStripMenuItem.Name = "exportVisibleToolStripMenuItem";
             resources.ApplyResources(this.exportVisibleToolStripMenuItem, "exportVisibleToolStripMenuItem");
             this.exportVisibleToolStripMenuItem.Click += new System.EventHandler(this.exportVisibleToolStripMenuItem_Click);
@@ -355,9 +358,9 @@ namespace MissionPlanner.Log
             ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes"))),
             ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes1")))});
             this.treeView1.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeView1_DrawNode);
+            this.treeView1.NodeMouseHover += new System.Windows.Forms.TreeNodeMouseHoverEventHandler(this.treeView1_TreeNodeMouseHover);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
-            this.treeView1.NodeMouseHover += new TreeNodeMouseHoverEventHandler(this.treeView1_TreeNodeMouseHover);
             // 
             // splitContainerAllTree
             // 
@@ -371,6 +374,12 @@ namespace MissionPlanner.Log
             // splitContainerAllTree.Panel2
             // 
             this.splitContainerAllTree.Panel2.Controls.Add(this.treeView1);
+            // 
+            // exportColumnToolStripMenuItem
+            // 
+            this.exportColumnToolStripMenuItem.Name = "exportColumnToolStripMenuItem";
+            resources.ApplyResources(this.exportColumnToolStripMenuItem, "exportColumnToolStripMenuItem");
+            this.exportColumnToolStripMenuItem.Click += new System.EventHandler(this.exportColumnToolStripMenuItem_Click);
             // 
             // LogBrowse
             // 
@@ -434,6 +443,7 @@ namespace MissionPlanner.Log
         private System.Windows.Forms.CheckBox chk_datagrid;
         private System.Windows.Forms.CheckBox chk_events;
         private System.Windows.Forms.ToolTip toolTip1;
+        private ToolStripMenuItem exportColumnToolStripMenuItem;
     }
 }
 
